@@ -1,37 +1,54 @@
-﻿# 游戏的脚本可置于此文件中。
-
-# 声明此游戏使用的角色。颜色参数可使角色姓名着色。
-
+﻿#角色定义
 define player = Character("男主")
+define rules = Character("舍规")
+define clock = Character("钟表")
 define peter = Character("皮特")
-define nun = Character("修女")
-define robber = Character("强盗")
-define princess = Character("公主")
-define knight = Character("武士")
-define leading_actress = Character("少女")
-define envoy = Character("神使")
+define nun_trainee = Character("见习修女")
+define nun_mary = Character("修女玛丽")
+define nuns = Character("神女们")
 
-image bg dark = "bg/bg_dark.png"
+#角色立绘定义
+image rules stage_lighting = "character/rules/rules_stage_lighting.png"
+image rules humming = "character/rules/rules_humming.png"
+
+image clock twist = "character/clock/clock_twist.png"
+
+#BG定义
+image bg cicada = "bg/bg_cicada.jpg"
+image bg dark_black = "bg/bg_dark_black.png"
+image bg room_now = "bg/bg_room_now.jpg"
+image bg room_past = "bg/bg_room_past.jpg"
+image bg room_past_twist = "bg/bg_room_past_twist.jpg"
+image bg rules = "bg/bg_rules.jpg"
+image bg awake = "bg/bg_awake.jpg"
+
+image bg masks = "bg/bg_masks.png"
+image bg pool = "bg/bg_pool.jpg"
+image bg view_form_far = "bg/bg_view_form_far.png"
+image bg she_coming = "bg/bg_she_coming.png"
+image bg statue_eyes = "bg/bg_statue_eyes.png"
+
+#以下为缺失BG
 image bg invitation_letter_unopened = "bg/bg_invitation_letter_unopened.png"
 image bg invitation_letter_opened = "bg/bg_invitation_letter_opened.png"
-image bg two_masks = "bg/bg_two_masks.png"
-image bg church_square_long_shot = "bg/bg_church_square_long_shot.png"
-image bg pool = "bg/bg_pool.png"
-image bg leading_actor_nervous = "bg/bg_leading_actor_nervous.png"
-image bg leading_actress_appear = "bg/bg_leading_actress_appear.png"
-image bg nun_clap = "bg/bg_nun_clap.png"
 image bg church_inside_full_shot = "bg/bg_church_inside_full_shot.png"
-image bg banquet_poisoning = "bg/bg_banquet_poisoning.png"
-image bg the_six_phantom_figures = "bg/bg_the_six_phantom_figures.png"
-image bg statue_eye = "bg/bg_statue_eye.png"
-image bg game_title = "bg/bg_game_title.png"
+image bg statue_and_table = "bg/statue_and_table.png"
 
+#其它image
+image black_circle = Solid("#000")
+
+#transform定义
 transform slight_left :
     xalign 0.25
     yalign 1.0
-# 游戏在此开始。
 
+transform slight_right :
+    xalign 0.75
+    yalign 1.0
+
+# 游戏在此开始。
 label start:
     jump opening_statement
+    # jump test
 
     return
