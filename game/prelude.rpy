@@ -54,13 +54,11 @@ label campus_dormitory_past:
     scene bg room_past_twist
     "玩家慌张地来到门前（改成描写文本）"
     player "不好，我要逃出去！醒醒……快醒醒"
-# label test:
     #背景-扭曲宿舍-效果-随着敲门声逐格加速放大，直到全黑（背景音乐敲门声）
-    show bg room_past_twist
-    pause 4.0
-    show black_circle
+    scene bg room_past_twist at zoom_with_align(2,3)
+    pause 3.0
+    scene bg awake
     with fade
-    show bg awake
     player "谁？！"
     "（敲门声继续）"
     peter "兄弟！醒醒！不会睡着了吧？"
@@ -81,7 +79,7 @@ label player_home:
 
     scene bg invitation_letter_unopened
     "打开信封能看见银灰色的信纸上印着优雅的斜体字:"
-
+    #（拆信声）
     show bg invitation_letter_opened
     "诚邀参演者午夜时分，于“亨特礼堂”举行之宴。\n
     请您带上面具，盛装出演。\n
@@ -89,27 +87,36 @@ label player_home:
     如蒙亲至，不胜荣幸。 \n
     赫卡特.\n"
 
-    scene bg masks
+    scene bg masks at zoom_with_align(1.8,2,0.1,0.2)
     player "我记得赫卡特小姐分配的……好像只有强盗角色，为什么寄来的信封里有两张面具？"
     player "难道这是她的主意？"
     #"王子的面具更微妙地显眼（时间长）"
     player "好精致的面具，这角色比我从前寄宿的贵族老爷还体面！"
     #视角移向强盗面具 逐渐缩小至回前景
     #强盗的面具更微妙地显眼（时间短）
+    show bg masks at slide_xoffset(2,-1000)
+    pause 3.0
+    show bg masks at reset_image(3.0)
     player "可是皮特还在等着我一起赴约……"
     "（午夜钟声响起）"
     player "就这样吧，该赴约了——"
+    menu:
+        "选择王子面具":
+            $ player_select_mask_prince = True
+
+        "选择强盗面具":
+            $ player_select_mask_prince = False
+
+    #立绘-出现在左边：玩家换上西装，发梳到脑后
     show player at slight_left
+    pause 3.0
     #立绘-老旧的宿舍门推开，舍规掉落
-
-
+    show rules at slight_right
+    pause 3.0
 label church_square:
     scene bg view_form_far
     nun_trainee "修修修女——（喷嚏）这么冷的天气，谁会到这禁林……等等这居然有个礼堂？"
-    "黑夜悄悄来临，银月挂上树梢。\n
-    乌鸦从林中飞出，诸鬼纷纷现身此世。\n
-    南瓜灯露出瘆人的微笑，黑洞洞的眼望着嬉笑的人群。\n
-    相由心生，面具下神鬼莫辨。\n"
+    "黑夜悄悄来临，银月挂上树梢。\n乌鸦从林中飞出，诸鬼纷纷现身此世。\n南瓜灯露出瘆人的微笑，黑洞洞的眼望着嬉笑的人群。\n相由心生，面具下神鬼莫辨。\n"
     show nun_mary at slight_left
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……这么阴森（冷颤）那些孩子们真要在这苦修吗？"
@@ -119,20 +126,17 @@ label church_square:
     scene bg pool
     nuns "池盈如月，女神泪滴，映主慈爱，罪恶消弭\n
     泪水汇聚于此，所愿真、所愿诉、所愿熄"
-    show player 
-    with Fade
+    show player back at fade_in(1.0)
     player "大家都来赴约了……每个人似乎都有自己想扮演的角色，今晚果真是盛宴啊！"
     player "我的选择会让她满意吗？"
     peter "嘿！瞧瞧这位年轻的……"
-    menu:
-        "玩家已戴上面具（王子面具）":
-            jump prince_mask
-
-        "玩家已戴上面具（强盗面具）":
-            jump bandit_mask
-
+    if player_select_mask_prince :
+        jump prince_mask
+    else:
+        jump bandit_mask
 
 label prince_mask:
+    show player prince_mask
     player "（略显抱歉的笑容）我……抱歉皮特，"
     peter "好了，害！强盗先生您的“脸”，还有这衬衫，先生，看来是没有一点悔意的！"
     player "放了你鸽子，对不起皮特……我也想当一次有姓名的人物……"
@@ -140,8 +144,9 @@ label prince_mask:
     jump after_choosing_the_mask
 
 label bandit_mask:
+    show player bandit_mask
     player "（苦笑）怎么样？我可是放弃了王子角色，皮特先生你可要补偿你的强盗搭档"
-    "皮特松了口气"
+    show peter relax
     peter "好小子，你没失约这场戏可就能演了！"
     show peter happy
     peter "别板着脸了强盗先生！"
@@ -163,8 +168,6 @@ label after_choosing_the_mask:
     "玛丽修女嗤笑（脚步声走去）"
     peter "呼，她可真吓人，对吧？咱们也进去吧！"
 
-
-
 label church_inside:
     scene bg church_inside_full_shot
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予这砖瓦横梁、装饰浮雕别样的质感。烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -173,7 +176,7 @@ label church_inside:
     show peter smile
     peter "这破地方居然还没散架！我说什么，这密特拉塑像缺得叫工匠怎么修补嘛……"
     player "皮特，你来过这？"
-    show peter 
+    show peter helpless
     peter "何止是来过，我每次贪玩都在这报应了！从前这是大人物们祷告的地方，后来被弃置了。"
     player "（失笑）你啊——"
     player "（独白）命运眷顾我！让我窥见这世界不为俗人敞开的高贵之处。"
@@ -182,22 +185,67 @@ label church_inside:
     scene bg statue_and_table
     "她精致、精美的双眼，如贫瘠原野上燃烧的火焰，奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
     player "（沉思）这张脸，为何美得似曾相识？"
+    show students with_mask
+    "学生1""哎，你们说这雕像和村口的石女雕像有些相似……"
+    "学生2""这可是男学生们投票得出这是校内最美丽的神像！"
+    "学生3""听说这个神女像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个教堂里……"
+    show peter laugh
+    peter "你不会相信了吧？想那些没答案的事不如多吃点食堂没见过的东西！"
+    player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
+    "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
+    "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
+    "学生3""我的真主，怎么这鸡腿没味道？！"
+    show hecate with_mask_and_wine_glass
+    hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
+    "学生们""（欢呼）"
+    show hecate eyes
+    hecate "承命运不弃，我等于丰收之日再度赴约，重演此幕。"
+    hecate "请带上面具，举起手中的酒液，这杯鸠酒将敬给真主！阿赫里曼（魔鬼）必亡。"
+    scene bg statue_and_table
+    "不知来处的寒风吹开紧闭得浮雕大门，像古老的身躯复苏，缓慢而嘲哳开启。礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。手臂们高举起酒杯，掌中一盏盏深色的酒液在昏暗中倒映出诡异的光。"
+    show hecate raise_the_cup_and_recite
+    hecate "敬真主！是您古老的教导，致使我们齐聚一堂！惩治那些该长居于地狱的阿赫里曼！"
+    "众人""敬真主！"
+    hecate "以牙还牙，以眼还眼。敬真主！"
+    "众人""敬真主！"
+    "命运之酒汩汩流淌，暴虐的醉意将不熄的愤怒、败坏的虔诚与浑浊的爱重领回此刻。莫比乌斯环的起点处，戏剧开场。"
+    scene bg poisoned
+    "男主举着杯，杯中酒液竟顺着自己举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
+    player "……嘶！好痛！！！该死……我的手臂……这酒？！"
+    #play bgm
+    hecate "让我们欢迎，每一位主角归位！"
+    show bg illusion
+    "宴会的现场一地尸体中有6个身影站着，六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。角色分别为：武士、异国王子、神使、公主、少女、强盗。"
+    if player_select_mask_prince :
+        jump the_truth
+    else:
+        jump the_lie
 
+label the_truth:
+    "王子""我已成为歌颂的主角，可心口的空洞为何无法填满？"
+    "公主（玛丽修女）""爱我者杀我，我爱者死去……命运啊，你应如我所愿一次！"
+    "少女（赫卡特）""世上本没有完整而真实的慷慨，谁宽恕他？谁又成全我！"
+    "武士""主上！我将为她而战……"
+    "强盗（玩家）""放纵欲求，去争夺渴望之人、渴望之物！"
+    "神使（皮特）""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
+    jump game_title
 
-
-
-
-    # scene bg the_six_phantom_figures
-    # robber "放纵欲求，去争夺渴望之人、渴望之物！"
-    # player "我能否成为歌颂的主角？"
-    # princess "爱我者杀我，我爱者死去"
-    # knight "主上！我将为所爱而战……"
-    # leading_actress "世上本没有完整而真实的慷慨，宽恕本非罪人应为。"
-    # envoy "命运如轮，轨迹无尽，诱惑之眼，视之应何？"
-
-    # scene bg statue_eye
-    # "..."
-
-    # scene bg game_title
-    # with Fade(0.5,0.5,0.5)
-    # pause(10)
+label the_lie:
+    "王子（玩家）""我能否成为歌颂的主角？"
+    "公主（赫卡特）""世上本没有完整而真实的慷慨，宽恕本非罪人应为。"
+    "武士""主上！我将为她而战……"
+    "少女（玛丽修女）""爱我者杀我，我爱者死去……命运啊，你不该永远苛待我！"
+    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！"
+    "神使（皮特）""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
+    jump game_title
+label game_title:
+    scene bg statue_eyes
+    "如果你望向神明的眼，能看见多少灵魂？是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结？或是孤零零的伫着，浑浊得可以囊括无数颜色。"
+    "这死寂而无情的神眼，如永恒的镜湖，将真相沉溺。直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，不受控地上浮，让腐烂已久的情绪得以呼吸。"
+    "戏剧在永恒中绮丽"
+    "奇尔杜克塔伦山谷在静默中凄鸣"
+    scene bg dark_red
+    with fade
+    show game_title
+    #标题-渐显
+    pause(10)
