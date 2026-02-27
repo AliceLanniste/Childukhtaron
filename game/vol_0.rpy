@@ -1,48 +1,55 @@
-label opening_statement:
+default prelude_choice_1_checked = False
+
+label vol_0:
     scene bg cicada
-    "《蝉》"
-    "听说蝉真实的眼睛像网一样密密麻麻地，兜住两只器官，膨胀而成复眼。那蝉的眼中会有几个世界呢？这些世界会不会各有所异？会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
-    "他的眼里映着蝉将死的样子吗？会不会有一刻，这是两个活着的生命在彼此注视？"
-    "远处的警告声，打断了我和蝉的交流——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。沉默着我洗刷油污，蝉也沉默着，被针刺穿翅膀与腹部。"
+    "听说蝉真实的眼睛像网一样密密麻麻地，兜住两只器官，膨胀而成复眼。"
+    "那蝉的眼中会有几个世界呢？这些世界会不会各有所异？会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
+    "他的眼里映着蝉将死的样子吗？"
+    "会不会有一刻，这是两个活着的生命在彼此注视？"
+    "远处的警告声，打断了我和蝉的交流——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。"
+    "沉默着我洗刷油污，蝉也沉默着，被针刺穿翅膀与腹部。"
     "我的生活里，没有永恒。"
     "但蝉的生命里有。"
 
 label campus_dormitory_past:
-    #响起午夜11时的报时钟声
-    scene bg dark_black 
+    scene black
     player "……头有些晕，近来总是在梦中无法醒来"
     with hpunch
     player "糟糕……手指动不了，看来我应该还在梦里"
     show bg room_past
-    player "这是……宿舍？和我的宿舍格局很像，但有些破？"
-    "老旧的学校单人宿舍中，墙上的钟声指向十一点五十分。宿舍的门上贴着已被学生撕去的泛黄训诫。"
-    show bg rules
-    player "旧版的舍规？和现在也差不多……"
+    with hpunch
+    player "这是……宿舍？和我的宿舍格局很相似，但有些破旧"
+    player "出去看看？……嗯？门怎么推不开，噢，十一点五十分，难道是宵禁期间修女们把门都锁上了？"
+    player "如果我没记错的话我们的宿舍门上应该有一个小的瞭望口，就在舍规底下……"
+    show rules
+    player "这和现在的舍规也差不多么……"
     "被学生撕毁的舍规\n
     一、净体祷告方得主庇佑，诸君应……\n
     二、晚上十点后禁止学生离寝，在校内走动……图书馆……\n
-    三、请勿破坏宿舍中的任何……\n
+    三、请勿破坏任何……\n
     四、钟声响起后不应聚集、喧哗，以致……"
-    show bg room_past
     show rules
+    with hpunch
     rules "谁允许你无礼的脏手碰我！"
     player "?!"
-    player "我又做上这种奇怪的梦了"
+    player "……难道是梦中梦？"
     rules "做梦做梦，还觉得是做梦蠢货！遵守规矩让你很不满吗！"
     player "……先生，你……"
+    show bg rules_stage
+    with fade
+    show rules stage_loop_video
+    call screen show_text_on_center("恶行说，\n没有人所见即为才智！")
+    call screen show_text_on_center("妄念说，\n不择手段实现即为权力！")
+    call screen show_text_on_center("机会说，\n谋杀规则即为新生！")
 
-    show bg dark_black
-    #舍规自带舞台打灯（歌剧背景音乐）
-    show rules stage_lighting
-    "恶行说，没有人所见即为才智！\n妄念说，不择手段实现即为权力！\n机会说，谋杀规则即为新生！"
     scene bg room_past
     with fade
     player "可是先生……"
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！最后终究会乖乖听话！"
-    "舍规背面被翻开，写着学生们的吐槽\n
-    “谁他妈想遵守这些狗屁规矩”\n
-    “训导简直是个xxxx”\n
+    "舍规背面被你翻开。上面写着学生们的愤懑\n
+    “见鬼，谁想遵守这些狗屁规矩”\n
+    “鬼地方，不是人待得！”\n
     “撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦，恐怖的麻烦！"
@@ -52,29 +59,53 @@ label campus_dormitory_past:
     show rules humming at slight_left
     rules "听到钟声，请遵舍规！哈哈哈哈"
     scene bg room_past_twist
-    "玩家慌张地来到门前（改成描写文本）"
     player "不好，我要逃出去！醒醒……快醒醒"
-    #背景-扭曲宿舍-效果-随着敲门声逐格加速放大，直到全黑（背景音乐敲门声）
+    #背景-扭曲宿舍-效果-随着敲门声逐格加速放大（旋转），直到全黑（背景音乐敲门声）
     scene bg room_past_twist at zoom_with_align(2,3)
     pause 3.0
-    scene bg awake
+    scene black
+# label test:
+
+    show bg awake
     with fade
     player "谁？！"
-    "（敲门声继续）"
-    peter "兄弟！醒醒！不会睡着了吧？"
+    do_not_konw_who "兄弟！醒醒！不会睡着了吧？"
     player "……我的手……能动了……！终于离开梦境了吗？"
     show bg room_now
-    "画面：玩家看到和梦境中几乎一模一样的宿舍，昏暗的寝室内，钟摆已然来到11点过5分，舍规是新的但依稀能看到曾经贴过好几版的痕迹。（改为描写文本）"
-    "（敲门声停止）"
-    "（脚步声传来）"
-    peter "糟糕，修女来了，兄弟！记得带上强盗面具，我先走了……"
-    "（脚步声渐进，停止，摩擦声，脚步声再次出现并走远）"
-    player "……"
+    "从噩梦中分娩出世，一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
+    "昏暗的寝室内，钟摆已然来到11点过5分，老实无言的舍规盖住门上的瞭望窗，但依稀能看到纸下曾有旧版被撕去的痕迹。"
+    do_not_konw_who "糟糕，修女来了，兄弟！记得带上强盗面具，我先走了……"
+    sister "宵禁已到，诸位请遵循舍规，虔诚祷告以获庇佑。"
+    "祷告的嗡鸣声环绕在你周身，你几乎能想象到一间间无数狭长的房间中匍匐着具具年轻的躯体。非教徒的你伫立在原地，在肃穆的昏暗中萌生出隐秘而微妙的窃喜，像借着神的视角俯瞰信徒。"
+    sister "请祷告。"
+
+label menu_pray:
+    menu:
+        "祷告" if prelude_choice_1_checked == False:
+            jump pray 
+        "不祷告":
+            jump do_not_pray
+
+label pray:
+    player "……？"
+    player "不可能……隔着舍规应该不会被发现……"
+    $ prelude_choice_1_checked = True
+    jump menu_pray
+
+label do_not_pray:
+    player "……？"
+    player "不可能……隔着舍规应该不会被发现……"
+    jump after_menu_pray
+
+label after_menu_pray:
     player "修女好像走了……"
-    "玩家下床，碎碎念最近的宿舍生活和刚才的梦，讲了半天才发现地上有东西。门缝里塞进一封考究的邀请函和两张面具：牛皮纸外封被深红色的火漆封着，带着松香的气味。邀请函后还附着一个小布袋。"
-
-
-
+    player "聚会的时间我记得好像……在邀请函上写着。"
+    "邀请函随着你小心的动作妥帖地从书包中抽出"
+    show letter 1
+    "多么考究的一封信，连火漆上的纹饰都繁复华丽！"
+    "凑近时可以闻到牛皮纸上隐隐透出松柏和什么花朵的冷淡的香气，像女孩清泠狡黠的眼神。握着这封信，你仿佛抓住了某个馥郁的秘密。"
+    "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
+#todo
 label player_home:
 
     scene bg invitation_letter_unopened
