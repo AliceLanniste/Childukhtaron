@@ -105,20 +105,17 @@ label after_menu_pray:
     "多么考究的一封信，连火漆上的纹饰都繁复华丽！"
     "凑近时可以闻到牛皮纸上隐隐透出松柏和什么花朵的冷淡的香气，像女孩清泠狡黠的眼神。握着这封信，你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
-#todo
-label player_home:
 
-    scene bg invitation_letter_unopened
+label player_home:
     "打开信封能看见银灰色的信纸上印着优雅的斜体字:"
     #（拆信声）
-    show bg invitation_letter_opened
     call screen show_text_on_center(
     """
-    邀参演者午夜时分，于“亨特礼堂”举行之宴。\n
-    请您带上面具，盛装出演。\n
-    我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n
-    如蒙亲至，不胜荣幸。 \n
-    赫卡特.\n
+    邀参演者午夜时分，于“亨特礼堂”举行之宴
+    请您带上面具，盛装出演
+    我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼
+    如蒙亲至，不胜荣幸
+    赫卡特
     """)
 
     scene bg masks at zoom_with_align(1.8,2,0.1,0.2)
