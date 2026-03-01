@@ -112,11 +112,14 @@ label player_home:
     "打开信封能看见银灰色的信纸上印着优雅的斜体字:"
     #（拆信声）
     show bg invitation_letter_opened
-    "诚邀参演者午夜时分，于“亨特礼堂”举行之宴。\n
+    call screen show_text_on_center(
+    """
+    邀参演者午夜时分，于“亨特礼堂”举行之宴。\n
     请您带上面具，盛装出演。\n
     我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n
     如蒙亲至，不胜荣幸。 \n
-    赫卡特.\n"
+    赫卡特.\n
+    """)
 
     scene bg masks at zoom_with_align(1.8,2,0.1,0.2)
     player "我记得赫卡特小姐分配的……好像只有强盗角色，为什么寄来的信封里有两张面具？"
