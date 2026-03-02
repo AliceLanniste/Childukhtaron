@@ -96,7 +96,7 @@ screen say(who, what):
 
     window:
         id "window"
-
+        background None
         if who is not None:
 
             window:
@@ -132,7 +132,7 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background None
 
 style namebox:
     xpos gui.name_xpos
@@ -150,8 +150,11 @@ style say_label:
     yalign 0.5
 
 style say_dialogue:
+    outlines [(4,"#00362e",0,0)]
     properties gui.text_properties("dialogue")
-
+    size gui.text_font_size
+    line_spacing gui.line_spacing
+    line_leading gui.line_leading
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
