@@ -272,10 +272,28 @@ label the_truth:
 
 label game_title:
     scene bg statue_eyes
-    "如果你望向神明的眼，能看见多少灵魂？是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结？或是孤零零的伫着，浑浊得可以囊括无数颜色。"
-    "这死寂而无情的神眼，如永恒的镜湖，将真相沉溺。直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，不受控地上浮，让腐烂已久的情绪得以呼吸。"
-    "戏剧在永恒中绮丽"
-    "奇尔杜克塔伦山谷在静默中凄鸣"
+    
+    call screen centered_text_screen(
+    """   
+    如果你望向神明的眼，能看见多少灵魂？\n
+    是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n
+    或是孤零零的伫着，浑浊得可以囊括无数颜色。 
+    """)
+    call screen centered_single_screen(
+    """
+    这死寂而无情的神眼，\n
+    如永恒的镜湖，将真相沉溺。\n
+  
+    """)
+    call screen centered_single_screen(
+    """
+    直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n
+    不受控地上浮，让腐烂已久的情绪得以呼吸。
+    """)
+    
+    call screen centered_single_screen("戏剧在永恒中绮丽")
+    call screen centered_single_screen("奇尔杜克塔伦山谷在静默中凄鸣")
+
     scene bg dark_red
     with fade
     show game_title

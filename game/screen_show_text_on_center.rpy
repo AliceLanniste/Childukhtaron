@@ -14,3 +14,45 @@ screen show_text_on_center(msg,cps = 8, font_size = 72, font_color = "#912020"):
             color font_color
             slow True 
             slow_cps cps
+
+
+screen centered_text_screen(msg):
+    modal True
+
+    button:
+        xfill True
+        yfill True
+        action Return()
+    
+    text msg:
+        text_align 0.5
+        xalign 0.5
+        ypos 850
+        #样式美化
+        outlines [(4,"#00362e",0,0)]
+        size 36
+        line_leading -10
+        
+screen centered_single_screen(msg):
+    modal True
+
+    button:
+        xfill True
+        yfill True
+        action Return()
+   
+    text msg:
+        text_align 0.5
+        xalign 0.5
+        ypos 900
+       
+        # 【可选】样式美化
+        outlines [(4,"#00362e",0,0)]
+        size 36
+        line_leading -10
+        
+            
+    
+   
+    
+  
