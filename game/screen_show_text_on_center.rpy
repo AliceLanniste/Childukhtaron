@@ -30,7 +30,7 @@ screen centered_text_screen(msg, ypos):
         ypos ypos
         #样式美化
         outlines [(4,"#00362e",0,0)]
-        size 36
+        size 33
         line_leading -10
         
 
