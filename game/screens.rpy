@@ -152,7 +152,7 @@ style say_label:
 style say_dialogue:
     outlines [(4,"#00362e",0,0)]
     properties gui.text_properties("dialogue")
-    size gui.text_font_size
+    size gui.text_size
     line_spacing gui.line_spacing
     line_leading gui.line_leading
     xpos gui.dialogue_xpos
