@@ -105,18 +105,18 @@ label after_menu_pray:
     "多么考究的一封信，连火漆上的纹饰都繁复华丽！"
     "凑近时可以闻到牛皮纸上隐隐透出松柏和什么花朵的冷淡的香气，像女孩清泠狡黠的眼神。握着这封信，你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
-#todo
-label player_home:
 
-    scene bg invitation_letter_unopened
+label player_home:
     "打开信封能看见银灰色的信纸上印着优雅的斜体字:"
     #（拆信声）
-    show bg invitation_letter_opened
-    "诚邀参演者午夜时分，于“亨特礼堂”举行之宴。\n
-    请您带上面具，盛装出演。\n
-    我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n
-    如蒙亲至，不胜荣幸。 \n
-    赫卡特.\n"
+    call screen show_text_on_center(
+    """
+    邀参演者午夜时分，于“亨特礼堂”举行之宴
+    请您带上面具，盛装出演
+    我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼
+    如蒙亲至，不胜荣幸
+    赫卡特
+    """)
 
     scene bg masks at zoom_with_align(1.8,2,0.1,0.2)
     player "我记得赫卡特小姐分配的……好像只有强盗角色，为什么寄来的信封里有两张面具？"
@@ -272,10 +272,28 @@ label the_truth:
 
 label game_title:
     scene bg statue_eyes
-    "如果你望向神明的眼，能看见多少灵魂？是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结？或是孤零零的伫着，浑浊得可以囊括无数颜色。"
-    "这死寂而无情的神眼，如永恒的镜湖，将真相沉溺。直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，不受控地上浮，让腐烂已久的情绪得以呼吸。"
-    "戏剧在永恒中绮丽"
-    "奇尔杜克塔伦山谷在静默中凄鸣"
+    
+    call screen centered_text_screen(
+    """   
+    如果你望向神明的眼，能看见多少灵魂？\n
+    是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n
+    或是孤零零的伫着，浑浊得可以囊括无数颜色。 
+    """, 850)
+    call screen centered_text_screen(
+    """
+    这死寂而无情的神眼，\n
+    如永恒的镜湖，将真相沉溺。\n
+  
+    """,900)
+    call screen centered_text_screen(
+    """
+    直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n
+    不受控地上浮，让腐烂已久的情绪得以呼吸。
+    """,900)
+    
+    call screen centered_text_screen("戏剧在永恒中绮丽",900)
+    call screen centered_text_screen("奇尔杜克塔伦山谷在静默中凄鸣",900)
+
     scene bg dark_red
     with fade
     show game_title
