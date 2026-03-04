@@ -1511,10 +1511,7 @@ screen quick_menu():
 
 style window:
     variant "small"
-    yalign gui.textbox_yalign
-    ysize gui.textbox_height
-    background None
-    # 可以保留 padding 等，但我们已经在新样式中设置了
+    background "gui/phone/textbox.png"
 
 style radio_button:
     variant "small"
