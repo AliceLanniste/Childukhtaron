@@ -93,19 +93,57 @@ style frame:
 ## https://doc.renpy.cn/zh-CN/screen_special.html#say
 
 screen say(who, what):
-
     window:
         id "window"
         background None
         if who is not None:
+        style "say_window"
+        vbox:
+            xalign 0.0          # 内容左对齐
+            yalign 0.0          # 内容在窗口内垂直居中（配合固定高度）
+            if who:
+                text who id "who" style "say_name_text"
+            text what id "what" style "say_dialogue"
 
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
+    if not renpy.variant("small"):
+        add SideImage() xalign 0.0 yalign 1.0
 
         text what id "what"
 
+## 对话窗口样式：自适应宽度，水平居中，固定高度
+style say_window is window:
+    xalign 0.5
+    xfill False
+    xsize None                  # 宽度自适应内容
+    yalign gui.textbox_yalign    # 保持原有的垂直位置（底部）
+    ysize gui.textbox_height      # 保持固定高度
+    padding (30, 10)             # 左右内边距30像素，上下10像素
+    background None              # 如果文本框有背景图，可以在这里设置
+    
+    
+## 名字文本样式（可自定义，这里沿用 GUI 颜色设置）
+style say_name_text:
+    properties gui.text_properties("name", accent=True)
+    size gui.name_text_size
+    color gui.accent_color       # 使用强调色
+    xalign 0.0
+
+## 对话文本样式：移除绝对定位，改为左对齐
+style say_dialogue:
+    properties gui.text_properties("dialogue")
+    size gui.text_size
+    line_spacing gui.line_spacing
+    line_leading gui.line_leading
+    adjust_spacing False
+    xalign 0.5                   # 文本居中
+    # 删除原来的 xpos, xsize, ypos 等绝对定位属性
+    
+    
+ 
 
     ## 如果有对话框头像，会将其显示在文本之上。请不要在手机界面下显示这个，因
     ## 为没有空间。
@@ -151,13 +189,13 @@ style say_label:
 
 style say_dialogue:
     outlines [(4,"#00362e",0,0)]
+    outlines [(4,"#3c3431",0,0)]
     properties gui.text_properties("dialogue")
     size gui.text_size
     line_spacing gui.line_spacing
     line_leading gui.line_leading
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
+    
+    
 
     adjust_spacing False
 
@@ -1516,8 +1554,12 @@ screen quick_menu():
 
 
 style window:
-    variant "small"
-    background "gui/phone/textbox.png"
+    xalign 0.5
+    xfill False                  # 改为 False
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+    background None
+    # 可以保留 padding 等，但我们已经在新样式中设置了
 
 style radio_button:
     variant "small"
