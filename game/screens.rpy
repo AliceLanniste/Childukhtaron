@@ -97,7 +97,7 @@ screen say(who, what):
         id "window"
         style "say_window"
         vbox:
-            xalign 0.0          # 内容左对齐
+            xalign 0.5          # 内容居中
             yalign 0.0          # 内容在窗口内垂直居中（配合固定高度）
             if who:
                 text who id "who" style "say_name_text"
@@ -106,39 +106,7 @@ screen say(who, what):
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
-
-## 对话窗口样式：自适应宽度，水平居中，固定高度
-style say_window is window:
-    xalign 0.5
-    xfill False
-    xsize None                  # 宽度自适应内容
-    yalign gui.textbox_yalign    # 保持原有的垂直位置（底部）
-    ysize gui.textbox_height      # 保持固定高度
-    padding (30, 10)             # 左右内边距30像素，上下10像素
-    background None              # 如果文本框有背景图，可以在这里设置
     
-    
-## 名字文本样式（可自定义，这里沿用 GUI 颜色设置）
-style say_name_text:
-    properties gui.text_properties("name", accent=True)
-    size gui.name_text_size
-    color gui.accent_color       # 使用强调色
-    xalign 0.0
-
-## 对话文本样式：移除绝对定位，改为左对齐
-style say_dialogue:
-    properties gui.text_properties("dialogue")
-    size gui.text_size
-    line_spacing gui.line_spacing
-    line_leading gui.line_leading
-    adjust_spacing False
-    xalign 0.5                   # 文本居中
-    # 删除原来的 xpos, xsize, ypos 等绝对定位属性
-    
-    
- 
-
-
 
 ## 通过 Character 对象使名称框可用于样式化。
 init python:
@@ -147,7 +115,7 @@ init python:
 style window is default
 style say_label is default
 style say_dialogue is default
-style say_thought is say_dialogue
+style say_thought is say_dialogue #thought得有个单独的，用作旁白，描边颜色用00362e
 
 style namebox is default
 style namebox_label is say_label
@@ -1541,19 +1509,8 @@ screen quick_menu():
             textbutton _("菜单") action ShowMenu()
 
 
-
-## 定义跳动箭头动画
-image ctc_arrow:
-    "gui/ctc_arrow.png"
-    yoffset 0
-    linear 0.5 yoffset 10
-    linear 0.5 yoffset 0
-    repeat
-
-
 style window:
-    xalign 0.5
-    xfill False                  # 改为 False
+    variant "small"
     yalign gui.textbox_yalign
     ysize gui.textbox_height
     background None
