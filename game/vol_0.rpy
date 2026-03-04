@@ -2,18 +2,12 @@ default prelude_choice_1_checked = False
 
 label vol_0:
     scene bg cicada
-    "听说蝉真实的眼睛像网一样密密麻麻地，兜住两只器官，膨胀而成复眼。"
-    "那蝉的眼中会有几个世界呢？这些世界会不会各有所异？会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}
     兜住两只器官，膨胀而成复眼。"
     "那蝉的眼中会有几个世界呢？"
     "这些世界会不会各有所异？\n
     {w} 会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
     "他的眼里映着蝉将死的样子吗？"
-    "会不会有一刻，这是两个活着的生命在彼此注视？"
-    "远处的警告声，打断了我和蝉的交流——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。"
-    "沉默着我洗刷油污，蝉也沉默着，被针刺穿翅膀与腹部。"
-    "我的生活里，没有永恒。"
     "会不会有一刻，{w=0.6}这是两个活着的生命在彼此注视？"
     "远处的警告声，打断了我和蝉的交流\n"
     extend "——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。"
@@ -21,13 +15,10 @@ label vol_0:
     "我的生活里，{w=0.3}没有永恒。"
     "但蝉的生命里有。"
 
-label campus_dormitory_past:
 label campus_dormitory_past: #bg_room_past
     scene black
-    player "……头有些晕，近来总是在梦中无法醒来"
     player "……{w=0.6}头有些晕，近来总是在梦中无法醒来"
     with hpunch
-    player "糟糕……手指动不了，看来我应该还在梦里"
     player "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
     show bg room_past
@@ -124,6 +115,8 @@ label pray:
     $ prelude_choice_1_checked = True
     jump menu_pray
 
+    
+
 label do_not_pray:
     player "……？"
     player "不可能……隔着舍规应该不会被发现……"
@@ -192,6 +185,7 @@ label church_square:
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
     nun_mary "……勿要揣摩他者。"
     nun_trainee "噢！抱歉！抱歉！真主会赞许他们的虔诚……"
+    
 
     #这里用一个切换的动画吧，不然切换场景很生硬
     scene bg pool
@@ -347,12 +341,14 @@ label game_title:
     是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n
     {w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。 
     """, 850)
+    
     call screen centered_text_screen(
     """
     这死寂而无情的神眼，\n
     如永恒的镜湖，将真相沉溺。\n
   
     """,900)
+
     call screen centered_text_screen(
     """
     直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n{w=0.6}
