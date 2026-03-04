@@ -93,22 +93,15 @@ style frame:
 ## https://doc.renpy.cn/zh-CN/screen_special.html#say
 
 screen say(who, what):
-
     window:
         id "window"
-        background None
-        if who is not None:
-
-            window:
-                id "namebox"
-                style "namebox"
+        vbox:
+            xalign 0.5
+            yalign 0.0
+            if who is not None:
                 text who id "who"
+            text what id "what"
 
-        text what id "what"
-
-
-    ## 如果有对话框头像，会将其显示在文本之上。请不要在手机界面下显示这个，因
-    ## 为没有空间。
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
@@ -120,7 +113,7 @@ init python:
 style window is default
 style say_label is default
 style say_dialogue is default
-style say_thought is say_dialogue
+style say_thought is say_dialogue #thought得有个单独的，用作旁白，描边颜色用00362e
 
 style namebox is default
 style namebox_label is say_label
@@ -150,14 +143,13 @@ style say_label:
     yalign 0.5
 
 style say_dialogue:
-    outlines [(4,"#00362e",0,0)]
+    outlines [(4,"#3c3431",0,0)]
     properties gui.text_properties("dialogue")
     size gui.text_size
     line_spacing gui.line_spacing
     line_leading gui.line_leading
-    xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
-    ypos gui.dialogue_ypos
+    
+    
 
     adjust_spacing False
 
