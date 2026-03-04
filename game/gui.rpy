@@ -57,21 +57,26 @@ define gui.interface_text_color = '#ffffff'
 
 ## 游戏内文本使用的字体。
 define gui.text_font = "SourceHanSansLite.ttf"
+define gui.text_font = "SourceHanSerif-Regular.ttc"
 
 ## 角色名称使用的字体。
 define gui.name_text_font = "SourceHanSansLite.ttf"
+define gui.name_text_font = "SourceHanSerif-Regular.ttc"
 
 ## 游戏外文本使用的字体。
 define gui.interface_text_font = "SourceHanSansLite.ttf"
 
 ## 普通对话文本的大小。
 define gui.text_size = 33
+define gui.text_size = 32
 
 ## 角色名称的大小。
 define gui.name_text_size = 45
+define gui.name_text_size = 30
 
 ## 游戏用户界面中文本的大小。
 define gui.interface_text_size = 33
+define gui.interface_text_size = 32
 
 ## 游戏用户界面中标签的大小。
 define gui.label_text_size = 36
@@ -96,6 +101,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 
 ## 包含对话的文本框的高度。
 define gui.textbox_height = 278
+define gui.textbox_height = 250
 
 ## 文本框在屏幕上的垂直位置。0.0 是顶部，0.5 是居中，1.0 是底部。
 define gui.textbox_yalign = 1.0
@@ -131,6 +137,7 @@ define gui.line_spacing = 12
 define gui.line_leading = 12
 ## 对话文本的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
 define gui.dialogue_text_xalign = 0.0
+define gui.dialogue_text_xalign = 0.5
 
 
 ## 按钮 ##########################################################################
