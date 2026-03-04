@@ -95,18 +95,16 @@ style frame:
 screen say(who, what):
     window:
         id "window"
-        style "say_window"
         vbox:
-            xalign 0.5          # 内容居中
-            yalign 0.0          # 内容在窗口内垂直居中（配合固定高度）
-            if who:
-                text who id "who" style "say_name_text"
-            text what id "what" style "say_dialogue"
+            xalign 0.5
+            yalign 0.0
+            if who is not None:
+                text who id "who"
+            text what id "what"
 
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
-    
 
 ## 通过 Character 对象使名称框可用于样式化。
 init python:
