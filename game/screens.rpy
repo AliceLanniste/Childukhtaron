@@ -95,8 +95,6 @@ style frame:
 screen say(who, what):
     window:
         id "window"
-        background None
-        if who is not None:
         style "say_window"
         vbox:
             xalign 0.0          # 内容左对齐
@@ -105,14 +103,9 @@ screen say(who, what):
                 text who id "who" style "say_name_text"
             text what id "what" style "say_dialogue"
 
-            window:
-                id "namebox"
-                style "namebox"
-                text who id "who"
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
-        text what id "what"
 
 ## 对话窗口样式：自适应宽度，水平居中，固定高度
 style say_window is window:
@@ -145,10 +138,6 @@ style say_dialogue:
     
  
 
-    ## 如果有对话框头像，会将其显示在文本之上。请不要在手机界面下显示这个，因
-    ## 为没有空间。
-    if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
 
 
 ## 通过 Character 对象使名称框可用于样式化。
@@ -188,7 +177,6 @@ style say_label:
     yalign 0.5
 
 style say_dialogue:
-    outlines [(4,"#00362e",0,0)]
     outlines [(4,"#3c3431",0,0)]
     properties gui.text_properties("dialogue")
     size gui.text_size
@@ -1551,6 +1539,16 @@ screen quick_menu():
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
             textbutton _("菜单") action ShowMenu()
+
+
+
+## 定义跳动箭头动画
+image ctc_arrow:
+    "gui/ctc_arrow.png"
+    yoffset 0
+    linear 0.5 yoffset 10
+    linear 0.5 yoffset 0
+    repeat
 
 
 style window:
