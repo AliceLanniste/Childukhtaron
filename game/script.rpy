@@ -99,7 +99,7 @@ transform fade_in(duration=1.0):
 
 # 游戏在此开始。
 label start:
-    # jump test
+    #jump test
     jump vol_0
 
     return
