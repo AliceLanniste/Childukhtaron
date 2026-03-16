@@ -1,9 +1,10 @@
-screen show_text_on_center(msg,cps = 8, font_size = 72, font_color = "#912020"):
-    modal True  # 防止点到下面的UI
+screen show_text_on_center_with_button(msg,cps = 8, font_size = 72, font_color = "#912020"):
+    modal True
 
     button:
         xfill True
         yfill True
+        background Solid("#0008")
         action Return()
 
         text msg:
@@ -14,6 +15,20 @@ screen show_text_on_center(msg,cps = 8, font_size = 72, font_color = "#912020"):
             color font_color
             slow True 
             slow_cps cps
+
+
+screen show_text_on_center_with_duration(msg,duration = 3, cps = 8, font_size = 72, font_color = "#912020"):
+    modal True
+
+    text msg:
+        xalign 0.5
+        yalign 0.5
+        textalign 0.5
+        size font_size
+        color font_color
+        slow True 
+        slow_cps cps
+    timer duration action Return()
 
 
 screen centered_text_screen(msg, ypos):
