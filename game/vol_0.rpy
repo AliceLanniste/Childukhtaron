@@ -15,7 +15,7 @@ label vol_0:
     "我的生活里，{w=0.3}没有永恒。"
     "但蝉的生命里有。"
 
-label campus_dormitory_past: #bg_room_past
+label campus_dormitory_past:
     scene black
     player "……{w=0.6}头有些晕，近来总是在梦中无法醒来"
     with hpunch
@@ -54,12 +54,12 @@ label campus_dormitory_past: #bg_room_past
     show bg rules_stage
     with fade
     show rules stage_loop_video
-    call screen show_text_on_center("恶行说，\n 没有人所见即为才智！")     #没找到这个字体大小在哪里设置。。。这里需要字再大一点。以及这块文字的切换不用点击，到了一定秒数自动切。
-    call screen show_text_on_center("妄念说，\n不择手段实现即为权力！")   #没找到这个字体大小在哪里设置。。。这里需要字再大一点。以及这块文字的切换不用点击，到了一定秒数自动切。
-    call screen show_text_on_center("机会说，\n谋杀规则即为新生！")        #没找到这个字体大小在哪里设置。。。这里需要字再大一点。以及这块文字的切换不用点击，到了一定秒数自动切。
-    player "可是先生……"                              #这块文字的切换不用点击，到了一定秒数自动切。
-    scene bg room_past               #fade也到一定秒数自动启动和切
-    with fade   
+    call screen show_text_on_center_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160)
+    call screen show_text_on_center_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160)
+    call screen show_text_on_center_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160)
+    player "可是先生……"
+    scene bg room_past
+    with fade
     
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！\n 最后终究会乖乖听话！"
@@ -69,28 +69,28 @@ label campus_dormitory_past: #bg_room_past
     "“撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦！{w=0.3}恐怖的麻烦！"
-    show clock twist at slight_right #取消这里的立绘，这里需要把bg room_past 放大一点，然后作为一个小框叠在画面上，伴随画面震动
+    show clock twist at slight_right #todo 取消这里的立绘，这里需要把bg room_past 放大一点，然后作为一个小框叠在画面上，伴随画面震动
     "墙上的钟表猛然发出异响。"
     clock "到点了！麻烦！哈哈哈哈"   
     clock "格朗迪里有座钟，午夜已有五声响，\n今夜钟声即将近，谁的歌谣再唱起……"
     show rules humming at slight_left
     "你听到奇怪的舍规也开始了哼唱。"
     rules "听到钟声，请遵舍规！\n哈哈哈哈"
-    scene bg room_past_twist    #取消这里的bg，这里需要在前面叠了一个小框的基础上，再连续叠2-3个小框，（类似俄罗斯套娃，小框越来越小），伴随画面震动，并且画面越来越暗
+    scene bg room_past_twist    #todo 取消这里的bg，这里需要在前面叠了一个小框的基础上，再连续叠2-3个小框，（类似俄罗斯套娃，小框越来越小），伴随画面震动，并且画面越来越暗
     player "不好，我要逃出去！醒醒……快醒醒"
     
-    scene bg room_past_twist at zoom_with_align(2,3)   #取消这个bg, 再连续叠2-3个小框，（类似俄罗斯套娃，小框越来越小），伴随画面震动，并且画面越来越暗
+    scene bg room_past_twist at zoom_with_align(2,3)   #todo 取消这个bg, 再连续叠2-3个小框，（类似俄罗斯套娃，小框越来越小），伴随画面震动，并且画面越来越暗
     pause 3.0
     scene black
     with fade 
 
     show bg awake
-    #with fade  #这里不要fade，要立刻出现，因为要营造出他被吓醒的感觉，我后续会配敲门声
     player "谁？！"
     do_not_konw_who "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
     extend "终于离开梦境了吗？"
     "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
+
     show bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
     "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
@@ -104,8 +104,10 @@ label campus_dormitory_past: #bg_room_past
 
 label menu_pray:
     menu:
-        "祷告" if prelude_choice_1_checked == False:
-            jump pray 
+        "祷告" if not prelude_choice_1_checked:
+            jump pray
+        "{color=#888}祷告{/color}" if prelude_choice_1_checked:
+            jump pray
         "不祷告":
             jump do_not_pray
 
@@ -115,13 +117,10 @@ label pray:
     $ prelude_choice_1_checked = True
     jump menu_pray
 
-    
-
 label do_not_pray:
     player "……？"
     player "不可能……隔着舍规应该不会被发现……"
     jump after_menu_pray
- #选项这里是还没有改吗？目前的显示效果不对
 
 label after_menu_pray:
     player "修女好像走了……"
@@ -133,10 +132,11 @@ label after_menu_pray:
     "像女孩清泠狡黠的眼神。\n "
     extend"握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
+# label test:
 
-label player_home:
     #（拆信声）
-    call screen show_text_on_center(    #此处画面要渐暗到百分之50-70左右
+    #此处画面要渐暗到百分之50-70左右
+    call screen show_text_on_center_with_button(    
     """
     邀参演者午夜时分，
     于“亨特礼堂”举行之宴
@@ -144,11 +144,13 @@ label player_home:
     我将遵循主古老的教诲，
     用鸠鸟的血液招待魔鬼
     如蒙亲至，不胜荣幸
-    赫卡特
+    {space=800}赫卡特
     """)
     #此处画面要渐亮回来
+
+# todo
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
-    scene bg masks at zoom_with_align(1.8,2,0.1,0.2)  #此处bg不变，要叠小框 cloika_masks
+    scene bg masks at zoom_with_align(1.8,2,0.1,0.2)  #todo 此处bg不变，要叠小框 cloika_masks
     
     player "难道这是她的主意？"
     #"王子的面具更微妙地显眼（时间长）"
@@ -324,9 +326,6 @@ label church_inside:
 
     #面具-出现：神使 Messenger.png
     "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
-  
-
-#label test:
 
 label game_title:
     scene bg statue_eyes    #背景-一边叠加，持续放大画面，持续放大到画面只剩下一只眼睛：神像眼睛.  bg_statue eyes
