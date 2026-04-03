@@ -9,21 +9,6 @@ define nun_trainee = Character("见习修女")
 define nun_mary = Character("玛利安")
 define hecate = Character("赫卡特")
 
-#image other
-image rules= "other/rules_1.png"
-image rules stage_loop_video = Movie(
-    play = "video/video_rules_stage.webm",
-    loops = -1)
-image cloika_eye = "other/cloika_eye.png"
-image letter 1 = "other/letter_1.png"
-image cloika_masks = "other/cloika_masks.png"
-image cloika_the_nun = "other/cloika_the_nun.png"
-image cloika_she_coming p1 = "other/cloika_she_coming_p1.jpg"
-image cloika_she_coming p2 = "other/cloika_she_coming_p2.jpg"
-image cloika_wine_and_food = "other/cloika_wine_and_food.png"
-image cloika_speech = "other/cloika_speech.png"
-image game_title = "other/bg_title.png"
-
 #image bg
 image bg cicada_1 = "bg/bg_cicada_1.png"
 image bg cicada_2 = "bg/bg_cicada_2.png"
@@ -33,10 +18,52 @@ image bg awake = "bg/bg_awake.png"
 image bg room_now = "bg/bg_room_now.png"
 image bg view_form_far = "bg/bg_view_form_far.png"
 image bg pool = "bg/bg_pool.png"
-
 image bg church = "bg/bg_church.png"
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
+
+#image other
+image game_title = "other/bg_title.png"
+image letter 1 = "other/letter_1.png"
+image rules= "other/rules_1.png"
+# image rules stage_loop_video = Movie(
+#     play = "video/video_rules_stage.webm",
+#     loops = -1)
+image cloika_eye = Composite(
+    (1651 + 2*20, 258 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_eye.png"
+)
+image cloika_masks = Composite(
+    (1401 + 2*20, 812 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_masks.png"
+)
+image cloika_the_nun = Composite(
+    (642 + 2*20, 973 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_the_nun.png"
+)
+image cloika_she_coming p1 = Composite(
+    (139 + 2*20, 942 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_she_coming_p1.jpg"
+)
+image cloika_she_coming p2 = Composite(
+    (659 + 2*20, 942 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_she_coming_p2.jpg"
+)
+image cloika_wine_and_food = Composite(
+    (1259 + 2*20, 475 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_wine_and_food.png"
+)
+image cloika_speech = Composite(
+    (1259 + 2*20, 475 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_speech.png"
+)
 
 #transform
 transform slight_left :
@@ -46,10 +73,10 @@ transform slight_left :
 transform slight_right :
     xalign 0.75
     yalign 1.0
-
+    
 # 游戏在此开始。
 label start:
-    jump test
-    # jump vol_0
+    # jump test
+    jump vol_0
 
     return

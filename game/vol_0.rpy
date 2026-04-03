@@ -62,10 +62,11 @@ label vol_0:
     遵守规矩让你很不满吗！"
     player "……先生，你……"
 
-#todo
+
     scene bg rules_stage
     with dissolve
-    show rules stage_loop_video
+    # show rules stage_loop_video
+    show rules
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
@@ -74,7 +75,6 @@ label vol_0:
     with dissolve
     player "可是先生……"
 
-#todo
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！\n 最后终究会乖乖听话！"
     "舍规背面被你翻开，上面写着学生们的愤懑。"
@@ -143,6 +143,7 @@ label after_menu_pray:
     extend"握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
+
     show black:
         alpha 0.5
     with dissolve
@@ -152,6 +153,8 @@ label after_menu_pray:
         font_size = 72,txt_align = 0)
     hide black
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
+
+    scene bg room_past
     show cloika_masks at truecenter
     camera:
         zoom 1.0
@@ -185,12 +188,12 @@ label after_menu_pray:
     "冷雾浸入月光，泡制出一树树的惨白，\n{w=0.3}张牙舞爪的粗枝乱藤像已逝去的躯壳，附在大地上无声而狰狞的呐喊着。"
     "呼啸的风声里掺杂着羽翼扑朔，低低哭泣.\n"
     extend "鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
+
     show cloika_the_nun at truecenter
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
     nun_mary "……勿要揣摩他者。"
     nun_trainee "噢！抱歉！抱歉！真神会赞许他们的虔诚……"
-label test:
 
     scene bg pool
     with fade
@@ -206,7 +209,6 @@ label test:
     peter "好了，唉！{w=0.3}强盗先生您的“脸”，还有这衬衫\n{w=0.6}先生，看来是没有一点悔意的！"
     player "放了你鸽子，对不起[peter.name]……我也想当一次有姓名的人物……"
     peter "……"
-
 #todo
     #小框-出现：神女们    cloika_dancing girls
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子"
@@ -243,6 +245,8 @@ label test:
     #"玛丽修女嗤笑（脚步声走去）"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 #todo
+# label test:
+
     scene bg church   #bg_church （一开始仅展示church的最下方）
     #"（人群对话宴会声响）"
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
@@ -271,7 +275,7 @@ label test:
 #todo
     #背景-效果-画面下移回原位：神女像与宴会桌 bg_church 
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
-    show cloika_wine_and_food
+    show cloika_wine_and_food at truecenter
     #小框-出现：宴会餐桌 cloika_wine and food 
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
@@ -279,7 +283,8 @@ label test:
     player "（看着食物犹豫又好奇）"
     "学生3""我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
-    show cloika_speech
+    hide cloika_wine_and_food
+    show cloika_speech at truecenter
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
     "身旁的学生们欢呼雀跃。"
     hecate "承命运不弃，我等于丰收之日再度赴约，重演此幕。"
@@ -362,4 +367,4 @@ label test:
     with fade
     show game_title
     with dissolve
-    pause
+    pause 30
