@@ -104,7 +104,7 @@ label vol_0:
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
     "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
-    peter "糟糕，{w=0.6}修女来了，\n {w=0.3}古尔！记得带上强盗面具，我先走了……"
+    peter "糟糕，{w=0.6}修女来了，\n {w=0.3}[player.name]！记得带上强盗面具，我先走了……"
     sister "宵禁已到"
     sister "诸位请遵循舍规，\n{w=0.3}虔诚祷告以获庇佑。"
     "祷告的嗡鸣声环绕在你周身，\n {w=0.6}你几乎能想象到一间间无数狭长的房间中匍匐着具具年轻的躯体"
@@ -209,11 +209,11 @@ label after_menu_pray:
     peter "好了，唉！{w=0.3}强盗先生您的“脸”，还有这衬衫\n{w=0.6}先生，看来是没有一点悔意的！"
     player "放了你鸽子，对不起[peter.name]……我也想当一次有姓名的人物……"
     peter "……"
-#todo
-    #小框-出现：神女们    cloika_dancing girls
+
+    show cloika_dancing_girls at truecenter
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子"
     call screen show_text_slow_with_button(
-    "少女们：池盈如月，女神泪滴，映主慈爱，罪恶消弭。\n泪水汇聚于此！\n所愿真！\n所愿诉！\n所愿熄！",y_align = 0.8)
+    "少女们：池盈如月，女神泪滴，映主慈爱，罪恶消弭。\n泪水汇聚于此！\n所愿真！\n所愿诉！\n所愿熄！",y_align = 0.9)
 
     player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……\n"
     extend "[peter.name]，你知道吗？"
@@ -223,8 +223,7 @@ label after_menu_pray:
     player "那我们也要去祷告吗？"
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
 
-    #小框-消失：神女们    cloika_dancing girls
-
+    hide cloika_dancing_girls
     show cloika_she_coming p1 at truecenter
     "惊呼与议论交织，喧哗中她凭空出现"
     show cloika_she_coming p2 at truecenter
@@ -242,13 +241,10 @@ label after_menu_pray:
     player "修女为什么这样看着我？"
     hide cloika_she_coming
     #"（钟声响起）"
-    #"玛丽修女嗤笑（脚步声走去）"
+    "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 #todo
-# label test:
-
-    scene bg church   #bg_church （一开始仅展示church的最下方）
-    #"（人群对话宴会声响）"
+    scene bg church
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
     "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -276,7 +272,6 @@ label after_menu_pray:
     #背景-效果-画面下移回原位：神女像与宴会桌 bg_church 
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
     show cloika_wine_and_food at truecenter
-    #小框-出现：宴会餐桌 cloika_wine and food 
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧……"

@@ -44,6 +44,11 @@ image cloika_the_nun = Composite(
     (0, 0), Solid("#000"),
     (20, 20), "other/cloika_the_nun.png"
 )
+image cloika_dancing_girls = Composite(
+    (1530 + 2*20, 378 + 2*20),
+    (0, 0), Solid("#000"),
+    (20, 20), "other/cloika_dancing_girls.png"
+)
 image cloika_she_coming p1 = Composite(
     (139 + 2*20, 942 + 2*20),
     (0, 0), Solid("#000"),
