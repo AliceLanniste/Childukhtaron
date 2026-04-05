@@ -307,23 +307,22 @@ label after_menu_pray:
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
     "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。"
-#todo
-    #面具-出现：王子 Prince.png
+    show prince
     "王子""我能否成为歌颂的主角？"
 
-    #面具-出现：公主 Princess.png
+    show princess
     "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。"
 
-    #面具-出现：强盗 Robber.png
+    show robber
     "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！"
 
-    #面具-出现：武士 Warrior.png
+    show warrior
     "武士""主上！我将为她而战……"
 
-    #面具-出现：少女 video_sister Mary.png
+    show sister_mary
     "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！"
 
-    #面具-出现：神使 Messenger.png
+    show messenger
     "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
     scene bg statue_eyes:
         anchor (0.5, 0.5)
