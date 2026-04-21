@@ -243,8 +243,8 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
-#todo
-    scene bg church
+
+    scene bg bg_church
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
     "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -268,8 +268,8 @@ label after_menu_pray:
     "学生3""听说这个女神像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个礼堂里……"
     player "等我收到那份命运亏欠我的礼物，倒是可以搬一尊到我的庄园里！"
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
-#todo
-    #背景-效果-画面下移回原位：神女像与宴会桌 bg_church 
+
+    scene bg bg_church
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
     show cloika_wine_and_food at truecenter
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
@@ -292,8 +292,13 @@ label after_menu_pray:
     "众人""敬真神！"
     hecate "以牙还牙，以眼还眼。敬真神！"
     "众人""敬真神！"
-#todo
-    #小框-效果-持续剧烈闪烁：宴会发言 cloika_speech
+
+  
+    show bg_church at flicker_fix:
+       
+        crop (0, 1080, 4000, 1080) 
+        
+    show cloika_speech at truecenter
     player "……嘶！好痛！！！\n"
     extend "该死……我的手臂…{w=0.6}…这酒？！"
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
