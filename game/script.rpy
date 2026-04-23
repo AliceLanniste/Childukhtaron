@@ -77,23 +77,8 @@ image cloika_speech = Composite(
     (0, 0), Solid("#000"),
     (20, 20), "other/cloika_speech.png"
 )
-default rope_drag_y = 0
-default max_pull = 400
-
-init python:
-    def on_rope_dragged(draggable, *args):
-        # drag_y 是相对于初始位置的偏移量
-        # 我们限制最大值和最小值
-        global rope_drag_y
-        # 假设我们只允许向下拖，且最大拖 400
-        rope_drag_y = max(0, min(draggable.drag_y, max_pull))
-        renpy.notify("老大那个")
-        # 如果需要松手后自动回弹或吸附，可以在这里写逻辑
-        # 例如：if draggable.drag_y < 100: rope_drag_y = 0
 
 
-define flash = Fade(0.05, 0.0, 0.1, color="#fff")
-#transform
 transform slight_left :
     xalign 0.25
     yalign 1.0
@@ -102,20 +87,6 @@ transform slight_right :
     xalign 0.75
     yalign 1.0
 
-transform upper_fall:
-    xalign 0.5 yalign 1.0
-    ypos 1080 - (rope_drag_y / max_pull) * 1080  # 拖得越多，上图下落越多
-    
-# 定义血流向下的动画
-transform blood_flow:
-    # 初始位置在屏幕上方完全隐藏
-    subpixel True
-    yalign 0.0
-    yoffset -1080 # 假设你的屏幕高度是1080
-    
-    # 模拟流下的过程
-    easein 5.0 yoffset 1080 
-    repeat
 
     
 transform flicker_fix:
