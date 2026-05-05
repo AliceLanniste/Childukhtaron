@@ -142,7 +142,6 @@ label after_menu_pray:
     extend"握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
-
     show black:
         alpha 0.5
     with dissolve
@@ -158,7 +157,7 @@ label after_menu_pray:
     camera:
         zoom 1.0
         linear 3.0 zoom 1.7 xalign 0.1 yalign 0.5
-
+        zoom 1.7 xalign 0.1 yalign 0.5
     player "难道这是她的主意？"
     "微妙地，{w=0.3}王子的面具在你看来格外显眼。"
     "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。\n"
@@ -166,10 +165,12 @@ label after_menu_pray:
     player "好精致的面具，这角色比我从前寄宿的贵族老爷还体面！"
     camera:
         linear 3.0 zoom 1.7 xalign 0.9 yalign 0.5
+        zoom 1.7 xalign 0.9 yalign 0.5
     "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。\n"
     extend"吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
     camera:
-        linear 3.0 zoom 1.0 xalign 0.5 yalign 0.5
+        linear 3.0 zoom 1.0 xalign 0.0 yalign 0.0
+        zoom 1.0 xalign 0.0 yalign 0.0
     player "可是[peter.name]还在等着我一起赴约……"
     player "就这样吧，{w=0.3}该赴约了"
 
@@ -268,6 +269,7 @@ label after_drag_rope:
         linear 3.0 xpos 0
     camera:
         linear 3.0 ypos 1080
+        ypos 1080
     "她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
     "奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
     player "这张脸，为何美得似曾相识？"
@@ -280,6 +282,7 @@ label after_drag_rope:
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
     camera:
         linear 3.0 ypos 0
+        ypos 0
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
     show cloika_wine_and_food at truecenter
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
