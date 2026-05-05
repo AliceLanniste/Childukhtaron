@@ -18,10 +18,20 @@ image bg awake = "bg/bg_awake.png"
 image bg room_now = "bg/bg_room_now.png"
 image bg view_form_far = "bg/bg_view_form_far.png"
 image bg pool = "bg/bg_pool.png"
-image bg bg_church = "bg/bg_church.png"
+
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
-image bg rope = "bg/rope.png"
+
+#image church
+image bg church = "church/bg_church.png"
+image rope = "church/rope.png"
+image curtain_left = "church/curtain_left.png"
+image curtain_right = "church/curtain_right.png"
+
+
+image bg statue_eyes = "bg/bg_statue_eyes.png"
+image bg dark_red = "bg/bg_dark_red.png"
+
 #image masks
 image prince = "masks/prince.png"
 image princess = "masks/princess.png"
