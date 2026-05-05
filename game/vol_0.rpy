@@ -243,8 +243,11 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
-#todo
+# label test:
     scene bg church
+    show rope
+    show curtain_left
+    show curtain_right
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
     "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -255,9 +258,12 @@ label after_menu_pray:
     peter "……主吗？"
     player "命运眷顾我！{w=0.3}让我窥见这世界不为俗人敞开的高贵之处。"
     peter "这里只有她是例外。"
-#todo
-    #背景-效果-玩家向下拖动左侧绳子rope，画面向上移动至神女像status，同步帷幕 curtain_left+curtain_right 向两边打开：神女像与宴会桌  bg_church 
-    
+    show curtain_right:
+        linear 3.0 xpos 1920
+    show curtain_left:
+        linear 3.0 xpos 0
+    camera:
+        linear 3.0 ypos 1080
     "她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
     "奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
     player "这张脸，为何美得似曾相识？"
@@ -268,8 +274,8 @@ label after_menu_pray:
     "学生3""听说这个女神像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个礼堂里……"
     player "等我收到那份命运亏欠我的礼物，倒是可以搬一尊到我的庄园里！"
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
-#todo
-    #背景-效果-画面下移回原位：神女像与宴会桌 bg_church 
+    camera:
+        linear 3.0 ypos 0
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
     show cloika_wine_and_food at truecenter
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
