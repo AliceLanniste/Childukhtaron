@@ -246,6 +246,7 @@ label after_menu_pray:
     scene bg church
     show curtain_left
     show curtain_right
+
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
     "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -301,8 +302,13 @@ label after_drag_rope:
     "众人""敬真神！"
     hecate "以牙还牙，以眼还眼。敬真神！"
     "众人""敬真神！"
-#todo
-    #小框-效果-持续剧烈闪烁：宴会发言 cloika_speech
+
+  
+    show bg_church at flicker_fix:
+       
+        crop (0, 1080, 4000, 1080) 
+        
+    show cloika_speech at truecenter
     player "……嘶！好痛！！！\n"
     extend "该死……我的手臂…{w=0.6}…这酒？！"
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"

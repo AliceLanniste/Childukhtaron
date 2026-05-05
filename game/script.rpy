@@ -18,6 +18,7 @@ image bg awake = "bg/bg_awake.png"
 image bg room_now = "bg/bg_room_now.png"
 image bg view_form_far = "bg/bg_view_form_far.png"
 image bg pool = "bg/bg_pool.png"
+
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
 
@@ -27,6 +28,10 @@ image rope = "church/rope.png"
 image curtain_left = "church/curtain_left.png"
 image curtain_right = "church/curtain_right.png"
 
+
+image bg statue_eyes = "bg/bg_statue_eyes.png"
+image bg dark_red = "bg/bg_dark_red.png"
+
 #image masks
 image prince = "masks/prince.png"
 image princess = "masks/princess.png"
@@ -34,7 +39,6 @@ image robber = "masks/robber.png"
 image warrior = "masks/warrior.png"
 image sister_mary = "masks/sister_mary.png"
 image messenger = "masks/messenger.png"
-
 
 #image other
 image game_title = "other/bg_title.png"
@@ -84,7 +88,7 @@ image cloika_speech = Composite(
     (20, 20), "other/cloika_speech.png"
 )
 
-#transform
+
 transform slight_left :
     xalign 0.25
     yalign 1.0
@@ -92,7 +96,20 @@ transform slight_left :
 transform slight_right :
     xalign 0.75
     yalign 1.0
+
+
     
+transform flicker_fix:
+    # 闪黑
+    matrixcolor BrightnessMatrix(-1.0)
+    pause 0.1
+    # 恢复
+    matrixcolor BrightnessMatrix(0.0)
+    pause 0.1
+    # 重复执行上述逻辑 5 次
+    repeat 5
+
+
 # 游戏在此开始。
 label start:
     # jump test
