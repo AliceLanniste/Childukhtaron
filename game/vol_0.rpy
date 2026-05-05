@@ -1,5 +1,4 @@
 default prelude_choice_1_checked = False
-
 label vol_0:
     scene bg cicada_1
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}兜住两只器官，膨胀而成复眼。"
@@ -243,9 +242,8 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
-# label test:
+
     scene bg church
-    show rope
     show curtain_left
     show curtain_right
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
@@ -258,6 +256,11 @@ label after_menu_pray:
     peter "……主吗？"
     player "命运眷顾我！{w=0.3}让我窥见这世界不为俗人敞开的高贵之处。"
     peter "这里只有她是例外。"
+    call screen church_drag_rope
+
+label after_drag_rope:
+    hide screen church_drag_rope
+
     show curtain_right:
         linear 3.0 xpos 1920
     show curtain_left:
