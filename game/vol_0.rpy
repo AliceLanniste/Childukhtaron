@@ -15,18 +15,19 @@ label vol_0:
     show bg cicada_2
     with dissolve
     tutor "多么动人的文章，您的写作进步远超我的想象"
-    tutor "还好从前的艰苦没有给您留下阴影！您顺利完成波斯语的课程后便能去贵族学校进修了吧？那个什么山谷来着？"
+    tutor "还好从前的艰苦没有给您留下阴影！您顺利完成波斯语的课程后便能去贵族学校进修了吧？\n那个什么山谷来着？"
     player "是的，去......呃，抱歉，是一所在当地颇负盛名的教会学校，我找找那封律师函……"
     player "嗯，是奇尔杜克塔伦山谷。我还从没有出过小镇哩，也不知道今后会怎样。"
-    tutor "听地名似乎是个颇有历史的文雅之地！听您的——咳，叔叔提起了，您结业后就能获得遗产吧？我的上帝！这是我做梦都……"
+    tutor "听地名似乎是个颇有历史的文雅之地！听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
+   
 
-    scene black
-    player "……{w=0.6}头好晕，近来总是在梦中无法醒来"
-    player "怎么又梦到写作课了……"
-    player "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
+    scene black with Dissolve(3.0)
+    "……{w=0.6}头好晕，近来总是在梦中无法醒来"
+    "怎么又梦到写作课了……"
+    "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
     scene black
     with hpunch
-    player "糟糕……\n"
+    "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
 
     show bg room_past
@@ -189,7 +190,7 @@ label after_menu_pray:
     "呼啸的风声里掺杂着羽翼扑朔，低低哭泣.\n"
     extend "鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
 
-    show cloika_the_nun at truecenter
+    show cloika_the_nun at truecenter with Dissolve(3.0)
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
     nun_mary "……勿要揣摩他者。"
@@ -224,9 +225,14 @@ label after_menu_pray:
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
 
     hide cloika_dancing_girls
-    show cloika_she_coming p1 at truecenter
+    # p1 放在更靠右的位置（比如屏幕宽度的 95% 处）
+    # show cloika_she_coming p1  as p1 at truecenter
+    show cloika_she_coming p1  as p1 at Position(xpos=0.95, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
+    
+    # p2 放在稍微靠左一点的位置（比如屏幕宽度的 80% 处）
+    show cloika_she_coming p2 at Position(xpos=0.80, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
     "惊呼与议论交织，喧哗中她凭空出现"
-    show cloika_she_coming p2 at truecenter
+
     
     "女人被簇拥着却有种离群的美丽，任由旁人目光染指\n"
     extend "这是你第一次在人群中直视她的面容，{w=0.3}这样的注视让你在惊艳中隐隐感到恼人的渴望。"
@@ -320,7 +326,7 @@ label after_drag_rope:
     
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-
+    label test:    
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
@@ -342,41 +348,25 @@ label after_drag_rope:
 
     show messenger
     "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
-    scene bg statue_eyes:
-        anchor (0.5, 0.5)
-        zoom 1.0
-        xalign 0.5
-        yalign 0.5
-        linear 3.0 zoom 2
-        
-    call screen centered_text_screen(  #这个中心文字需要逐字出现
-    """   
-    如果你望向神明的眼，能看见多少灵魂？ 
-    """, 850)
 
-    call screen centered_text_screen(
-    """   
-    是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n
-    {w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。 
-    """, 850)
+    scene black with Dissolve(3.0)
+
+    $ my_dialogue = [
+        "如果你望向神明的眼，能看见多少灵魂？",
+        "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n或是孤零零的伫着，浑浊得可以囊括无数颜色。",
+        "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。",
+        "直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n不受控地上浮，让腐烂已久的情绪得以呼吸。",
+        "戏剧在永恒中绮丽"
+    ]
+
     
-    call screen centered_text_screen(
-    """
-    这死寂而无情的神眼，\n
-    如永恒的镜湖，将真相沉溺。\n
+    call screen auto_show_screen("bg statue_eyes", my_dialogue, text_interval=5.0, zoom_duration=20.0)
   
-    """,900)
+    scene bg dark_red with dissolve
+    "奇尔杜克塔伦山谷在静默中凄鸣" with dissolve
 
-    call screen centered_text_screen(
-    """
-    直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n{w=0.6}
-    不受控地上浮，让腐烂已久的情绪得以呼吸。
-    """,900)
-    
-    call screen centered_text_screen("戏剧在永恒中绮丽",900)
-    call screen centered_text_screen("奇尔杜克塔伦山谷在静默中凄鸣",900)
-    scene bg dark_red   
-    with fade
-    show game_title
-    with dissolve
+  
+    hide window with Pause(2.0)
+
+    show game_title with dissolve
     pause 30

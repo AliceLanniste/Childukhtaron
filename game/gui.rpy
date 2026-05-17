@@ -132,7 +132,6 @@ define gui.line_leading = 12
 ## 对话文本的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
 define gui.dialogue_text_xalign = 0.5
 
-
 ## 按钮 ##########################################################################
 ##
 ## 这些变量以及 gui/button 中的图像文件控制着按钮显示方式。
@@ -160,7 +159,7 @@ define gui.button_text_selected_color = gui.selected_color
 define gui.button_text_insensitive_color = gui.insensitive_color
 
 ## 按钮文本的水平对齐方式。（0.0 为左侧对齐，0.5 为居中对齐，而 1.0 为右侧对
-## 齐）。
+## 齐）
 define gui.button_text_xalign = 0.0
 
 

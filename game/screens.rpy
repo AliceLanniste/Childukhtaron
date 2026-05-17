@@ -146,7 +146,7 @@ style say_dialogue:
     outlines [(4,"#3c3431",0,0)]
     properties gui.text_properties("dialogue")
     size gui.text_size
-    line_spacing gui.line_spacing
+    line_spacing  10
     line_leading gui.line_leading
     
     
@@ -248,6 +248,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
+
 default quick_menu = True
 
 style quick_menu is hbox
@@ -263,6 +264,8 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    outlines [ (2, "#00362e", 0, 0) ]
+
 
 
 ################################################################################
