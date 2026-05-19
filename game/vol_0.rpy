@@ -225,11 +225,8 @@ label after_menu_pray:
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
 
     hide cloika_dancing_girls
-    # p1 放在更靠右的位置（比如屏幕宽度的 95% 处）
-    # show cloika_she_coming p1  as p1 at truecenter
     show cloika_she_coming p1  as p1 at Position(xpos=0.95, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
     
-    # p2 放在稍微靠左一点的位置（比如屏幕宽度的 80% 处）
     show cloika_she_coming p2 at Position(xpos=0.80, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
     "惊呼与议论交织，喧哗中她凭空出现"
 
