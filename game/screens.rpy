@@ -146,7 +146,7 @@ style say_dialogue:
     outlines [(4,"#3c3431",0,0)]
     properties gui.text_properties("dialogue")
     size gui.text_size
-    line_spacing  10
+    line_spacing  gui.line_spacing
     line_leading gui.line_leading
     
     

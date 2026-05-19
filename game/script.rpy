@@ -139,7 +139,7 @@ transform flicker_fix:
 
 # 游戏在此开始。
 label start:
-    jump test
-    # jump vol_0
+    # jump test
+    jump vol_0
 
     return
