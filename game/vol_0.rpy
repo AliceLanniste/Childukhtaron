@@ -32,7 +32,6 @@ label vol_0:
     with hpunch
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
-label test:    
 
     show bg room_past
     with hpunch
@@ -73,6 +72,7 @@ label test:
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
+label test:    
 
     scene bg room_past
     with dissolve
@@ -93,8 +93,18 @@ label test:
     rules "听到钟声，请遵舍规！\n哈哈哈哈"
     player "不好，我要逃出去！醒醒……快醒醒"
 
-    show black
-    with Dissolve(4)
+    scene black
+    with eye_shut(1)
+    scene bg room_past
+    with eye_open(1)
+    scene black
+    with eye_shut(0.8)
+    scene bg room_past
+    with eye_open(0.8)
+    scene black
+    with eye_shut(0.6)
+    pause 0.5
+
     show cloika_eye at truecenter
     pause 1.0
     scene bg awake
