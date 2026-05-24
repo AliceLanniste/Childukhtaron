@@ -1,6 +1,10 @@
 default prelude_choice_1_checked = False
 label vol_0:
+    play music "dragon_studio_cicada_buzzing_331499.mp3"
+    "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
     scene bg cicada_1
+    with dissolve
+    pause 2.0
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}兜住两只器官，膨胀而成复眼。"
     "那蝉的眼中会有几个世界呢？"
     "这些世界会不会各有所异？\n{w}会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
@@ -12,14 +16,13 @@ label vol_0:
     "我的生活里，{w=0.3}没有永恒。"
     "但蝉的生命里有。"
 
-    show bg cicada_2
-    with dissolve
     tutor "多么动人的文章，您的写作进步远超我的想象"
-    tutor "还好从前的艰苦没有给您留下阴影！您顺利完成波斯语的课程后便能去贵族学校进修了吧？\n那个什么山谷来着？"
+    tutor "还好从前的艰苦没有给您留下阴影！"
+    tutor "您顺利完成波斯语的课程后便能去贵族学校进修了吧？\n那个什么山谷来着？"
     player "是的，去......呃，抱歉，是一所在当地颇负盛名的教会学校，我找找那封律师函……"
-    player "嗯，是奇尔杜克塔伦山谷。我还从没有出过小镇哩，也不知道今后会怎样。"
-    tutor "听地名似乎是个颇有历史的文雅之地！听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
-   
+    player "嗯，是{outlinecolor=#a55800}奇尔杜克塔伦山谷{/outlinecolor}。我还从没有出过小镇哩，也不知道今后会怎样。"
+    tutor "听地名似乎是个颇有历史的文雅之地！"
+    tutor "听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
 
     scene black with Dissolve(3.0)
     "……{w=0.6}头好晕，近来总是在梦中无法醒来"
@@ -29,6 +32,7 @@ label vol_0:
     with hpunch
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
+label test:    
 
     show bg room_past
     with hpunch
@@ -323,7 +327,6 @@ label after_drag_rope:
     
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-    label test:    
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
