@@ -1,15 +1,15 @@
 ﻿#define character
-define tutor = Character("家庭教师",who_outlines=[(2, "#000000", 0, 0)])
-define player = Character("古尔",who_outlines=[(2, "#000000", 0, 0)])
+define tutor = Character("家庭教师")
+define player = Character("古尔")
 define rules = Character("舍规",image = "rules")
-define peter = Character("彼得",who_outlines=[(2, "#000000", 0, 0)])
-define sister = Character("修女",who_outlines=[(2, "#000000", 0, 0)])
-define clock = Character("钟表",who_outlines=[(2, "#000000", 0, 0)])
-define nun_trainee = Character("见习修女",who_outlines=[(2, "#000000", 0, 0)])
-define nun_mary = Character("玛利安",who_outlines=[(2, "#000000", 0, 0)])
-define hecate = Character("赫卡特",who_outlines=[(2, "#000000", 0, 0)])
-define narrator = Character("", window_background="gui/namebox.png", what_outlines =[(4,"#00362e",0,0)])
-# 定义一个使用自动播放回调的叙述者
+define peter = Character("彼得")
+define sister = Character("修女")
+define clock = Character("钟表")
+define nun_trainee = Character("见习修女")
+define nun_mary = Character("玛利安")
+define hecate = Character("赫卡特")
+define narrator = Character(what_outlines =gui.narrator_dialogue_outline)
+
 #image bg
 image bg cicada_1 = "bg/bg_cicada_1.png"
 image bg cicada_2 = "bg/bg_cicada_2.png"

@@ -141,9 +141,12 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines gui.name_outline
+    color gui.name_color
 
 style say_dialogue:
-    outlines [(4,"#3c3431",0,0)]
+    outlines gui.dialogue_outline
+    color gui.dialogue_color
     properties gui.text_properties("dialogue")
     size gui.text_size
     line_spacing  gui.line_spacing

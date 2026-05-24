@@ -23,6 +23,12 @@ define config.check_conflicting_properties = True
 ## 颜色 ##########################################################################
 ##
 ## 界面中文本的颜色。
+define gui.name_color = "#00ffff"
+define gui.name_outline = [(4,"#00362e",0,0)]
+define gui.dialogue_color = "#ffffff"
+define gui.dialogue_outline =[(4,"#3c3431",0,0)]
+define gui.narrator_dialogue_outline = [(4,"#00362e",0,0)]
+
 
 ## 整个界面中使用的强调色，用于标记和突出显示文本。
 define gui.accent_color = '#0099cc'
