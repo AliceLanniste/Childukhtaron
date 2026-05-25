@@ -48,47 +48,12 @@ image rules= "other/rules_1.png"
 # image rules stage_loop_video = Movie(
 #     play = "video/video_rules_stage.webm",
 #     loops = -1)
-image cloika_eye = Composite(
-    (1651 + 2*20, 258 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_eye.png"
-)
+
 image cloika_masks = Composite(
     (1401 + 2*20, 812 + 2*20),
     (0, 0), Solid("#000"),
     (20, 20), "other/cloika_masks.png"
 )
-image cloika_the_nun = Composite(
-    (642 + 2*20, 973 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_the_nun.png"
-)
-image cloika_dancing_girls = Composite(
-    (1530 + 2*20, 378 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_dancing_girls.png"
-)
-image cloika_she_coming p1 = Composite(
-    (139 + 2*20, 942 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_she_coming_p1.jpg"
-)
-image cloika_she_coming p2 = Composite(
-    (659 + 2*20, 942 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_she_coming_p2.jpg"
-)
-image cloika_wine_and_food = Composite(
-    (1259 + 2*20, 475 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_wine_and_food.png"
-)
-image cloika_speech = Composite(
-    (1259 + 2*20, 475 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_speech.png"
-)
-
 
 transform slow_zoom_in:
     anchor (0.5, 0.5)

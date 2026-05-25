@@ -32,6 +32,7 @@ label vol_0:
     with hpunch
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
+label test:    
 
     show bg room_past
     with hpunch
@@ -54,7 +55,6 @@ label vol_0:
     call screen show_text_with_frame(
         "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以",
         font_size = 32,txt_align = 0)
-
     show rules
     with hpunch
     rules "谁允许你无礼的脏手碰我！"
@@ -104,15 +104,15 @@ label vol_0:
     with eye_shut(0.6)
     pause 0.5
 
-    show cloika_eye at truecenter
+    show screen show_image_with_frame("other/cloika_eye.png")
     pause 1.0
+    hide screen show_image_with_frame
     scene bg awake
     player "谁？！"
     "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
     extend "终于离开梦境了吗？"
-label test:    
 
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
@@ -158,7 +158,8 @@ label after_menu_pray:
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
     show black:
-        alpha 0.1
+        alpha 0
+        linear 0.5 alpha 0.1
     call screen show_text_with_frame(
         "诚邀参演者午夜时分，于亨特礼堂举行夜宴。\n请您带上面具，盛装出演。\n我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n如蒙亲至，不胜荣幸。\n{space=800}赫卡特",
         font_size = 46,frame_size_x = 1470,text_y_align = 0.6,l_spacing = 40)
@@ -166,6 +167,8 @@ label after_menu_pray:
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
 
     scene bg room_past
+    #todo
+    # show screen show_image_with_frame("other/cloika_masks.png")
     show cloika_masks at truecenter
     camera:
         zoom 1.0
@@ -202,11 +205,13 @@ label after_menu_pray:
     "呼啸的风声里掺杂着羽翼扑朔，低低哭泣.\n"
     extend "鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
 
-    show cloika_the_nun at truecenter with Dissolve(3.0)
+    show screen show_image_with_frame("other/cloika_eye.png")
+    with Dissolve(3)
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
     nun_mary "……勿要揣摩他者。"
     nun_trainee "噢！抱歉！抱歉！真神会赞许他们的虔诚……"
+    hide screen show_image_with_frame
 
     scene bg pool
     with fade
@@ -223,7 +228,8 @@ label after_menu_pray:
     player "放了你鸽子，对不起[peter.name]……我也想当一次有姓名的人物……"
     peter "……"
 
-    show cloika_dancing_girls at truecenter
+    show screen show_image_with_frame("other/cloika_dancing_girls.png")
+    with dissolve
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子"
     call screen show_text_slow_with_button(
     "少女们：池盈如月，女神泪滴，映主慈爱，罪恶消弭。\n泪水汇聚于此！\n所愿真！\n所愿诉！\n所愿熄！",y_align = 0.9)
@@ -235,11 +241,13 @@ label after_menu_pray:
     player "不愧是你[peter.name]，你好像什么都知道。"
     player "那我们也要去祷告吗？"
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
+    hide screen show_image_with_frame
 
-    hide cloika_dancing_girls
-    show cloika_she_coming p1  as p1 at Position(xpos=0.95, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
-    
-    show cloika_she_coming p2 at Position(xpos=0.80, xanchor=1.0, ypos=1.0, yanchor=1.0) with Dissolve(3.0)
+    show screen show_image_with_frame("other/cloika_she_coming_p1.jpg",x_align = 0.95) as she_coming_p1
+    with Dissolve(3)
+    show screen show_image_with_frame("other/cloika_she_coming_p2.jpg",x_align = 0.8) as she_coming_p2
+    with Dissolve(3)
+
     "惊呼与议论交织，喧哗中她凭空出现"
 
     
@@ -254,7 +262,10 @@ label after_menu_pray:
     "[player.name] [peter.name]" "啊、{w=0.3}修女夜安！"
     nun_mary "……"
     player "修女为什么这样看着我？"
-    hide cloika_she_coming
+    # hide cloika_she_coming
+    hide screen she_coming_p1
+    hide screen she_coming_p2
+    
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
@@ -299,19 +310,25 @@ label after_drag_rope:
         linear 3.0 ypos 0
         ypos 0
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
-    show cloika_wine_and_food at truecenter
+    show screen show_image_with_frame("other/cloika_wine_and_food.png")
+    with dissolve
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
     player "（看着食物犹豫又好奇）"
     "学生3""我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
-    hide cloika_wine_and_food
-    show cloika_speech at truecenter
+    hide screen show_image_with_frame
+    show screen show_image_with_frame("other/cloika_speech_1.png")
+    with dissolve
+    # show cloika_speech at truecenter
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
     "身旁的学生们欢呼雀跃。"
     hecate "承命运不弃，我等于丰收之日再度赴约，重演此幕。"
     hecate "请带上面具，举起手中的酒液，这杯鸠酒将敬给真神！阿赫里曼必亡。"
+    show black:
+        alpha 0
+        linear 1 alpha 0.5
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，\n"
     extend "昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
@@ -321,12 +338,13 @@ label after_drag_rope:
     hecate "以牙还牙，以眼还眼。敬真神！"
     "众人""敬真神！"
 
-  
+    hide screen show_image_with_frame
     show bg_church at flicker_fix:
        
         crop (0, 1080, 4000, 1080) 
-        
-    show cloika_speech at truecenter
+    #todo 
+    show screen show_image_with_frame("other/cloika_speech_2.png")
+    with dissolve
     player "……嘶！好痛！！！\n"
     extend "该死……我的手臂…{w=0.6}…这酒？！"
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
@@ -335,6 +353,7 @@ label after_drag_rope:
     
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
+    hide screen show_image_with_frame
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
