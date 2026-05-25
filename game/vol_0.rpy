@@ -32,7 +32,6 @@ label vol_0:
     with hpunch
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
-label test:    
 
     show bg room_past
     with hpunch
@@ -165,33 +164,26 @@ label after_menu_pray:
         font_size = 46,frame_size_x = 1470,text_y_align = 0.6,l_spacing = 40)
     hide black
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
+label test:    
 
     scene bg room_past
-    #todo
-    # show screen show_image_with_frame("other/cloika_masks.png")
-    show cloika_masks at truecenter
-    camera:
-        zoom 1.0
-        linear 3.0 zoom 1.7 xalign 0.1 yalign 0.5
-        zoom 1.7 xalign 0.1 yalign 0.5
+    $ cloika_masks_animation_stage = "zoom_to_left"
+    show screen show_cloika_masks()
     player "难道这是她的主意？"
     "微妙地，{w=0.3}王子的面具在你看来格外显眼。"
     "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。\n"
     extend "你注意到他光泽的肌肤、茂密的头发和充满魅力的笑容"
     player "好精致的面具，这角色比我从前寄宿的贵族老爷还体面！"
-    camera:
-        linear 3.0 zoom 1.7 xalign 0.9 yalign 0.5
-        zoom 1.7 xalign 0.9 yalign 0.5
+    $ cloika_masks_animation_stage = "zoom_to_right"
     "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。\n"
     extend"吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
-    camera:
-        linear 3.0 zoom 1.0 xalign 0.0 yalign 0.0
-        zoom 1.0 xalign 0.0 yalign 0.0
+    $ cloika_masks_animation_stage = "reset"
     player "可是[peter.name]还在等着我一起赴约……"
     player "就这样吧，{w=0.3}该赴约了"
-
+    hide screen show_cloika_masks
     scene black
     pause 3.0
+
     scene bg view_form_far
     with fade
     "离开校舍后，你的身影消失在树林中。"

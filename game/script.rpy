@@ -49,12 +49,6 @@ image rules= "other/rules_1.png"
 #     play = "video/video_rules_stage.webm",
 #     loops = -1)
 
-image cloika_masks = Composite(
-    (1401 + 2*20, 812 + 2*20),
-    (0, 0), Solid("#000"),
-    (20, 20), "other/cloika_masks.png"
-)
-
 transform slow_zoom_in:
     anchor (0.5, 0.5)
     zoom 1.0
