@@ -4,8 +4,7 @@ screen show_image_with_frame(img,frame_size = 6,x_align = 0.5,y_align = 0.5):
         background "#000000"
         xalign x_align
         yalign y_align
-        xsize w+frame_size*2
-        ysize h+frame_size*2
+        padding (frame_size, frame_size)
         add img :
             xalign 0.5
             yalign 0.5
