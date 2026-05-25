@@ -72,7 +72,6 @@ label vol_0:
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
-label test:    
 
     scene bg room_past
     with dissolve
@@ -113,6 +112,7 @@ label test:
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
     extend "终于离开梦境了吗？"
+label test:    
 
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
@@ -146,6 +146,7 @@ label do_not_pray:
     jump after_menu_pray
 
 label after_menu_pray:
+
     player "修女好像走了……"
     player "聚会的时间我记得好像……在邀请函上写着。"
     "邀请函随着你小心的动作妥帖地从书包中抽出"
@@ -157,12 +158,10 @@ label after_menu_pray:
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
     show black:
-        alpha 0.5
-    with dissolve
-    #（拆信声）
-    call screen show_text_slow_with_button(
-        "诚邀参演者午夜时分，于亨特礼堂举行夜宴。\n请您带上面具，盛装出演。\n我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n如蒙亲至，不胜荣幸。\n{space=1200}赫卡特",
-        font_size = 72,txt_align = 0)
+        alpha 0.1
+    call screen show_text_with_frame(
+        "诚邀参演者午夜时分，于亨特礼堂举行夜宴。\n请您带上面具，盛装出演。\n我将遵循主古老的教诲，用鸠鸟的血液招待魔鬼。\n如蒙亲至，不胜荣幸。\n{space=800}赫卡特",
+        font_size = 46,frame_size_x = 1470,text_y_align = 0.6,l_spacing = 40)
     hide black
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
 
