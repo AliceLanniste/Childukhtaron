@@ -133,7 +133,7 @@ define gui.dialogue_ypos = 75
 
 ## 对话文本的最大宽度，以像素为单位。
 define gui.dialogue_width = 1116
-define gui.line_spacing = 12
+define gui.line_spacing = 0
 define gui.line_leading = 12
 ## 对话文本的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
 define gui.dialogue_text_xalign = 0.5

@@ -100,7 +100,10 @@ screen say(who, what):
             yalign 0.0
             if who is not None:
                 text who id "who"
+            else:
+                text "" #占位行，让角色对话与旁白保持高度一致
             text what id "what"
+        
 
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
