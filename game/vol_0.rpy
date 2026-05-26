@@ -222,9 +222,8 @@ label after_menu_pray:
     show screen show_image_with_frame("other/cloika_dancing_girls.png")
     with dissolve
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子"
-    call screen show_text_slow_with_button(
-    "少女们：池盈如月，女神泪滴，映主慈爱，罪恶消弭。\n泪水汇聚于此！\n所愿真！\n所愿诉！\n所愿熄！",y_align = 0.9)
-
+    call screen show_text_slow_with_button("池盈如月，女神泪滴，映主慈爱，罪恶消弭。",y_align = 0.65)
+    call screen show_text_slow_with_button("泪水汇聚于此！所愿真！所愿诉！所愿熄！",y_align = 0.65)
     player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……\n"
     extend "[peter.name]，你知道吗？"
     peter "没错，她们可不是什么修女！"
