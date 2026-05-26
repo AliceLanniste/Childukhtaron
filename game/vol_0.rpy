@@ -259,7 +259,6 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
-label test:
 
     scene bg church
     with dissolve
@@ -365,24 +364,20 @@ label after_drag_rope:
     show messenger
     "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
 
-    scene black with Dissolve(3.0)
-
-    $ my_dialogue = [
-        "如果你望向神明的眼，能看见多少灵魂？",
-        "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n或是孤零零的伫着，浑浊得可以囊括无数颜色。",
-        "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。",
-        "直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n不受控地上浮，让腐烂已久的情绪得以呼吸。",
-        "戏剧在永恒中绮丽"
-    ]
-
-    
-    call screen auto_show_screen("bg statue_eyes", my_dialogue, text_interval=5.0, zoom_duration=20.0)
-  
-    scene bg dark_red with dissolve
-    "奇尔杜克塔伦山谷在静默中凄鸣" with dissolve
-
-  
-    hide window with Pause(2.0)
-
-    show game_title with dissolve
+    scene bg statue_eyes:
+        zoom 1.0
+        xalign 0.05
+        yalign 0.35
+        linear 20 zoom 2
+    "如果你望向神明的眼，能看见多少灵魂？"
+    "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n{w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。"
+    "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。"
+    "直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n{w=0.6}不受控地上浮，让腐烂已久的情绪得以呼吸。"
+    "戏剧在永恒中绮丽"
+    $ renpy.pause(5.0, hard=True)
+    show dark_red
+    with Dissolve(5.0)
+    "奇尔杜克塔伦山谷在静默中凄鸣"
+    show game_title
+    with dissolve
     pause 30
