@@ -23,6 +23,12 @@ define config.check_conflicting_properties = True
 ## 颜色 ##########################################################################
 ##
 ## 界面中文本的颜色。
+define gui.name_color = "#00ffff"
+define gui.name_outline = [(4,"#00362e",0,0)]
+define gui.dialogue_color = "#ffffff"
+define gui.dialogue_outline =[(4,"#3c3431",0,0)]
+define gui.narrator_dialogue_outline = [(4,"#00362e",0,0)]
+
 
 ## 整个界面中使用的强调色，用于标记和突出显示文本。
 define gui.accent_color = '#0099cc'
@@ -80,7 +86,7 @@ define gui.label_text_size = 36
 define gui.notify_text_size = 24
 
 ## 游戏标题的大小。
-define gui.title_text_size = 75
+define gui.title_text_size = 32
 
 
 ## 标题和游戏菜单 #####################################################################
@@ -127,7 +133,7 @@ define gui.dialogue_ypos = 75
 
 ## 对话文本的最大宽度，以像素为单位。
 define gui.dialogue_width = 1116
-define gui.line_spacing = 12
+define gui.line_spacing = 0
 define gui.line_leading = 12
 ## 对话文本的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
 define gui.dialogue_text_xalign = 0.5
@@ -241,7 +247,7 @@ define gui.skip_ypos = 15
 define gui.notify_ypos = 68
 
 ## 菜单选项之间的间距。
-define gui.choice_spacing = 33
+define gui.choice_spacing = 800
 
 ## 标题菜单和游戏菜单的导航部分中的按钮。
 define gui.navigation_spacing = 6

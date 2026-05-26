@@ -100,7 +100,10 @@ screen say(who, what):
             yalign 0.0
             if who is not None:
                 text who id "who"
+            else:
+                text "" #占位行，让角色对话与旁白保持高度一致
             text what id "what"
+        
 
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
@@ -141,9 +144,12 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines gui.name_outline
+    color gui.name_color
 
 style say_dialogue:
-    outlines [(4,"#3c3431",0,0)]
+    outlines gui.dialogue_outline
+    color gui.dialogue_color
     properties gui.text_properties("dialogue")
     size gui.text_size
     line_spacing  gui.line_spacing
@@ -193,30 +199,34 @@ style input:
 ##
 ## https://doc.renpy.cn/zh-CN/screen_special.html#choice
 
-screen choice(items):
-    style_prefix "choice"
 
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
+# screen choice(items):
+#     style_prefix "choice"
+
+#     vbox:
 
 
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
+#         for i in items:
+#             textbutton i.caption action i.action
 
-style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
 
-    spacing gui.choice_spacing
+# style choice_vbox is vbox
+# style choice_button is button
+# style choice_button_text is button_text
 
-style choice_button is default:
-    properties gui.button_properties("choice_button")
+# style choice_vbox:
+#     xalign 0.5
+#     ypos 405
+#     yanchor 0.5
 
-style choice_button_text is default:
-    properties gui.text_properties("choice_button")
+#     spacing gui.choice_spacing
+
+# style choice_button is default:
+#     properties gui.button_properties("choice_button")
+
+# style choice_button_text is default:
+#     properties gui.text_properties("choice_button")
+
 
 
 ## 快捷菜单屏幕 ######################################################################
@@ -332,65 +342,65 @@ style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
 
-## 标题菜单屏幕 ######################################################################
-##
-## 用于在 Ren'Py 启动时显示标题菜单。
-##
-## https://doc.renpy.cn/zh-CN/screen_special.html#main-menu
+# ## 标题菜单屏幕 ######################################################################
+# ##
+# ## 用于在 Ren'Py 启动时显示标题菜单。
+# ##
+# ## https://doc.renpy.cn/zh-CN/screen_special.html#main-menu
 
-screen main_menu():
+# screen main_menu():
 
-    ## 此语句可确保替换掉任何其他菜单屏幕。
-    tag menu
+#     ## 此语句可确保替换掉任何其他菜单屏幕。
+#     tag menu
 
-    add gui.main_menu_background
+#     add gui.main_menu_background
 
-    ## 此空框可使标题菜单变暗。
-    frame:
-        style "main_menu_frame"
+#     ## 此空框可使标题菜单变暗。
+#     frame:
+#         style "main_menu_frame"
 
-    ## use 语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
-    use navigation
+#     ## use 语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
+#     use navigation
 
-    if gui.show_name:
+#     if gui.show_name:
 
-        vbox:
-            style "main_menu_vbox"
+#         vbox:
+#             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+#             text "[config.name!t]":
+#                 style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+#             text "[config.version]":
+#                 style "main_menu_version"
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
+# style main_menu_frame is empty
+# style main_menu_vbox is vbox
+# style main_menu_text is gui_text
+# style main_menu_title is main_menu_text
+# style main_menu_version is main_menu_text
 
-style main_menu_frame:
-    xsize 420
-    yfill True
+# style main_menu_frame:
+#     xsize 420
+#     yfill True
 
-    background "gui/overlay/main_menu.png"
+#     background "gui/overlay/main_menu.png"
 
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
+# style main_menu_vbox:
+#     xalign 1.0
+#     xoffset -30
+#     xmaximum 1200
+#     yalign 1.0
+#     yoffset -30
 
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
+# style main_menu_text:
+#     properties gui.text_properties("main_menu", accent=True)
 
-style main_menu_title:
-    properties gui.text_properties("title")
+# style main_menu_title:
+#     properties gui.text_properties("title")
 
-style main_menu_version:
-    properties gui.text_properties("version")
+# style main_menu_version:
+#     properties gui.text_properties("version")
 
 
 ## 游戏菜单屏幕 ######################################################################
