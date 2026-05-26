@@ -29,7 +29,6 @@ image rope = "church/rope.png"
 image curtain_left = "church/curtain_left.png"
 image curtain_right = "church/curtain_right.png"
 
-
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
 
@@ -48,13 +47,6 @@ image rules= "other/rules_1.png"
 # image rules stage_loop_video = Movie(
 #     play = "video/video_rules_stage.webm",
 #     loops = -1)
-
-transform slow_zoom_in:
-    anchor (0.5, 0.5)
-    zoom 1.0
-    xalign 0.5
-    yalign 0.5
-    linear 20.0 zoom 2
 
 transform slight_left :
     xalign 0.25
@@ -85,15 +77,6 @@ style nvl_text:
     xalign 0.5       # 文本块在屏幕水平居中
     ypos 950         # 这里对应你最初代码里的 850，如果某些句子是 900 可以按需调整
     xpos 950
-transform flicker_fix:
-    # 闪黑
-    matrixcolor BrightnessMatrix(-1.0)
-    pause 0.1
-    # 恢复
-    matrixcolor BrightnessMatrix(0.0)
-    pause 0.1
-    # 重复执行上述逻辑 5 次
-    repeat 5
 
 
 # 游戏在此开始。

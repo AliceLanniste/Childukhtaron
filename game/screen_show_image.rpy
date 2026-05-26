@@ -1,5 +1,4 @@
 screen show_image_with_frame(img,frame_size = 6,x_align = 0.5,y_align = 0.5):
-    $ w, h = renpy.image_size(img)
     frame :
         background "#000000"
         xalign x_align
