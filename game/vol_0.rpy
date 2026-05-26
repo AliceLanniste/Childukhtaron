@@ -259,6 +259,7 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
+label test:
 
     scene bg church
     with dissolve
@@ -307,13 +308,13 @@ label after_drag_rope:
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
-    player "（看着食物犹豫又好奇）"
+    player "你看着食物犹豫又好奇"
     "学生3""我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
     hide screen show_image_with_frame
     show screen show_image_with_frame("other/cloika_speech_1.png")
     with dissolve
-    # show cloika_speech at truecenter
+
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
     "身旁的学生们欢呼雀跃。"
     hecate "承命运不弃，我等于丰收之日再度赴约，重演此幕。"
@@ -321,6 +322,7 @@ label after_drag_rope:
     show black:
         alpha 0
         linear 1 alpha 0.5
+        alpha 0.5
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，\n"
     extend "昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
@@ -331,12 +333,7 @@ label after_drag_rope:
     "众人""敬真神！"
 
     hide screen show_image_with_frame
-    show bg_church at flicker_fix:
-       
-        crop (0, 1080, 4000, 1080) 
-    #todo 
-    show screen show_image_with_frame("other/cloika_speech_2.png")
-    with dissolve
+    show screen show_cloika_speech()
     player "……嘶！好痛！！！\n"
     extend "该死……我的手臂…{w=0.6}…这酒？！"
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
@@ -345,7 +342,7 @@ label after_drag_rope:
     
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-    hide screen show_image_with_frame
+    hide screen show_cloika_speech
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
