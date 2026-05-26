@@ -198,29 +198,22 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-
-    vbox:
+    hbox:
+        xalign 0.5
+        yalign 0.5
+        spacing gui.choice_spacing
         for i in items:
-            textbutton i.caption action i.action
-
-
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
-
-style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
-
-    spacing gui.choice_spacing
-
-style choice_button is default:
-    properties gui.button_properties("choice_button")
-
-style choice_button_text is default:
-    properties gui.text_properties("choice_button")
-
+            textbutton i.caption :
+                padding (50, 5)
+                idle_background "#000000b0"
+                hover_background "#000000ff"
+                selected_idle_background "#000000ff"
+                insensitive_background "#000000b0"
+                text_idle_color "#dddddd"
+                text_hover_color "#ffffff"
+                text_selected_color "#ffffff"
+                text_insensitive_color "#888888"
+                action i.action
 
 ## 快捷菜单屏幕 ######################################################################
 ##

@@ -1,5 +1,6 @@
 default prelude_choice_1_checked = False
 label vol_0:
+
     play music "dragon_studio_cicada_buzzing_331499.mp3"
     "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
     scene bg cicada_1
@@ -113,6 +114,7 @@ label vol_0:
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
     extend "终于离开梦境了吗？"
 
+
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
     "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
@@ -127,8 +129,6 @@ label vol_0:
 label menu_pray:
     menu:
         "祷告" if not prelude_choice_1_checked:
-            jump pray
-        "{color=#888}祷告{/color}" if prelude_choice_1_checked:
             jump pray
         "不祷告":
             jump do_not_pray
@@ -164,7 +164,6 @@ label after_menu_pray:
         font_size = 46,frame_size_x = 1470,text_y_align = 0.6,l_spacing = 40)
     hide black
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
-label test:    
 
     scene bg room_past
     $ cloika_masks_animation_stage = "zoom_to_left"

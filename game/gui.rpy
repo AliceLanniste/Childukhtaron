@@ -247,7 +247,7 @@ define gui.skip_ypos = 15
 define gui.notify_ypos = 68
 
 ## 菜单选项之间的间距。
-define gui.choice_spacing = 33
+define gui.choice_spacing = 800
 
 ## 标题菜单和游戏菜单的导航部分中的按钮。
 define gui.navigation_spacing = 6
