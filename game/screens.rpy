@@ -328,65 +328,65 @@ style navigation_button_text:
     properties gui.text_properties("navigation_button")
 
 
-## 标题菜单屏幕 ######################################################################
-##
-## 用于在 Ren'Py 启动时显示标题菜单。
-##
-## https://doc.renpy.cn/zh-CN/screen_special.html#main-menu
+# ## 标题菜单屏幕 ######################################################################
+# ##
+# ## 用于在 Ren'Py 启动时显示标题菜单。
+# ##
+# ## https://doc.renpy.cn/zh-CN/screen_special.html#main-menu
 
-screen main_menu():
+# screen main_menu():
 
-    ## 此语句可确保替换掉任何其他菜单屏幕。
-    tag menu
+#     ## 此语句可确保替换掉任何其他菜单屏幕。
+#     tag menu
 
-    add gui.main_menu_background
+#     add gui.main_menu_background
 
-    ## 此空框可使标题菜单变暗。
-    frame:
-        style "main_menu_frame"
+#     ## 此空框可使标题菜单变暗。
+#     frame:
+#         style "main_menu_frame"
 
-    ## use 语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
-    use navigation
+#     ## use 语句将其他的屏幕包含进此屏幕。标题屏幕的实际内容在导航屏幕中。
+#     use navigation
 
-    if gui.show_name:
+#     if gui.show_name:
 
-        vbox:
-            style "main_menu_vbox"
+#         vbox:
+#             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+#             text "[config.name!t]":
+#                 style "main_menu_title"
 
-            text "[config.version]":
-                style "main_menu_version"
+#             text "[config.version]":
+#                 style "main_menu_version"
 
 
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
+# style main_menu_frame is empty
+# style main_menu_vbox is vbox
+# style main_menu_text is gui_text
+# style main_menu_title is main_menu_text
+# style main_menu_version is main_menu_text
 
-style main_menu_frame:
-    xsize 420
-    yfill True
+# style main_menu_frame:
+#     xsize 420
+#     yfill True
 
-    background "gui/overlay/main_menu.png"
+#     background "gui/overlay/main_menu.png"
 
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
+# style main_menu_vbox:
+#     xalign 1.0
+#     xoffset -30
+#     xmaximum 1200
+#     yalign 1.0
+#     yoffset -30
 
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
+# style main_menu_text:
+#     properties gui.text_properties("main_menu", accent=True)
 
-style main_menu_title:
-    properties gui.text_properties("title")
+# style main_menu_title:
+#     properties gui.text_properties("title")
 
-style main_menu_version:
-    properties gui.text_properties("version")
+# style main_menu_version:
+#     properties gui.text_properties("version")
 
 
 ## 游戏菜单屏幕 ######################################################################
