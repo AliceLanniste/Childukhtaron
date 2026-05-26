@@ -261,6 +261,7 @@ label after_menu_pray:
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 
     scene bg church
+    with dissolve
     show curtain_left
     show curtain_right
 
@@ -280,11 +281,11 @@ label after_drag_rope:
     hide screen church_drag_rope
 
     show curtain_right:
-        linear 3.0 xpos 1920
+        linear 5.0 xpos 1920
     show curtain_left:
-        linear 3.0 xpos 0
+        linear 5.0 xpos 0
     camera:
-        linear 3.0 ypos 1080
+        linear 5.0 ypos 1080
         ypos 1080
     "她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
     "奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
@@ -297,8 +298,9 @@ label after_drag_rope:
     player "等我收到那份命运亏欠我的礼物，倒是可以搬一尊到我的庄园里！"
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
     camera:
-        linear 3.0 ypos 0
+        linear 5.0 ypos 0
         ypos 0
+    $ renpy.pause(5.0, hard=True)
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
     show screen show_image_with_frame("other/cloika_wine_and_food.png")
     with dissolve
