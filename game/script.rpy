@@ -31,22 +31,11 @@ image curtain_right = "church/curtain_right.png"
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
 
-#image masks
-image prince = "masks/prince.png"
-image princess = "masks/princess.png"
-image robber = "masks/robber.png"
-image warrior = "masks/warrior.png"
-image sister_mary = "masks/sister_mary.png"
-image messenger = "masks/messenger.png"
-
 #image other
 image dark_red = "other/dark_red.png"
 image game_title = "other/bg_title.png"
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
-# image rules stage_loop_video = Movie(
-#     play = "video/video_rules_stage.webm",
-#     loops = -1)
 
 transform slight_left :
     xalign 0.25

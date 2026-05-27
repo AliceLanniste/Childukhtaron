@@ -64,11 +64,9 @@ label vol_0:
     遵守规矩让你很不满吗！"
     player "……先生，你……"
 
-
     scene bg rules_stage
     with dissolve
-    # show rules stage_loop_video
-    show rules
+    show rules loop_animation
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
@@ -346,22 +344,22 @@ label after_drag_rope:
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
     "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。"
-    show prince
+    show prince loop_animation
     "王子""我能否成为歌颂的主角？"
 
-    show princess
+    show princess loop_animation
     "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。"
 
-    show robber
+    show robber loop_animation
     "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！"
 
-    show warrior
+    show warrior loop_animation
     "武士""主上！我将为她而战……"
 
-    show sister_mary
+    show sister_mary loop_animation
     "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！"
 
-    show messenger
+    show messenger loop_animation
     "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
 
     scene bg statue_eyes:
