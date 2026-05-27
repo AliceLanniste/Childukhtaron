@@ -31,41 +31,11 @@ image curtain_right = "church/curtain_right.png"
 image bg statue_eyes = "bg/bg_statue_eyes.png"
 image bg dark_red = "bg/bg_dark_red.png"
 
-#image masks
-image prince = "masks/prince.png"
-image princess = "masks/princess.png"
-image robber = "masks/robber.png"
-image warrior = "masks/warrior.png"
-image sister_mary = "masks/sister_mary.png"
-image messenger = "masks/messenger.png"
-
 #image other
 image dark_red = "other/dark_red.png"
 image game_title = "other/bg_title.png"
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
-
-define RULES_ANIMATION_SPEED = 0.2
-image rules stage_loop_animation:
-    "animation/rule/rule_1.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_2.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_3.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_4.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_5.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_6.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_7.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_8.png"
-    pause RULES_ANIMATION_SPEED
-    "animation/rule/rule_9.png"
-    pause RULES_ANIMATION_SPEED
-    repeat
 
 transform slight_left :
     xalign 0.25
