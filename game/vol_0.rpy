@@ -64,11 +64,9 @@ label vol_0:
     遵守规矩让你很不满吗！"
     player "……先生，你……"
 
-
     scene bg rules_stage
     with dissolve
-    # show rules stage_loop_video
-    show rules
+    show rules loop_animation
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
