@@ -16,6 +16,9 @@ define config.name = _("Childukhtaron")
 #显示不可选的按钮
 define config.menu_include_disabled = True
 
+#默认全屏
+define config.default_fullscreen = True
+
 ## 决定上面给出的标题是否显示在标题界面屏幕。设置为 False 来隐藏标题。
 
 define gui.show_name = True
