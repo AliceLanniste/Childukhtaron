@@ -229,7 +229,7 @@ define config.thumbnail_width = 384
 define config.thumbnail_height = 216
 
 ## 存档网格中的列数和行数。
-define gui.file_slot_cols = 3
+define gui.file_slot_cols = 2
 define gui.file_slot_rows = 2
 
 
