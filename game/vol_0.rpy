@@ -1,8 +1,9 @@
 default prelude_choice_1_checked = False
 label vol_0:
 
-    play music "dragon_studio_cicada_buzzing_331499.mp3"
+
     "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
+    play music "dragon_studio_cicada_buzzing_331499.mp3"
     scene bg cicada_1
     with dissolve
     pause 2.0
@@ -33,6 +34,8 @@ label vol_0:
     with hpunch
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
+
+    stop music  fadeout 2.0
 
     show bg room_past
     with hpunch
