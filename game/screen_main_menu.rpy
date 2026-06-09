@@ -7,7 +7,7 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
-
+    add gui.game_menu_title at truecenter
     if gui.show_name:
 
         vbox:
