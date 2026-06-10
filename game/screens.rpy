@@ -709,8 +709,9 @@ style about_label_text:
 # style page_button_text:
 #     properties gui.text_properties("page_button")
 
-# style slot_button:
-#     properties gui.button_properties("slot_button")
+style slot_button:
+    properties gui.button_properties("slot_button")
+    background Solid("#000000")
 
 # style slot_button_text:
 #     properties gui.text_properties("slot_button")
@@ -801,7 +802,6 @@ screen preferences():
                         textbutton _("全部静音"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
-
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
