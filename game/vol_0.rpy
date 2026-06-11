@@ -1,8 +1,9 @@
 default prelude_choice_1_checked = False
 label vol_0:
 
-    play music "dragon_studio_cicada_buzzing_331499.mp3"
+
     "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
+    play music "dragon_studio_cicada_buzzing_331499.mp3"
     scene bg cicada_1
     with dissolve
     pause 2.0
@@ -34,6 +35,8 @@ label vol_0:
     "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
 
+    stop music  fadeout 2.0
+
     show bg room_past
     with hpunch
     player "这是……{w=0.6}校舍?\n" 
@@ -53,7 +56,7 @@ label vol_0:
     player "这和现在的舍规也差不多么……"
 
     call screen show_text_with_frame(
-        "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以",
+        "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以....",
         font_size = 32,txt_align = 0)
     show rules
     with hpunch
@@ -360,13 +363,9 @@ label after_drag_rope:
     "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！"
 
     show messenger loop_animation
-    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
+    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"  nointeract
 
-    scene bg statue_eyes:
-        zoom 1.0
-        xalign 0.05
-        yalign 0.35
-        linear 20 zoom 2
+    scene bg statue_eyes at slow_zoom_statue
     "如果你望向神明的眼，能看见多少灵魂？"
     "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n{w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。"
     "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。"

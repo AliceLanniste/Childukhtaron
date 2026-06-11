@@ -45,6 +45,12 @@ transform slight_right :
     xalign 0.75
     yalign 1.0
 
+
+transform slow_zoom_statue():
+    zoom 1.0
+    xalign 0.05
+    yalign 0.35
+    linear 20 zoom 2
 # 游戏在此开始。
 label start:
     # jump test
