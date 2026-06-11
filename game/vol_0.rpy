@@ -339,7 +339,6 @@ label after_drag_rope:
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。"
     "莫比乌斯环的起点处，戏剧开场."
-    
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
     hide screen show_cloika_speech
@@ -375,6 +374,6 @@ label after_drag_rope:
     show dark_red
     with Dissolve(5.0)
     "奇尔杜克塔伦山谷在静默中凄鸣"
-    show game_title
+    show game_title at truecenter
     with dissolve
     pause 30
