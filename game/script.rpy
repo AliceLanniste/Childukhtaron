@@ -1,14 +1,4 @@
-﻿#define character
-define tutor = Character("家庭教师")
-define player = Character("古尔")
-define rules = Character("舍规",image = "rules")
-define peter = Character("彼得")
-define sister = Character("修女")
-define clock = Character("钟表")
-define nun_trainee = Character("见习修女")
-define nun_mary = Character("玛利安")
-define hecate = Character("赫卡特")
-define narrator = Character(what_outlines =gui.narrator_dialogue_outline)
+﻿
 
 #image bg
 image bg cicada_1 = "bg/bg_cicada_1.png"
@@ -37,6 +27,45 @@ image game_title_start = "other/bg_title.png"
 image game_title_fin = "other/bg_title_fin.png"
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
+
+
+# 1. 定义浮动动画
+transform ctc_bounce:
+    yalign 0.5
+    block:
+        linear 0.4 yoffset -8  # 向上浮动 6 像素
+        linear 0.4 yoffset 0   # 回到原位
+        repeat
+
+# 2. 将图片和动画绑定
+image ctc_arrow:
+    "ui/save/arrow.png"  # 请确保这个路径正确
+    ctc_bounce
+
+
+
+
+#define character
+define tutor = Character("家庭教师",ctc="ctc_arrow", ctc_position="nestled")
+define player = Character("古尔")
+define rules = Character("舍规",image = "rules")
+define peter = Character("彼得")
+define sister = Character("修女")
+define clock = Character("钟表")
+define nun_trainee = Character("见习修女")
+define nun_mary = Character("玛利安")
+define hecate = Character("赫卡特")
+define narrator = Character(what_outlines =gui.narrator_dialogue_outline)
+
+screen menu_icon:
+    zorder 100
+    if not main_menu and quick_menu:
+        button:
+            xalign 0.98  
+            yalign 0.02  
+
+            action ShowMenu('save')
+            add "ui/save/arrow.png"
 
 transform slight_left :
     xalign 0.25
