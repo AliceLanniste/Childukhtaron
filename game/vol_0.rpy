@@ -1,8 +1,16 @@
 default prelude_choice_1_checked = False
 label vol_0:
 
+    scene black with dissolve
     play music "dragon_studio_cicada_buzzing_331499.mp3"
-    "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
+    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
+    font_size = 48)
+    with dissolve
+    with Pause(2)
+    hide screen show_text with dissolve
+    # scene bg logo 
+    # with dissolve
+    with Pause(2)
     scene bg cicada_1
     with dissolve
     pause 2.0
@@ -26,12 +34,12 @@ label vol_0:
     tutor "听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
 
     scene black with Dissolve(3.0)
-    "……{w=0.6}头好晕，近来总是在梦中无法醒来"
-    "怎么又梦到写作课了……"
-    "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
+    player "……{w=0.6}头好晕，近来总是在梦中无法醒来"
+    player "怎么又梦到写作课了……"
+    player "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
     scene black
     with hpunch
-    "糟糕……\n"
+    player "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
 
     show bg room_past
@@ -55,6 +63,7 @@ label vol_0:
     call screen show_text_with_frame(
         "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以",
         font_size = 32,txt_align = 0)
+    pause 1.0
     show rules
     with hpunch
     rules "谁允许你无礼的脏手碰我！"
@@ -78,9 +87,9 @@ label vol_0:
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！\n 最后终究会乖乖听话！"
     "舍规背面被你翻开，上面写着学生们的愤懑。"
-    "“见鬼，谁想遵守这些狗屁规矩”"
-    "“鬼地方，不是人待得！”"
-    "“撕过，后悔了……”"
+    player "“见鬼，谁想遵守这些狗屁规矩”"
+    player "“鬼地方，不是人待得！”"
+    player "“撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦！{w=0.3}恐怖的麻烦！"
     "墙上的钟表猛然发出异响。"
@@ -92,11 +101,13 @@ label vol_0:
 
     scene black
     with eye_shut(1)
-    scene bg room_past
+    show bg room_past
+    show rules at slight_left
     with eye_open(1)
     scene black
     with eye_shut(0.8)
-    scene bg room_past
+    show bg room_past
+    show rules at slight_left
     with eye_open(0.8)
     scene black
     with eye_shut(0.6)
@@ -111,7 +122,6 @@ label vol_0:
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
     extend "终于离开梦境了吗？"
-
 
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
@@ -143,7 +153,6 @@ label do_not_pray:
     jump after_menu_pray
 
 label after_menu_pray:
-
     player "修女好像走了……"
     player "聚会的时间我记得好像……在邀请函上写着。"
     "邀请函随着你小心的动作妥帖地从书包中抽出"
@@ -163,7 +172,6 @@ label after_menu_pray:
     hide black
     player "我记得赫卡特小姐分配的……{w=0.3}好像只有强盗角色\n{w=0.8}为什么寄来的信封里有两张面具？"
 
-    scene bg room_past
     $ cloika_masks_animation_stage = "zoom_to_left"
     show screen show_cloika_masks()
     player "难道这是她的主意？"
@@ -178,9 +186,10 @@ label after_menu_pray:
     player "可是[peter.name]还在等着我一起赴约……"
     player "就这样吧，{w=0.3}该赴约了"
     hide screen show_cloika_masks
+    pause 1.0
     scene black
+    with fade
     pause 3.0
-
     scene bg view_form_far
     with fade
     "离开校舍后，你的身影消失在树林中。"
@@ -189,18 +198,17 @@ label after_menu_pray:
     nun_trainee "修、{w=0.3}修、{w=0.3}修女——{w=0.6}阿嚏！\n"
     extend "这么冷的天气，{w=0.3}谁会到这禁林……"
     extend"等等，这居然有个礼堂？"
+    show screen show_image_with_frame_and_fade("other/cloika_the_nun.png",x_align = 0.95)
     "黑夜匍匐在禁谷之地中，浓稠的寒弥漫。\n{w=0.3}银月如半阖的眼，亘古如此地漠然望着人间的轮回"
     "冷雾浸入月光，泡制出一树树的惨白，\n{w=0.3}张牙舞爪的粗枝乱藤像已逝去的躯壳，附在大地上无声而狰狞的呐喊着。"
     "呼啸的风声里掺杂着羽翼扑朔，低低哭泣.\n"
     extend "鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
 
-    show screen show_image_with_frame("other/cloika_eye.png")
-    with Dissolve(3)
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
     nun_mary "……勿要揣摩他者。"
     nun_trainee "噢！抱歉！抱歉！真神会赞许他们的虔诚……"
-    hide screen show_image_with_frame
+    hide screen show_image_with_frame_and_fade
 
     scene bg pool
     with fade
@@ -217,11 +225,14 @@ label after_menu_pray:
     player "放了你鸽子，对不起[peter.name]……我也想当一次有姓名的人物……"
     peter "……"
 
-    show screen show_image_with_frame("other/cloika_dancing_girls.png")
-    with dissolve
+    show screen show_image_with_frame_and_fade("other/cloika_dancing_girls.png")
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子"
     call screen show_text_slow_with_button("池盈如月，女神泪滴，映主慈爱，罪恶消弭。",y_align = 0.65)
-    call screen show_text_slow_with_button("泪水汇聚于此！所愿真！所愿诉！所愿熄！",y_align = 0.65)
+    call screen show_text_slow_with_button("泪水汇聚于此！",y_align = 0.65)
+    call screen show_text_slow_with_button("所愿真！",y_align = 0.65)
+    call screen show_text_slow_with_button("所愿诉！",y_align = 0.65)
+    call screen show_text_slow_with_button("所愿熄！",y_align = 0.65)
+
     player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……\n"
     extend "[peter.name]，你知道吗？"
     peter "没错，她们可不是什么修女！"
@@ -229,12 +240,12 @@ label after_menu_pray:
     player "不愧是你[peter.name]，你好像什么都知道。"
     player "那我们也要去祷告吗？"
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
-    hide screen show_image_with_frame
+    hide screen show_image_with_frame_and_fade
+    pause 2.0
 
-    show screen show_image_with_frame("other/cloika_she_coming_p1.jpg",x_align = 0.95) as she_coming_p1
-    with Dissolve(3)
-    show screen show_image_with_frame("other/cloika_she_coming_p2.jpg",x_align = 0.8) as she_coming_p2
-    with Dissolve(3)
+    show screen show_image_with_frame_and_fade("other/cloika_she_coming_p1.jpg",x_align = 0.95) as she_coming_p1
+    pause 2.0
+    show screen show_image_with_frame_and_fade("other/cloika_she_coming_p2.jpg",x_align = 0.8) as she_coming_p2
 
     "惊呼与议论交织，喧哗中她凭空出现"
 
@@ -300,17 +311,16 @@ label after_drag_rope:
         ypos 0
     $ renpy.pause(5.0, hard=True)
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
-    show screen show_image_with_frame("other/cloika_wine_and_food.png")
-    with dissolve
+
+    show screen show_image_with_frame_and_fade("other/cloika_wine_and_food.png")
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
     player "你看着食物犹豫又好奇"
     "学生3""我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
-    hide screen show_image_with_frame
-    show screen show_image_with_frame("other/cloika_speech_1.png")
-    with dissolve
+    hide screen show_image_with_frame_and_fade
+    show screen show_image_with_frame_and_fade("other/cloika_speech_1.png")
 
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
     "身旁的学生们欢呼雀跃。"
@@ -329,7 +339,7 @@ label after_drag_rope:
     hecate "以牙还牙，以眼还眼。敬真神！"
     "众人""敬真神！"
 
-    hide screen show_image_with_frame
+    hide screen show_image_with_frame_and_fade
     show screen show_cloika_speech()
     player "……嘶！好痛！！！\n"
     extend "该死……我的手臂…{w=0.6}…这酒？！"

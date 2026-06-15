@@ -3,6 +3,7 @@ default cloika_masks_animation_stage = "zoom_to_left"
 screen show_cloika_masks(frame_size = 6):
     $ w, h = renpy.image_size("other/cloika_masks.png")
     fixed :
+        at fade_with_show_and_hide(1,1)
         xalign 0.5
         yalign 0.5
         add Solid("#000000"):
@@ -25,6 +26,7 @@ screen show_cloika_masks(frame_size = 6):
 
 
 transform cloika_masks_animation_zoom_to_left():
+    pause 1.0
     zoom 1.0
     linear 3.0 zoom 1.5 xpos 0 ypos -200
     zoom 1.5 xpos 0 ypos -200
