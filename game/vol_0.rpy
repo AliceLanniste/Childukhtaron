@@ -329,27 +329,38 @@ label after_drag_rope:
         linear 1 alpha 0.5
         alpha 0.5
     hide screen show_image_with_frame_and_fade
-    show screen show_image_with_frame_and_fade("other/cloika_speech_1.png")
+    show screen show_image_with_frame_and_fade("other/cloika_speech_1.png") as cloika_speech_1
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，\n"
     extend "昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
     "所有手臂高举起酒杯，掌中一盏盏深色的酒液在昏暗中倒映出奇异的光。"
     hecate "敬真神！是您古老的教导，致使我们齐聚一堂！惩治那些该长居于地狱的阿赫里曼！"
-    "众人""敬真神！"
+    play audio "patricksilvey_weather_lightning_2_464187.mp3"
+    "众人""敬真神！{nw}"
+    show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.5) as white
+    pause 1.0
+    hide screen white
     hecate "以牙还牙，以眼还眼。敬真神！"
-    "众人""敬真神！"
-
-    hide screen show_image_with_frame_and_fade
-    show screen show_cloika_speech()
+    play audio "patricksilvey_weather_lightning_2_464187.mp3"
+    "众人""敬真神！{nw}"
+    show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.7) as white
+    pause 1.0
+    hide screen white
     player "……嘶！好痛！！！\n"
-    extend "该死……我的手臂…{w=0.6}…这酒？！"
+    extend "该死……我的手臂…{w=0.6}…这酒？！{nw}"
+    play audio "patricksilvey_weather_lightning_2_464187.mp3"
+    show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1) as white
+    pause 1.0
+    hide screen white
+    hide screen cloika_speech_1
+    show screen show_image_with_frame_and_fade("other/cloika_speech_2.png")
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。"
     "莫比乌斯环的起点处，戏剧开场."
     
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-    hide screen show_cloika_speech
+    hide screen show_image_with_frame_and_fade
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"

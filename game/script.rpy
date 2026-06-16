@@ -37,14 +37,9 @@ image game_title = "other/bg_title.png"
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
 image logo = "other/logo.png"
+image white = "other/bg_white.png"
 
-transform slight_left :
-    xalign 0.25
-    yalign 1.0
 
-transform slight_right :
-    xalign 0.75
-    yalign 1.0
 
 # 游戏在此开始。
 label start:
