@@ -6,6 +6,12 @@ transform slight_right :
     xalign 0.75
     yalign 1.0
 
+transform fade_in(duration = 1.0,pos_x = 0, pos_y = 0):
+    xpos pos_x
+    ypos pos_y
+    alpha 0.0
+    linear duration alpha 1.0
+
 transform fade_with_show_and_hide(duration_show = 1.0, duration_hide = 1.0,alpha_max = 1.0):
     on show:
         alpha 0.0

@@ -260,7 +260,6 @@ label after_menu_pray:
     "[player.name] [peter.name]" "啊、{w=0.3}修女夜安！"
     nun_mary "……"
     player "修女为什么这样看着我？"
-    # hide cloika_she_coming
     hide screen she_coming_p1
     hide screen she_coming_p2
     
@@ -269,10 +268,9 @@ label after_menu_pray:
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 
     scene black with dissolve
-    scene bg church
-    show curtain_left
-    show curtain_right
-
+    show bg church at fade_in(pos_y = -1080)
+    show curtain_left at fade_in(pos_y = -780)
+    show curtain_right at fade_in(pos_x = 960, pos_y = -780)
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
     "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
     "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
@@ -287,15 +285,15 @@ label after_menu_pray:
 
 label after_drag_rope:
     hide screen church_drag_rope
-
+    show curtain_left:
+        linear 5.0 xpos -960
     show curtain_right:
         linear 5.0 xpos 1920
-    show curtain_left:
-        linear 5.0 xpos 0
     camera:
         linear 5.0 ypos 1080
         ypos 1080
-    "她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
+    
+    "{w=3.0}她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
     "奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
     player "这张脸，为何美得似曾相识？"
     "学生1""哎，你们说这雕像和村口的石女雕像，是不是有些相似……"
