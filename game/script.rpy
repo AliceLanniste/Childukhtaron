@@ -33,7 +33,8 @@ image bg dark_red = "bg/bg_dark_red.png"
 
 #image other
 image dark_red = "other/dark_red.png"
-image game_title = "other/bg_title.png"
+image game_title_finnal = "other/bg_title_fin.png"
+
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
 image logo = "other/logo.png"
