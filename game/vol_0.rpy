@@ -268,8 +268,8 @@ label after_menu_pray:
     "[nun_mary.name]嗤笑"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 
+    scene black with dissolve
     scene bg church
-    with dissolve
     show curtain_left
     show curtain_right
 
@@ -309,17 +309,16 @@ label after_drag_rope:
         linear 5.0 ypos 0
         ypos 0
     $ renpy.pause(5.0, hard=True)
-    player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
 
     show screen show_image_with_frame_and_fade("other/cloika_wine_and_food.png")
+    player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
+
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
-    player "你看着食物犹豫又好奇"
+    "你看着食物犹豫又好奇"
     "学生3""我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
-    hide screen show_image_with_frame_and_fade
-    show screen show_image_with_frame_and_fade("other/cloika_speech_1.png")
 
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
     "身旁的学生们欢呼雀跃。"
@@ -329,6 +328,8 @@ label after_drag_rope:
         alpha 0
         linear 1 alpha 0.5
         alpha 0.5
+    hide screen show_image_with_frame_and_fade
+    show screen show_image_with_frame_and_fade("other/cloika_speech_1.png")
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，\n"
     extend "昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
@@ -354,37 +355,39 @@ label after_drag_rope:
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
     "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。"
     show prince loop_animation
-    "王子""我能否成为歌颂的主角？"
+    "王子""我能否成为歌颂的主角？{w=1.0}{nw}"
 
     show princess loop_animation
-    "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。"
+    "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。{w=1.0}{nw}"
 
     show robber loop_animation
-    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！"
+    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=1.0}{nw}"
 
     show warrior loop_animation
-    "武士""主上！我将为她而战……"
+    "武士""主上！我将为她而战……{w=1.0}{nw}"
 
     show sister_mary loop_animation
-    "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！"
+    "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
 
     show messenger loop_animation
-    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
+    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？{w=1.0}{nw}"
 
-    scene bg statue_eyes:
+    show bg statue_eyes:
+        alpha 0
         zoom 1.0
         xalign 0.05
         yalign 0.35
-        linear 20 zoom 2
-    "如果你望向神明的眼，能看见多少灵魂？"
-    "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n{w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。"
-    "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。"
-    "直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n{w=0.6}不受控地上浮，让腐烂已久的情绪得以呼吸。"
-    "戏剧在永恒中绮丽"
+        linear 1.0 alpha 1.0
+        linear 20 zoom 2 
+    "如果你望向神明的眼，能看见多少灵魂？{w=1.0}{nw}"
+    "是密密麻麻地许多，纷纷住满荒唐的念头，相互纠缠着打成死结?\n{w=0.6}或是孤零零的伫着，浑浊得可以囊括无数颜色。{w=1.0}{nw}"
+    "这死寂而无情的神眼，\n如永恒的镜湖，将真相沉溺。{w=1.0}{nw}"
+    "直到浸泡其中的灵魂之尸们在日夜不甘中膨胀，\n{w=0.6}不受控地上浮，让腐烂已久的情绪得以呼吸。{w=1.0}{nw}"
+    "戏剧在永恒中绮丽{w=1.0}{nw}"
     $ renpy.pause(5.0, hard=True)
     show dark_red
     with Dissolve(5.0)
-    "奇尔杜克塔伦山谷在静默中凄鸣"
+    "奇尔杜克塔伦山谷在静默中凄鸣{w=1.0}{nw}"
     show game_title
     with dissolve
     pause 30
