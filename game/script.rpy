@@ -36,6 +36,7 @@ image dark_red = "other/dark_red.png"
 image game_title = "other/bg_title.png"
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
+image logo = "other/logo.png"
 
 transform slight_left :
     xalign 0.25

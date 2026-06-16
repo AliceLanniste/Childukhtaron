@@ -1,6 +1,5 @@
 default prelude_choice_1_checked = False
 label vol_0:
-
     scene black with dissolve
     play music "dragon_studio_cicada_buzzing_331499.mp3"
     show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
@@ -8,12 +7,12 @@ label vol_0:
     with dissolve
     with Pause(2)
     hide screen show_text with dissolve
-    # scene bg logo 
-    # with dissolve
+    show logo with dissolve
     with Pause(2)
+    hide logo with dissolve
     scene bg cicada_1
     with dissolve
-    pause 2.0
+    with Pause(2)
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}兜住两只器官，膨胀而成复眼。"
     "那蝉的眼中会有几个世界呢？"
     "这些世界会不会各有所异？\n{w}会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
