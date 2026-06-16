@@ -7,7 +7,7 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
-
+    add "other/bg_title.png" at fade_in
     if gui.show_name:
 
         vbox:

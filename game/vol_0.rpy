@@ -398,6 +398,6 @@ label after_drag_rope:
     show dark_red
     with Dissolve(5.0)
     "奇尔杜克塔伦山谷在静默中凄鸣{w=1.0}{nw}"
-    show game_title
+    show game_title_finnal
     with dissolve
     pause 30
