@@ -34,7 +34,7 @@ transform ctc_bounce:
     yalign 0.5
     block:
         linear 0.4 yoffset -8  # 向上浮动 6 像素
-        linear 0.4 yoffset 0   # 回到原位
+        linear 0.4 yoffset 6   # 回到原位
         repeat
 
 # 2. 将图片和动画绑定
@@ -47,14 +47,14 @@ image ctc_arrow:
 
 #define character
 define tutor = Character("家庭教师",ctc="ctc_arrow", ctc_position="nestled")
-define player = Character("古尔")
-define rules = Character("舍规",image = "rules")
-define peter = Character("彼得")
-define sister = Character("修女")
-define clock = Character("钟表")
-define nun_trainee = Character("见习修女")
-define nun_mary = Character("玛利安")
-define hecate = Character("赫卡特")
+define player = Character("古尔",ctc="ctc_arrow", ctc_position="nestled")
+define rules = Character("舍规",image = "rules",ctc="ctc_arrow", ctc_position="nestled")
+define peter = Character("彼得",ctc="ctc_arrow", ctc_position="nestled")
+define sister = Character("修女",ctc="ctc_arrow", ctc_position="nestled")
+define clock = Character("钟表",ctc="ctc_arrow", ctc_position="nestled")
+define nun_trainee = Character("见习修女",ctc="ctc_arrow", ctc_position="nestled")
+define nun_mary = Character("玛利安",ctc="ctc_arrow", ctc_position="nestled")
+define hecate = Character("赫卡特",ctc="ctc_arrow", ctc_position="nestled")
 define narrator = Character(what_outlines =gui.narrator_dialogue_outline)
 
 screen menu_icon:
@@ -65,7 +65,7 @@ screen menu_icon:
             yalign 0.02  
 
             action ShowMenu('save')
-            add "ui/save/arrow.png"
+            add "ui/save/logo_menu_enter.png"
 
 transform slight_left :
     xalign 0.25
