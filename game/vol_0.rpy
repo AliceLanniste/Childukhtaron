@@ -41,6 +41,8 @@ label vol_0:
     player "糟糕……\n"
     extend "手指动不了，看来我应该还在梦里"
 
+    stop music  fadeout 2.0
+
     show bg room_past
     with hpunch
     player "这是……{w=0.6}校舍?\n" 
@@ -60,7 +62,7 @@ label vol_0:
     player "这和现在的舍规也差不多么……"
 
     call screen show_text_with_frame(
-        "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以",
+        "被学生撕毁的舍规\n\n一、净体祷告方得主庇佑，诸君应\n二、晚上十点后禁止学生离寝，在校内走动\n{space=380}图书馆\n三、请勿破坏任何\n四、钟声响起后不应聚集、喧哗，以....",
         font_size = 32,txt_align = 0)
     pause 1.0
     show rules
@@ -355,7 +357,6 @@ label after_drag_rope:
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。"
     "莫比乌斯环的起点处，戏剧开场."
-    
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
     hide screen show_image_with_frame_and_fade
