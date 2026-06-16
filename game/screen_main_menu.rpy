@@ -31,12 +31,12 @@ screen main_menu():
 screen main_menu_button(txt,btn_action):
     textbutton txt:
         padding (150, 10)
-        idle_background "#000000b0"
-        hover_background "#000000ff"
-        selected_idle_background "#000000ff"
-        insensitive_background "#000000b0"
-        text_idle_color "#dddddd"
-        text_hover_color "#ffffff"
-        text_selected_color "#ffffff"
-        text_insensitive_color "#888888"
+        idle_background gui.choice_button_idle_background_color
+        hover_background gui.choice_button_hover_background_color
+        selected_idle_background gui.choice_button_selected_idle_background_color
+        insensitive_background gui.choice_button_insensitive_background_color
+        text_idle_color gui.choice_button_text_idle_color
+        text_hover_color gui.choice_button_text_hover_color
+        text_selected_color gui.choice_button_text_hover_color
+        text_insensitive_color gui.choice_button_text_insensitive_color
         action btn_action
