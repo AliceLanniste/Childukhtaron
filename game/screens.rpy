@@ -506,9 +506,9 @@ style game_menu_navigation_frame:
     yfill True
 
 style game_menu_content_frame:
-    left_margin 60
+    left_margin 500
     right_margin 30
-    top_margin 15
+    top_margin 150
 
 style game_menu_viewport:
     xsize 1380
@@ -820,7 +820,8 @@ style check_button_text is gui_button_text
 style check_vbox is pref_vbox
 
 style slider_label is pref_label
-style slider_label_text is pref_label_text
+style slider_label_text is pref_label_text:
+    color "#000000"
 style slider_slider is gui_slider
 style slider_button is gui_button
 style slider_button_text is gui_button_text
@@ -860,7 +861,7 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
-    xsize 525
+    xsize 325
 
 style slider_button:
     properties gui.button_properties("slider_button")
@@ -868,10 +869,18 @@ style slider_button:
     left_margin 15
 
 style slider_button_text:
-    properties gui.text_properties("slider_button")
+    color "#080000"
 
-style slider_vbox:
-    xsize 675
+
+style slider_label:
+    yalign 0.5
+    yoffset -20
+    color  "#000000"
+style slider_bar:
+    yalign 0.5
+
+# style slider_vbox:
+#     xsize 675
 
 
 ## 历史屏幕 ########################################################################
@@ -934,6 +943,8 @@ style history_label is gui_label
 style history_label_text is gui_label_text
 
 style history_window:
+    xalign 0.5
+    yalign 0.5
     xfill True
     ysize gui.history_height
 
@@ -946,6 +957,12 @@ style history_name:
 style history_name_text:
     min_width gui.history_name_width
     textalign gui.history_name_xalign
+     
+    # 【新增/修改】设置文字颜色为黑色
+    color "#000000"
+    
+    # 【新增/修改】设置红色包边，2像素粗细
+    outlines [ (2, "#ff0000", 0, 0) ]
 
 style history_text:
     xpos gui.history_text_xpos
@@ -955,6 +972,7 @@ style history_text:
     min_width gui.history_text_width
     textalign gui.history_text_xalign
     layout ("subtitle" if gui.history_text_xalign else "tex")
+    outlines [ (2, "#000000", 0, 0) ]
 
 style history_label:
     xfill True
@@ -1584,11 +1602,11 @@ style vscrollbar:
     base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
-style slider:
-    variant "small"
-    ysize gui.slider_size
-    base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
+# style slider:
+#     variant "small"
+#     ysize gui.slider_size
+#     base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
 
 style vslider:
     variant "small"
