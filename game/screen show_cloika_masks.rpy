@@ -1,7 +1,8 @@
 default cloika_masks_animation_stage = "zoom_to_left"
 
-screen show_cloika_masks(frame_size = 6):
+screen show_cloika_masks(frame_size = 6,fade_out = False):
     $ w, h = renpy.image_size("other/cloika_masks.png")
+    $ bg_transform = bg_fade_out if fade_out else bg_fade_in
     fixed :
         xalign 0.5
         yalign 0.5
@@ -10,6 +11,7 @@ screen show_cloika_masks(frame_size = 6):
             yalign 0.5
             xsize w+frame_size*2
             ysize h+frame_size*2
+            at bg_transform
         viewport:
             xalign 0.5
             yalign 0.5

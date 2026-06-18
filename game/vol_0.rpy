@@ -28,13 +28,13 @@ label vol_0:
     tutor "听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
 
     scene black with Dissolve(3.0)
-    "……{w=0.6}头好晕，近来总是在梦中无法醒来 {image=ctc_arrow}"
-    "怎么又梦到写作课了…… {image=ctc_arrow}"
-    "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。{image=ctc_arrow}"
+    player "……{w=0.6}头好晕，近来总是在梦中无法醒来"
+    player "怎么又梦到写作课了…… "
+    player"现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
     scene black
     with hpunch
-    "糟糕……\n"
-    extend "手指动不了，看来我应该还在梦里 {image=ctc_arrow}"
+    player "糟糕……\n"
+    extend "手指动不了，看来我应该还在梦里"
 
     show bg room_past
     with hpunch
@@ -67,7 +67,7 @@ label vol_0:
 
     scene bg rules_stage
     with dissolve
-    show rules loop_animation
+    show rules_loop_animation
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
@@ -79,9 +79,9 @@ label vol_0:
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！\n 最后终究会乖乖听话！"
     "舍规背面被你翻开，上面写着学生们的愤懑{image=ctc_arrow}"
-    "“见鬼，谁想遵守这些狗屁规矩” {image=ctc_arrow}"
-    "“鬼地方，不是人待得！” {image=ctc_arrow}"
-    "“撕过，后悔了……” {image=ctc_arrow}"
+    player "“见鬼，谁想遵守这些狗屁规矩” "
+    player "“鬼地方，不是人待得！”"
+    player "“撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦！{w=0.3}恐怖的麻烦！"
     "墙上的钟表猛然发出异响。{image=ctc_arrow}"
@@ -164,7 +164,8 @@ label after_menu_pray:
 
     scene bg room_past
     $ cloika_masks_animation_stage = "zoom_to_left"
-    show screen show_cloika_masks()
+    # show screen show_cloika_masks(fade_out=True)
+    call screen show_cloika_masks()
     player "难道这是她的主意？"
     "微妙地，{w=0.3}王子的面具在你看来格外显眼。{image=ctc_arrow}"
     "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。\n你注意到他光泽的肌肤、茂密的头发和充满魅力的笑容 {image=ctc_arrow}"
@@ -175,7 +176,8 @@ label after_menu_pray:
     $ cloika_masks_animation_stage = "reset"
     player "可是[peter.name]还在等着我一起赴约……"
     player "就这样吧，{w=0.3}该赴约了"
-    hide screen show_cloika_masks
+    call screen show_cloika_masks(fade_out=True)
+    # hide screen show_cloika_masks
     scene black
     pause 3.0
 
@@ -219,7 +221,7 @@ label after_menu_pray:
     with dissolve
     "水池旁围伴着三位少女。\n{w=0.6}她们一边旋转着，{w=0.3}一边唱着音调怪异的曲子 {image=ctc_arrow}"
     call screen show_text_slow_with_button("池盈如月，女神泪滴，映主慈爱，罪恶消弭。",y_align = 0.65)
-    call screen show_text_slow_with_button("泪水汇聚于此！所愿真！所愿诉！所愿熄！",y_align = 0.65)
+    call screen show_text_slow_with_button("泪水汇聚于此！\n所愿真！\n所愿诉！\n所愿熄！",y_align = 0.65)
     player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……\n"
     extend "[peter.name]，你知道吗？"
     peter "没错，她们可不是什么修女！"
@@ -227,7 +229,8 @@ label after_menu_pray:
     player "不愧是你[peter.name]，你好像什么都知道。"
     player "那我们也要去祷告吗？"
     peter "越来越会揶揄人了，先生，我还不了解你吗！"
-    hide screen show_image_with_frame
+    # hide screen show_image_with_frame
+    call screen show_image_with_frame("other/cloika_dancing_girls.png",fade_out=True)
 
     show screen show_image_with_frame("other/cloika_she_coming_p1.jpg",x_align = 0.95) as she_coming_p1
     with Dissolve(3)
@@ -303,7 +306,7 @@ label after_drag_rope:
     "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！{image=ctc_arrow}"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
     "学生2""在大家念祝词前，偷偷吃点应该没事吧…… {image=ctc_arrow}"
-    player "你看着食物犹豫又好奇"
+    "你看着食物犹豫又好奇"
     "学生3""我的真神，怎么这鸡腿没味道？！ {image=ctc_arrow}"
     player "嗯？应当不会吧……"
     hide screen show_image_with_frame
@@ -334,7 +337,7 @@ label after_drag_rope:
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。{image=ctc_arrow}"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。{image=ctc_arrow}"
     "莫比乌斯环的起点处，戏剧开场。{image=ctc_arrow}"
-    
+label test:    
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
     hide screen show_cloika_speech
@@ -342,23 +345,23 @@ label after_drag_rope:
     "你倒下了。{image=ctc_arrow}"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。{image=ctc_arrow}"
     "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。{image=ctc_arrow}"
-    show prince loop_animation
-    "王子""我能否成为歌颂的主角？{image=ctc_arrow}"
+    show prince_loop_animation  at bg_fade_in
+    "王子""我能否成为歌颂的主角？{w=2.0}{nw}"
 
-    show princess loop_animation
-    "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。{image=ctc_arrow}"
+    show princess_loop_animation  at bg_fade_in
+    "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。{w=2.0}{nw}"
 
-    show robber loop_animation
-    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！{image=ctc_arrow}"
+    show robber_loop_animation  at bg_fade_in
+    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=2.0}{nw}"
 
-    show warrior loop_animation
-    "武士""主上！我将为她而战…… {image=ctc_arrow}"
+    show warrior_loop_animation  at bg_fade_in
+    "武士""主上！我将为她而战…… {w=3.0}{nw}"
 
-    show sister_mary loop_animation
-    "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{image=ctc_arrow}"
+    show sister_mary_loop_animation  at bg_fade_in
+    "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=2.0}{nw}"
 
-    show messenger loop_animation
-    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？{image=ctc_arrow}"
+    show messenger_loop_animation  at bg_fade_in
+    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？"
 
     scene bg statue_eyes:
         zoom 1.0
