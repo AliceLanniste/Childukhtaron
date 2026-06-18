@@ -22,7 +22,7 @@ screen church_drag_rope():
             hovered SetVariable("rope_hover", True)
             unhovered SetVariable("rope_hover", False)
         if not is_dragging_rope and rope_hover:
-            add "church/rope_with_border.png" 
+            add "church/hover_rope.png" 
         else:
             add "church/rope.png" 
 
