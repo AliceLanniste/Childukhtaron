@@ -2,7 +2,6 @@ default prelude_choice_1_checked = False
 label vol_0:
 
     play music "dragon_studio_cicada_buzzing_331499.mp3"
-    "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合"
 
     show screen menu_icon
     scene bg cicada_1

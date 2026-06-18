@@ -244,14 +244,14 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            textbutton _("回退") action Rollback()
-            textbutton _("历史") action ShowMenu('history')
+            # textbutton _("回退") action Rollback()
+            # textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
-            textbutton _("保存") action ShowMenu('save')
+            # textbutton _("保存") action ShowMenu('save')
             textbutton _("快存") action QuickSave()
-            textbutton _("快读") action QuickLoad()
-            textbutton _("设置") action ShowMenu('preferences')
+            # textbutton _("快读") action QuickLoad()
+            # textbutton _("设置") action ShowMenu('preferences')
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 屏幕。
@@ -534,6 +534,15 @@ style return_button:
     yoffset -45
 
 
+style custom_pref_button_text is text:
+    # 默认状态：白色文字，黑色包边（包边粗细为2）
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+
+    # 鼠标悬停状态：红色文字，白色包边
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
+
 ## 关于屏幕 ########################################################################
 ##
 ## 此屏幕提供有关游戏和 Ren'Py 的制作人员和版权信息。
@@ -810,13 +819,22 @@ style pref_vbox is vbox
 style radio_label is pref_label
 style radio_label_text is pref_label_text
 style radio_button is gui_button
-style radio_button_text is gui_button_text
+style radio_button_text is gui_button_text:
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
+
 style radio_vbox is pref_vbox
 
 style check_label is pref_label
 style check_label_text is pref_label_text
 style check_button is gui_button
-style check_button_text is gui_button_text
+style check_button_text is gui_button_text:
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
 style check_vbox is pref_vbox
 
 style slider_label is pref_label
@@ -878,6 +896,7 @@ style slider_label:
     color  "#000000"
 style slider_bar:
     yalign 0.5
+
 
 # style slider_vbox:
 #     xsize 675
@@ -979,6 +998,8 @@ style history_label:
 
 style history_label_text:
     xalign 0.5
+    color "#ffffff"
+    outlines [ (2, "#000000", 0, 0) ]
 
 
 ## 帮助屏幕 ########################################################################

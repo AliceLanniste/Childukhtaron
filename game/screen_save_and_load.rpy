@@ -14,11 +14,11 @@ screen custom_navigation():
 
         spacing gui.navigation_spacing
 
-     
+        use save_and_load_button(_("历史"), ShowMenu("custom_history"))
         use save_and_load_button(_("存档"), ShowMenu("load"))
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
-        use save_and_load_button(_("历史"), ShowMenu("custom_history"))
-        use save_and_load_button(_("返回"), Return())
+      
+        # use save_and_load_button(_("返回"), Return())
         use save_and_load_button(_("返回菜单"), ShowMenu("main_menu"))
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
@@ -35,6 +35,10 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
 
     add "ui/save/ui_save_bg_2.png"
 
+    # imagebutton:
+    #     idle "ui/save/bg_menu_4-back.png"
+    #     hover "ui/save/bg_menu_4-back.png"
+    #     action  Return()
     frame:
         
         style "game_menu_content_frame"
@@ -124,104 +128,16 @@ screen save_and_load_button(title,button_action):
         text_yalign 0.4
        
         idle_background "ui/save/ui_save_button_black.png"
-        # hover_background "ui/save/ui_save_button_black.png"
-        selected_idle_background "ui/save/ui_save_button_red.png"  # 选中状态的红色背景
+        hover_background "ui/save/ui_save_button_black.png"
+        
+        # 选中状态（无论鼠标是否悬停，都显示红色背景）
+        selected_idle_background "ui/save/ui_save_button_red.png"
+        selected_hover_background "ui/save/ui_save_button_red.png"  # 【新增】关键代码
       
         text_style "save_load_button_text"
         action button_action
 
-# screen custom_preferences():
-#     tag menu
-    
-#     # 调用公共背景界面，这里不显示左侧第一个标题按钮
-#     use background_menu("")
-    
-#     # 下面是你原本设置界面的内容（请根据你实际的设置代码补充）
-#     # 建议放在一个 viewport 或者 fixed 中，并设置合适的 xpos 和 ypos
-#     # 例如：
 
-
-#     fixed:
-#         # 3. 核心居中代码：将内部的 vbox 整体放置在屏幕正中央
-#         vbox:
-#             align (0.5, 0.5)  # 等价于 xalign 0.5 和 yalign 0.5
-#             spacing 30        # 上下元素之间的间距
-
-#             hbox:
-#                 style_prefix "slider"
-                
-                
-#                 vbox:
-                  
-                
-#                     label _("文字速度")
-#                     bar value Preference("text speed")
-
-#                     if config.has_music:
-#                         label _("音乐音量")
-#                         bar value Preference("music volume")
-                    
-#                     if config.has_sound:
-#                         label _("音效音量")
-#                         bar value Preference("sound volume")
-#                         if config.sample_sound:
-#                             textbutton _("测试") action Play("sound", config.sample_sound)
-
-#                     if config.has_voice:
-#                         label _("语音音量")
-#                         bar value Preference("voice volume")
-#                         if config.sample_voice:
-#                             textbutton _("测试") action Play("voice", config.sample_voice)
-
-# screen custom_preferences():
-#     tag menu
-    
-#     # 调用公共背景界面
-#     use background_menu("")
-    
-#     fixed:
-#         vbox:
-#             align (0.5, 0.5)  # 整体居中
-#             spacing 30        # 每一行之间的间距
-#             style_prefix "slider"  # 统一应用滑块样式
-            
-#             # 【文字速度】
-#             hbox:
-#                 spacing 20  # label 和 bar 之间的间距
-#                 yalign 0.5  # 确保同行元素垂直居中对齐
-#                 label _("文字速度"):
-#                     xsize 200
-#                     text_align 1.0 # 文字靠右显示，紧贴进度条
-#                     yalign 0.5  # 确保文字自身也是垂直居中的
-#                 bar value Preference("text speed")
-
-#             # 【音乐音量】
-#             if config.has_music:
-#                 hbox:
-#                     spacing 20
-#                     yalign 0.5
-#                     label _("音乐音量")
-#                     bar value Preference("music volume")
-                
-#             # 【音效音量】
-#             if config.has_sound:
-#                 hbox:
-#                     spacing 20
-#                     yalign 0.5
-#                     label _("音效音量")
-#                     bar value Preference("sound volume")
-#                     if config.sample_sound:
-#                         textbutton _("测试") action Play("sound", config.sample_sound)
-
-#             # 【语音音量】
-#             if config.has_voice:
-#                 hbox:
-#                     spacing 20
-#                     yalign 0.5
-#                     label _("语音音量")
-#                     bar value Preference("voice volume")
-#                     if config.sample_voice:
-#                         textbutton _("测试") action Play("voice", config.sample_voice)
 
 
 screen custom_preferences():
@@ -231,10 +147,35 @@ screen custom_preferences():
     use background_menu("")
 
     fixed:
+
+
+           
         vbox:
             align (0.5, 0.5)  # 整体居中
             spacing 30        # 每一行之间的间距
             style_prefix "slider"
+            xoffset  100 
+
+            hbox:
+                box_wrap True
+
+                if renpy.variant("pc") or renpy.variant("web"):
+
+                    vbox:
+                        style_prefix "radio"
+                      
+                        label _("{color=#000000}显示{/color}")
+                       
+                        textbutton _("窗口") action Preference("display", "window")
+                        textbutton _("全屏") action Preference("display", "fullscreen")
+
+                vbox:
+                    style_prefix "check"
+                    label _("{color=#000000}快进{/color}")
+                    
+                    textbutton _("未读文本") action Preference("skip", "toggle")
+                    textbutton _("选项后继续") action Preference("after choices", "toggle")
+                    textbutton _("忽略转场") action InvertSelected(Preference("transitions", "toggle"))
 
             # 【文字速度】
             hbox:
@@ -309,5 +250,15 @@ screen custom_history():
                     substitute False
 
         if not _history_list:
+            
             label _("尚无对话历史记录。")
 
+
+style save_load_button_text:
+    color "#ffffff"  
+    
+    # 未选中状态下的鼠标悬停：红色
+    hover_color "#ff0000"  
+    
+    # 【新增关键代码】选中状态下的鼠标悬停：强制恢复为白色
+    selected_hover_color "#ffffff" 

@@ -64,7 +64,7 @@ screen menu_icon:
             xalign 0.98  
             yalign 0.02  
 
-            action ShowMenu('save')
+            action ShowMenu("load")
             add "ui/save/logo_menu_enter.png"
 
 transform slight_left :
@@ -78,6 +78,19 @@ transform slight_right :
 # 游戏在此开始。
 label start:
     # jump test
+    $ quick_menu = False
+    call disclaimer
+
+    $ quick_menu = True
     jump vol_0
 
     return
+
+# 免责声明内容不应该把放于游戏内，应该放在游戏外。
+label disclaimer:
+    
+    "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n⼀切设定仅为艺术创作，如有雷同，纯属巧合。"
+    
+    # 玩家点击后，自动返回到调用它的地方（即 start 标签的下一行）
+    return
+
