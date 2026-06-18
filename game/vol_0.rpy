@@ -15,11 +15,12 @@ label vol_0:
     with Pause(2)
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}兜住两只器官，膨胀而成复眼。"
     "那蝉的眼中会有几个世界呢？"
-    "这些世界会不会各有所异？\n{w}会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
+    "这些世界会不会各有所异？"
+    extend "\n会不会每个世界里都倒映出一个男孩苍白着脸，举起镊子和相框的摸样？"
     "他的眼里映着蝉将死的样子吗？"
     "会不会有一刻，{w=0.6}这是两个活着的生命在彼此注视？"
-    "远处的警告声，打断了我和蝉的交流\n"
-    extend "——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。"
+    "远处的警告声，打断了我和蝉的交流"
+    extend "\n——到点要去清洗那些被黄油香气浸透得发腻的铁锈机器。"
     "沉默着我洗刷油污，{w=0.6}蝉也沉默着，被针刺穿翅膀与腹部。"
     "我的生活里，{w=0.3}没有永恒。"
     "但蝉的生命里有。"
@@ -38,15 +39,15 @@ label vol_0:
     player "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
     scene black
     with hpunch
-    player "糟糕……\n"
-    extend "手指动不了，看来我应该还在梦里"
+    player "糟糕……"
+    extend "\n手指动不了，看来我应该还在梦里"
 
     stop music  fadeout 2.0
 
     show bg room_past
     with hpunch
-    player "这是……{w=0.6}校舍?\n" 
-    extend "和我的房间格局很相似，但有些破旧"
+    player "这是……{w=0.6}校舍?" 
+    extend "\n和我的房间格局很相似，但有些破旧"
     player "出去看看？"
     with hpunch
     player "{w=0.3}……嗯？" 
@@ -117,12 +118,13 @@ label vol_0:
     show screen show_image_with_frame("other/cloika_eye.png")
     pause 1.0
     hide screen show_image_with_frame
+
     scene bg awake
     player "谁？！"
     "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
-    player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！\n"
-    extend "终于离开梦境了吗？"
+    player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！"
+    extend "\n终于离开梦境了吗？"
 
     scene bg room_now
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
@@ -157,11 +159,12 @@ label after_menu_pray:
     player "修女好像走了……"
     player "聚会的时间我记得好像……在邀请函上写着。"
     "邀请函随着你小心的动作妥帖地从书包中抽出"
+
     show letter 1
     "{w=0.6}多么考究的一封信，\n{w=0.3}连火漆上的纹饰都繁复华丽！"
-    "凑近时可以闻到牛皮纸上隐隐透出松柏\n和什么花朵的冷淡的香气，"
-    "像女孩清泠狡黠的眼神。\n "
-    extend"握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
+    "凑近时可以闻到牛皮纸上隐隐透出松柏\n和什么花朵的冷淡的香气"
+    "像女孩清泠狡黠的眼神。 "
+    extend"\n握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
     show black:
@@ -177,12 +180,12 @@ label after_menu_pray:
     show screen show_cloika_masks()
     player "难道这是她的主意？"
     "微妙地，{w=0.3}王子的面具在你看来格外显眼。"
-    "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。\n"
-    extend "你注意到他光泽的肌肤、茂密的头发和充满魅力的笑容"
+    "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。"
+    extend "\n你注意到他光泽的肌肤、茂密的头发和充满魅力的笑容"
     player "好精致的面具，这角色比我从前寄宿的贵族老爷还体面！"
     $ cloika_masks_animation_stage = "zoom_to_right"
-    "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。\n"
-    extend"吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
+    "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。"
+    extend"\n吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
     $ cloika_masks_animation_stage = "reset"
     player "可是[peter.name]还在等着我一起赴约……"
     player "就这样吧，{w=0.3}该赴约了"
@@ -191,19 +194,20 @@ label after_menu_pray:
     scene black
     with fade
     pause 3.0
+
     scene bg view_form_far
     with fade
     "离开校舍后，你的身影消失在树林中。"
     "奇尔杜克塔伦重重叠叠的峦和黑绿的树木，似乎能捂住一切造物的痕迹。在这里，火光黯淡于浓雾，鸟鸣销匿于深谷。所能做的，唯有祈祷。"
 
-    nun_trainee "修、{w=0.3}修、{w=0.3}修女——{w=0.6}阿嚏！\n"
-    extend "这么冷的天气，{w=0.3}谁会到这禁林……"
+    nun_trainee "修、{w=0.3}修、{w=0.3}修女——{w=0.6}阿嚏！"
+    extend "\n这么冷的天气，{w=0.3}谁会到这禁林……"
     extend"等等，这居然有个礼堂？"
     show screen show_image_with_frame_and_fade("other/cloika_the_nun.png",x_align = 0.95)
     "黑夜匍匐在禁谷之地中，浓稠的寒弥漫。\n{w=0.3}银月如半阖的眼，亘古如此地漠然望着人间的轮回"
     "冷雾浸入月光，泡制出一树树的惨白，\n{w=0.3}张牙舞爪的粗枝乱藤像已逝去的躯壳，附在大地上无声而狰狞的呐喊着。"
-    "呼啸的风声里掺杂着羽翼扑朔，低低哭泣.\n"
-    extend "鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
+    "呼啸的风声里掺杂着羽翼扑朔，低低哭泣."
+    extend "\n鬼影幢幢里唯有一座腐旧的礼堂清晰而执拗地伫立在原点。"
 
     nun_mary "此处原是旧教的祈祷处，远道而来的异国人捐赠后修建的，前几年已改为礼堂。"
     nun_trainee "原来如此啊……{w=0.6}这么阴森……{w=0.6}那些孩子们真要在这苦修吗？"
@@ -217,8 +221,8 @@ label after_menu_pray:
     "于是妖邪、恶魔、精怪……\n从迷雾中陆续现身，嬉闹和夸张的笑声驱散了嘶哑鸦鸣。"
     "若是相由心生，{w=0.6}那么面具下神鬼莫辨。"
 
-    player "大家都来赴约了……\n"
-    extend "每个人似乎都有自己想扮演的角色，{w=0.3}今晚果真是盛宴啊！"
+    player "大家都来赴约了……"
+    extend "\n每个人似乎都有自己想扮演的角色，{w=0.3}今晚果真是盛宴啊！"
     player "我的选择会让她满意吗？"
     peter "嘿！瞧瞧这位年轻的……"
     player "{w=0.6}我…{w=1}…抱歉，{w=0.3}[peter.name]。"
@@ -234,8 +238,8 @@ label after_menu_pray:
     call screen show_text_slow_with_button("所愿诉！",y_align = 0.65)
     call screen show_text_slow_with_button("所愿熄！",y_align = 0.65)
 
-    player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……\n"
-    extend "[peter.name]，你知道吗？"
+    player "这是什么装扮？{w=0.6}有些像修女，但又不太像呢……"
+    extend "\n[peter.name]，你知道吗？"
     peter "没错，她们可不是什么修女！"
     peter "嗯……{w=0.3}算是一种古老的节日装扮吧。\n{w=0.3}从很早以前就有这样的打扮了。不过也有修女会这么穿。"
     player "不愧是你[peter.name]，你好像什么都知道。"
@@ -251,15 +255,16 @@ label after_menu_pray:
     "惊呼与议论交织，喧哗中她凭空出现"
 
     
-    "女人被簇拥着却有种离群的美丽，任由旁人目光染指\n"
-    extend "这是你第一次在人群中直视她的面容，{w=0.3}这样的注视让你在惊艳中隐隐感到恼人的渴望。"
+    "女人被簇拥着却有种离群的美丽，任由旁人目光染指"
+    extend "\n这是你第一次在人群中直视她的面容，{w=0.3}这样的注视让你在惊艳中隐隐感到恼人的渴望。"
     player "所有人都注视着她……"
-    "正当你心绪不宁时，她在众目睽睽中，轻巧而迅猛地攫住你的心脏。\n"
-    extend "你听见自己急速的呼吸，{w=0.3}眼里只剩她那双碧色的眼眸，意味深长地看向你，忽然微微笑了。"
+    "正当你心绪不宁时，她在众目睽睽中，轻巧而迅猛地攫住你的心脏。"
+    extend "\n你听见自己急速的呼吸，{w=0.3}眼里只剩她那双碧色的眼眸，意味深长地看向你，忽然微微笑了。"
     "这微笑并不会让她看起来轻浮，反而凸显了神秘，\n{w=0.3}一种属于女孩子独有的、不让人讨厌的狡猾。"
 
     nun_mary "注视并非祝祷，其中叵测你是否愿意接受？"
-    "[player.name] [peter.name]" "啊、{w=0.3}修女夜安！"
+
+    player_and_peter "啊、{w=0.3}修女夜安！"
     nun_mary "……"
     player "修女为什么这样看着我？"
     hide screen she_coming_p1
@@ -294,15 +299,15 @@ label after_drag_rope:
     camera:
         linear 5.0 ypos 1080
         ypos 1080
-    
+
     "{w=3.0}她精致、精美的双眼，\n如贫瘠原野上燃烧的火焰，"
     "奇尔杜克塔伦山谷里唯一的红宝石，在时间洪流里不堕光泽，熠熠生辉。"
     player "这张脸，为何美得似曾相识？"
-    "学生1""哎，你们说这雕像和村口的石女雕像，是不是有些相似……"
+    student_1 "哎，你们说这雕像和村口的石女雕像，是不是有些相似……"
     player "单独一尊倒是没有那群塑像吓人"
-    "学生2""这可是男学生们公投得出这是校内最美丽的脸蛋！"
+    student_2 "这可是男学生们公投得出这是校内最美丽的脸蛋！"
     player "若要我来选……"
-    "学生3""听说这个女神像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个礼堂里……"
+    student_3 "听说这个女神像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个礼堂里……"
     player "等我收到那份命运亏欠我的礼物，倒是可以搬一尊到我的庄园里！"
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
     camera:
@@ -313,11 +318,11 @@ label after_drag_rope:
     show screen show_image_with_frame_and_fade("other/cloika_wine_and_food.png")
     player "宴会的食物比食堂丰盛得多呢，这倒是罕见。"
 
-    "学生1""竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
+    student_1 "竟有这么多葡萄酒，许多年未见了！葡萄酒真是神赐予人沉醉狂欢的魔药！"
     player "从前当学徒时只能看着绅士们喝的葡萄酒，如今在学堂内竟应有尽有……"
-    "学生2""在大家念祝词前，偷偷吃点应该没事吧……"
+    student_2 "在大家念祝词前，偷偷吃点应该没事吧……"
     "你看着食物犹豫又好奇"
-    "学生3""我的真神，怎么这鸡腿没味道？！"
+    student_3 "我的真神，怎么这鸡腿没味道？！"
     player "嗯？应当不会吧……"
 
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
@@ -329,10 +334,11 @@ label after_drag_rope:
         linear 1 alpha 0.5
         alpha 0.5
     hide screen show_image_with_frame_and_fade
+
     show screen show_image_with_frame_and_fade("other/cloika_speech_1.png") as cloika_speech_1
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
-    "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，\n"
-    extend "昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
+    "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，"
+    extend "\n昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
     "所有手臂高举起酒杯，掌中一盏盏深色的酒液在昏暗中倒映出奇异的光。"
     hecate "敬真神！是您古老的教导，致使我们齐聚一堂！惩治那些该长居于地狱的阿赫里曼！"
     play audio "patricksilvey_weather_lightning_2_464187.mp3"
@@ -346,8 +352,8 @@ label after_drag_rope:
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.7) as white
     pause 1.0
     hide screen white
-    player "……嘶！好痛！！！\n"
-    extend "该死……我的手臂…{w=0.6}…这酒？！{nw}"
+    player "……嘶！好痛！！！"
+    extend "\n该死……我的手臂…{w=0.6}…这酒？！{nw}"
     play audio "patricksilvey_weather_lightning_2_464187.mp3"
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1) as white
     pause 1.0
@@ -360,27 +366,28 @@ label after_drag_rope:
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
     hide screen show_image_with_frame_and_fade
+
     scene black
     "你倒下了。"
     "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
     "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。"
     show prince loop_animation
-    "王子""我能否成为歌颂的主角？{w=1.0}{nw}"
+    prince "我能否成为歌颂的主角？{w=1.0}{nw}"
 
-    show princess loop_animation
-    "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。{w=1.0}{nw}"
+    show young_lady loop_animation
+    young_lady "世上本没有完整而真实的慷慨，宽恕本非罪人应为。{w=1.0}{nw}"
 
     show robber loop_animation
-    "强盗""世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=1.0}{nw}"
+    robber "世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=1.0}{nw}"
 
     show warrior loop_animation
-    "武士""主上！我将为她而战……{w=1.0}{nw}"
+    warrior "主上！我将为她而战……{w=1.0}{nw}"
 
-    show sister_mary loop_animation
-    "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
+    show princess loop_animation
+    princess "爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
 
     show messenger loop_animation
-    "神使""命运如轮，轨迹无尽，诱惑之眼，视之应何？{w=1.0}{nw}"
+    messenger "命运如轮，轨迹无尽，诱惑之眼，视之应何？{w=1.0}{nw}"
 
     show bg statue_eyes:
         alpha 0
