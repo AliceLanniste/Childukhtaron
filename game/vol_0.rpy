@@ -2,6 +2,7 @@ default prelude_choice_1_checked = False
 label vol_0:
     scene black with dissolve
     play music "dragon_studio_cicada_buzzing_331499.mp3"
+    show screen menu_icon
     scene bg cicada_1
     with dissolve
     with Pause(2)

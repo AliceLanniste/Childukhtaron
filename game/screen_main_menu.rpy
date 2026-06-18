@@ -40,3 +40,13 @@ screen main_menu_button(txt,btn_action):
         text_selected_color gui.choice_button_text_hover_color
         text_insensitive_color gui.choice_button_text_insensitive_color
         action btn_action
+
+screen menu_icon:
+    zorder 100
+    if not main_menu and quick_menu:
+        button:
+            xalign 0.98  
+            yalign 0.02  
+
+            action ShowMenu("load")
+            add "ui/save/logo_menu_enter.png"        
