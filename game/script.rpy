@@ -1,4 +1,27 @@
-﻿
+﻿#define character
+define common_character_args = dict(
+    ctc="ctc_icon"
+)
+define narrator = Character(what_outlines =gui.narrator_dialogue_outline,**common_character_args)
+define tutor = Character("家庭教师",**common_character_args)
+define player = Character("古尔",**common_character_args)
+define rules = Character("舍规",image = "rules",**common_character_args)
+define peter = Character("彼得",**common_character_args)
+define sister = Character("修女",**common_character_args)
+define clock = Character("钟表",**common_character_args)
+define nun_trainee = Character("见习修女",**common_character_args)
+define nun_mary = Character("玛利安",**common_character_args)
+define hecate = Character("赫卡特",**common_character_args)
+define player_and_peter = Character("古尔、彼得",**common_character_args)
+define student_1 = Character("学生1",**common_character_args)
+define student_2 = Character("学生2",**common_character_args)
+define student_3 = Character("学生2",**common_character_args)
+define prince = Character("王子",**common_character_args)
+define young_lady = Character("少女",**common_character_args)
+define robber = Character("强盗",**common_character_args)
+define warrior = Character("武士",**common_character_args)
+define princess = Character("公主",**common_character_args)
+define messenger = Character("神使",**common_character_args)
 
 #image bg
 image bg cicada_1 = "bg/bg_cicada_1.png"
@@ -23,58 +46,27 @@ image bg dark_red = "bg/bg_dark_red.png"
 
 #image other
 image dark_red = "other/dark_red.png"
-image game_title_start = "other/bg_title.png"
 image game_title_fin = "other/bg_title_fin.png"
+image game_title_finnal = "other/bg_title_fin.png"
+
 image letter 1 = "other/letter_1.png"
 image rules= "other/rules_1.png"
+image logo = "other/logo.png"
+image white = "other/bg_white.png"
+
+image ctc_icon:
+    "ui/arrow.png"
+    yoffset 0
+    linear 0.5 yoffset 5
+    linear 0.5 yoffset 0
+    repeat
 
 
-# 1. 定义浮动动画
-transform ctc_bounce:
-    yalign 0.5
-    block:
-        linear 0.4 yoffset -8  # 向上浮动 6 像素
-        linear 0.4 yoffset 6   # 回到原位
-        repeat
-
-# 2. 将图片和动画绑定
-image ctc_arrow:
-    "ui/save/arrow.png"  # 请确保这个路径正确
-    ctc_bounce
-
-
-
-
-#define character
-define tutor = Character("家庭教师",ctc="ctc_arrow", ctc_position="nestled")
-define player = Character("古尔",ctc="ctc_arrow", ctc_position="nestled")
-define rules = Character("舍规",image = "rules",ctc="ctc_arrow", ctc_position="nestled")
-define peter = Character("彼得",ctc="ctc_arrow", ctc_position="nestled")
-define sister = Character("修女",ctc="ctc_arrow", ctc_position="nestled")
-define clock = Character("钟表",ctc="ctc_arrow", ctc_position="nestled")
-define nun_trainee = Character("见习修女",ctc="ctc_arrow", ctc_position="nestled")
-define nun_mary = Character("玛利安",ctc="ctc_arrow", ctc_position="nestled")
-define hecate = Character("赫卡特",ctc="ctc_arrow", ctc_position="nestled")
-define narrator = Character(what_outlines =gui.narrator_dialogue_outline)
-
-screen menu_icon:
-    zorder 100
-    if not main_menu and quick_menu:
-        button:
-            xalign 0.98  
-            yalign 0.02  
-
-            action ShowMenu("load")
-            add "ui/save/logo_menu_enter.png"
-
-transform slight_left :
-    xalign 0.25
-    yalign 1.0
-
-transform slight_right :
-    xalign 0.75
-    yalign 1.0
-
+transform slow_zoom_statue():
+    zoom 1.0
+    xalign 0.05
+    yalign 0.35
+    linear 20 zoom 2
 # 游戏在此开始。
 label start:
     # jump test
@@ -89,7 +81,14 @@ label start:
 # 免责声明内容不应该把放于游戏内，应该放在游戏外。
 label disclaimer:
     
-    "游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n⼀切设定仅为艺术创作，如有雷同，纯属巧合。"
+    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
+    font_size = 48)
+    with dissolve
+    with Pause(2)
+    hide screen show_text with dissolve
+    show logo with dissolve
+    with Pause(2)
+    hide logo with dissolve
     
     # 玩家点击后，自动返回到调用它的地方（即 start 标签的下一行）
     return
