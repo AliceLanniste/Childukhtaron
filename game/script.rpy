@@ -68,7 +68,7 @@ transform slow_zoom_statue():
     linear 20 zoom 2
 # 游戏在此开始。
 label start:
-    jump test
-    # jump vol_0
+    # jump test
+    jump vol_0
 
     return

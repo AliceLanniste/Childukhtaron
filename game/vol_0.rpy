@@ -366,7 +366,6 @@ label after_drag_rope:
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
     hide screen show_image_with_frame_and_fade
-label test:
 
     scene black
     "你倒下了。"
