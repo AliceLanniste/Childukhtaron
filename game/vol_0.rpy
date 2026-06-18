@@ -367,7 +367,7 @@ label after_drag_rope:
     show prince loop_animation
     "王子""我能否成为歌颂的主角？{w=1.0}{nw}"
 
-    show princess loop_animation
+    show young_lady loop_animation
     "少女""世上本没有完整而真实的慷慨，宽恕本非罪人应为。{w=1.0}{nw}"
 
     show robber loop_animation
@@ -376,7 +376,7 @@ label after_drag_rope:
     show warrior loop_animation
     "武士""主上！我将为她而战……{w=1.0}{nw}"
 
-    show sister_mary loop_animation
+    show princess loop_animation
     "公主""爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
 
     show messenger loop_animation

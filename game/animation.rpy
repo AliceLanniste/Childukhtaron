@@ -37,14 +37,14 @@ image prince loop_animation :
     "animation/masks/prince_2.png"
     pause MASK_ANIMATION_SPEED
     repeat
-image princess loop_animation :
-    "animation/masks/princess_1.png"
+image young_lady loop_animation :
+    "animation/masks/young_lady_1.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/princess_2.png"
+    "animation/masks/young_lady_2.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/princess_3.png"
+    "animation/masks/young_lady_3.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/princess_2.png"
+    "animation/masks/young_lady_2.png"
     pause MASK_ANIMATION_SPEED
     repeat
 image robber loop_animation :
@@ -67,14 +67,14 @@ image warrior loop_animation :
     "animation/masks/warrior_2.png"
     pause MASK_ANIMATION_SPEED
     repeat
-image sister_mary loop_animation :
-    "animation/masks/sister_mary_1.png"
+image princess loop_animation :
+    "animation/masks/princess_1.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/sister_mary_2.png"
+    "animation/masks/princess_2.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/sister_mary_3.png"
+    "animation/masks/princess_3.png"
     pause MASK_ANIMATION_SPEED
-    "animation/masks/sister_mary_2.png"
+    "animation/masks/princess_2.png"
     pause MASK_ANIMATION_SPEED
     repeat
 image messenger loop_animation :
