@@ -244,14 +244,14 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            textbutton _("回退") action Rollback()
-            textbutton _("历史") action ShowMenu('history')
+            # textbutton _("回退") action Rollback()
+            # textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
-            textbutton _("保存") action ShowMenu('save')
+            # textbutton _("保存") action ShowMenu('save')
             textbutton _("快存") action QuickSave()
-            textbutton _("快读") action QuickLoad()
-            textbutton _("设置") action ShowMenu('preferences')
+            # textbutton _("快读") action QuickLoad()
+            # textbutton _("设置") action ShowMenu('preferences')
 
 
 ## 此代码确保只要用户没有主动隐藏界面，就会在游戏中显示 quick_menu 屏幕。
@@ -506,9 +506,9 @@ style game_menu_navigation_frame:
     yfill True
 
 style game_menu_content_frame:
-    left_margin 60
+    left_margin 500
     right_margin 30
-    top_margin 15
+    top_margin 150
 
 style game_menu_viewport:
     xsize 1380
@@ -533,6 +533,15 @@ style return_button:
     yalign 1.0
     yoffset -45
 
+
+style custom_pref_button_text is text:
+    # 默认状态：白色文字，黑色包边（包边粗细为2）
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+
+    # 鼠标悬停状态：红色文字，白色包边
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
 
 ## 关于屏幕 ########################################################################
 ##
@@ -709,8 +718,9 @@ style about_label_text:
 # style page_button_text:
 #     properties gui.text_properties("page_button")
 
-# style slot_button:
-#     properties gui.button_properties("slot_button")
+style slot_button:
+    properties gui.button_properties("slot_button")
+    background Solid("#000000")
 
 # style slot_button_text:
 #     properties gui.text_properties("slot_button")
@@ -802,7 +812,6 @@ screen preferences():
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
-
 style pref_label is gui_label
 style pref_label_text is gui_label_text
 style pref_vbox is vbox
@@ -810,17 +819,27 @@ style pref_vbox is vbox
 style radio_label is pref_label
 style radio_label_text is pref_label_text
 style radio_button is gui_button
-style radio_button_text is gui_button_text
+style radio_button_text is gui_button_text:
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
+
 style radio_vbox is pref_vbox
 
 style check_label is pref_label
 style check_label_text is pref_label_text
 style check_button is gui_button
-style check_button_text is gui_button_text
+style check_button_text is gui_button_text:
+    color "#ffffff"
+    outlines [(2, "#000000", 0, 0)]
+    hover_color "#ff0000"
+    hover_outlines [(2, "#ffffff", 0, 0)]
 style check_vbox is pref_vbox
 
 style slider_label is pref_label
-style slider_label_text is pref_label_text
+style slider_label_text is pref_label_text:
+    color "#000000"
 style slider_slider is gui_slider
 style slider_button is gui_button
 style slider_button_text is gui_button_text
@@ -860,7 +879,7 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
-    xsize 525
+    xsize 325
 
 style slider_button:
     properties gui.button_properties("slider_button")
@@ -868,10 +887,19 @@ style slider_button:
     left_margin 15
 
 style slider_button_text:
-    properties gui.text_properties("slider_button")
+    color "#080000"
 
-style slider_vbox:
-    xsize 675
+
+style slider_label:
+    yalign 0.5
+    yoffset -20
+    color  "#000000"
+style slider_bar:
+    yalign 0.5
+
+
+# style slider_vbox:
+#     xsize 675
 
 
 ## 历史屏幕 ########################################################################
@@ -934,6 +962,8 @@ style history_label is gui_label
 style history_label_text is gui_label_text
 
 style history_window:
+    xalign 0.5
+    yalign 0.5
     xfill True
     ysize gui.history_height
 
@@ -946,6 +976,12 @@ style history_name:
 style history_name_text:
     min_width gui.history_name_width
     textalign gui.history_name_xalign
+     
+    # 【新增/修改】设置文字颜色为黑色
+    color "#000000"
+    
+    # 【新增/修改】设置红色包边，2像素粗细
+    outlines [ (2, "#ff0000", 0, 0) ]
 
 style history_text:
     xpos gui.history_text_xpos
@@ -955,12 +991,15 @@ style history_text:
     min_width gui.history_text_width
     textalign gui.history_text_xalign
     layout ("subtitle" if gui.history_text_xalign else "tex")
+    outlines [ (2, "#000000", 0, 0) ]
 
 style history_label:
     xfill True
 
 style history_label_text:
     xalign 0.5
+    color "#ffffff"
+    outlines [ (2, "#000000", 0, 0) ]
 
 
 ## 帮助屏幕 ########################################################################
@@ -1584,11 +1623,11 @@ style vscrollbar:
     base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
     thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
-style slider:
-    variant "small"
-    ysize gui.slider_size
-    base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
+# style slider:
+#     variant "small"
+#     ysize gui.slider_size
+#     base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
 
 style vslider:
     variant "small"

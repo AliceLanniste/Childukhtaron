@@ -46,6 +46,7 @@ image bg dark_red = "bg/bg_dark_red.png"
 
 #image other
 image dark_red = "other/dark_red.png"
+image game_title_fin = "other/bg_title_fin.png"
 image game_title_finnal = "other/bg_title_fin.png"
 
 image letter 1 = "other/letter_1.png"
@@ -69,6 +70,26 @@ transform slow_zoom_statue():
 # 游戏在此开始。
 label start:
     # jump test
+    $ quick_menu = False
+    call disclaimer
+
+    $ quick_menu = True
     jump vol_0
 
     return
+
+# 免责声明内容不应该把放于游戏内，应该放在游戏外。
+label disclaimer:
+    
+    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
+    font_size = 48)
+    with dissolve
+    with Pause(2)
+    hide screen show_text with dissolve
+    show logo with dissolve
+    with Pause(2)
+    hide logo with dissolve
+    
+    # 玩家点击后，自动返回到调用它的地方（即 start 标签的下一行）
+    return
+

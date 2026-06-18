@@ -94,7 +94,7 @@ define gui.title_text_size = 32
 ## 标题菜单和游戏菜单使用的图像。
 define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
-
+define gui.game_menu_title ="gui/bg_title.png"
 
 ## 对话 ##########################################################################
 ##
@@ -331,7 +331,7 @@ define gui.unscrollable = "hide"
 define config.history_length = 250
 
 ## 历史屏幕条目的高度，或设置为 None 以使高度变量自适应。
-define gui.history_height = 210
+define gui.history_height = 150
 
 ## 在历史记录屏幕条目之间添加额外的空间。
 define gui.history_spacing = 0

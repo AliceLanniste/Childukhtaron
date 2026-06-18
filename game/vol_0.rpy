@@ -2,14 +2,7 @@ default prelude_choice_1_checked = False
 label vol_0:
     scene black with dissolve
     play music "dragon_studio_cicada_buzzing_331499.mp3"
-    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
-    font_size = 48)
-    with dissolve
-    with Pause(2)
-    hide screen show_text with dissolve
-    show logo with dissolve
-    with Pause(2)
-    hide logo with dissolve
+    show screen menu_icon
     scene bg cicada_1
     with dissolve
     with Pause(2)
@@ -94,7 +87,7 @@ label vol_0:
     player "“撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦！{w=0.3}恐怖的麻烦！"
-    "墙上的钟表猛然发出异响。"
+    "墙上的钟表猛然发出异响。{image=ctc_arrow}"
     clock "到点了！麻烦！哈哈哈哈"   
     clock "坎达克里有座钟，午夜已有五声响，今夜钟声即将近，谁的歌谣再唱起……"
     "你听到奇怪的舍规也开始了哼唱。"
@@ -121,20 +114,20 @@ label vol_0:
 
     scene bg awake
     player "谁？！"
-    "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
+    "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。{image=ctc_arrow}"
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！"
     extend "\n终于离开梦境了吗？"
 
     scene bg room_now
-    "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分"
-    "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
+    "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分 {image=ctc_arrow}"
+    "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。{image=ctc_arrow}"
     peter "糟糕，{w=0.6}修女来了，\n {w=0.3}[player.name]！记得带上强盗面具，我先走了……"
     sister "宵禁已到"
     sister "诸位请遵循舍规，\n{w=0.3}虔诚祷告以获庇佑。"
-    "祷告的嗡鸣声环绕在你周身，\n {w=0.6}你几乎能想象到一间间无数狭长的房间中匍匐着具具年轻的躯体"
-    "非信徒的你伫立在原地, \n{w=1.2}在肃穆的昏暗中萌生出隐秘而微妙的窃喜"
-    "像借着神的视角俯瞰信徒。"
+    "祷告的嗡鸣声环绕在你周身，\n {w=0.6}你几乎能想象到一间间无数狭长的房间中匍匐着具具年轻的躯体 {image=ctc_arrow}"
+    "非信徒的你伫立在原地, \n{w=1.2}在肃穆的昏暗中萌生出隐秘而微妙的窃喜 {image=ctc_arrow}"
+    "像借着神的视角俯瞰信徒。 {image=ctc_arrow}"
     sister "请祷告。"
 
 label menu_pray:
@@ -197,8 +190,8 @@ label after_menu_pray:
 
     scene bg view_form_far
     with fade
-    "离开校舍后，你的身影消失在树林中。"
-    "奇尔杜克塔伦重重叠叠的峦和黑绿的树木，似乎能捂住一切造物的痕迹。在这里，火光黯淡于浓雾，鸟鸣销匿于深谷。所能做的，唯有祈祷。"
+    "离开校舍后，你的身影消失在树林中。{image=ctc_arrow}"
+    "奇尔杜克塔伦重重叠叠的峦和黑绿的树木，似乎能捂住一切造物的痕迹。在这里，火光黯淡于浓雾，鸟鸣销匿于深谷。所能做的，唯有祈祷。{image=ctc_arrow}"
 
     nun_trainee "修、{w=0.3}修、{w=0.3}修女——{w=0.6}阿嚏！"
     extend "\n这么冷的天气，{w=0.3}谁会到这禁林……"
@@ -217,9 +210,9 @@ label after_menu_pray:
 
     scene bg pool
     with fade
-    "{w=1}礼堂外散落着孩童们乱刻的杰作——\n{w=0.6}一堆堆表情扭曲的石榴和南瓜雕塑，{w=0.3}没有火光的存在。"
-    "于是妖邪、恶魔、精怪……\n从迷雾中陆续现身，嬉闹和夸张的笑声驱散了嘶哑鸦鸣。"
-    "若是相由心生，{w=0.6}那么面具下神鬼莫辨。"
+    "{w=1}礼堂外散落着孩童们乱刻的杰作——\n{w=0.6}一堆堆表情扭曲的石榴和南瓜雕塑，{w=0.3}没有火光的存在。{image=ctc_arrow}"
+    "于是妖邪、恶魔、精怪……\n从迷雾中陆续现身，嬉闹和夸张的笑声驱散了嘶哑鸦鸣。{image=ctc_arrow}"
+    "若是相由心生，{w=0.6}那么面具下神鬼莫辨。{image=ctc_arrow}"
 
     player "大家都来赴约了……"
     extend "\n每个人似乎都有自己想扮演的角色，{w=0.3}今晚果真是盛宴啊！"
@@ -252,7 +245,7 @@ label after_menu_pray:
     pause 2.0
     show screen show_image_with_frame_and_fade("other/cloika_she_coming_p2.jpg",x_align = 0.8) as she_coming_p2
 
-    "惊呼与议论交织，喧哗中她凭空出现"
+    "惊呼与议论交织，喧哗中她凭空出现 {image=ctc_arrow}"
 
     
     "女人被簇拥着却有种离群的美丽，任由旁人目光染指"
@@ -271,7 +264,7 @@ label after_menu_pray:
     hide screen she_coming_p2
     
     #"（钟声响起）"
-    "[nun_mary.name]嗤笑"
+    "[nun_mary.name]嗤笑 {image=ctc_arrow}"
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
 
     scene black with dissolve
@@ -279,8 +272,8 @@ label after_menu_pray:
     show curtain_left at fade_in(pos_y = -780)
     show curtain_right at fade_in(pos_x = 960, pos_y = -780)
     player "学校里竟有这样光彩的地方！\n谁能想到来在这偏远村庄里已被惊艳了无数次……"
-    "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。"
-    "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？"
+    "时光叹息被镌刻在建筑中，似悲似喜的厚重赋予\n这砖瓦横梁、装饰浮雕别样的质感。{image=ctc_arrow}"
+    "烛光如梦似幻，千年前是否也有一双感怀而渴慕的眼同此刻重叠？{image=ctc_arrow}"
     peter "这破地方居然还没散架！我说什么，这密特拉塑像缺得叫工匠怎么修补嘛……"
     player "[peter.name]，你来过这？"
     peter "何止是来过，我每次贪玩都在这报应了！从前这是大人物们祷告的地方，后来被弃置了。"
@@ -326,7 +319,7 @@ label after_drag_rope:
     player "嗯？应当不会吧……"
 
     hecate "晚上好，欢迎诸君来到迈赫尔节的盛宴。"
-    "身旁的学生们欢呼雀跃。"
+    "身旁的学生们欢呼雀跃。{image=ctc_arrow}"
     hecate "承命运不弃，我等于丰收之日再度赴约，重演此幕。"
     hecate "请带上面具，举起手中的酒液，这杯鸠酒将敬给真神！阿赫里曼必亡。"
     show black:
@@ -368,9 +361,9 @@ label after_drag_rope:
     hide screen show_image_with_frame_and_fade
 
     scene black
-    "你倒下了。"
-    "目光所及之处，宴会厅一地的尸体中有六个身影站着。"
-    "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。"
+    "你倒下了。{image=ctc_arrow}"
+    "目光所及之处，宴会厅一地的尸体中有六个身影站着。{image=ctc_arrow}"
+    "六颗人头上戴着一张张浮夸的面具，以诡异的平转方式回头，酒液似血一般从眼孔中渗出来。{image=ctc_arrow}"
     show prince loop_animation
     prince "我能否成为歌颂的主角？{w=1.0}{nw}"
 
