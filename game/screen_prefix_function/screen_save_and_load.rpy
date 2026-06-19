@@ -260,5 +260,5 @@ style save_load_button_text:
     # 未选中状态下的鼠标悬停：红色
     hover_color "#ff0000"  
     
-    # 【新增关键代码】选中状态下的鼠标悬停：强制恢复为白色
+    # 选中状态下的鼠标悬停：强制恢复为白色
     selected_hover_color "#ffffff" 
