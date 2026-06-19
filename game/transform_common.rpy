@@ -26,3 +26,9 @@ transform fade_with_pause_show_and_hide(duration_pause = 1.0, duration_show = 1.
         linear duration_show alpha 1.0
     on hide:
         linear duration_hide alpha 0
+
+transform slow_zoom_statue():
+    zoom 1.0
+    xalign 0.05
+    yalign 0.35
+    linear 20 zoom 2        
