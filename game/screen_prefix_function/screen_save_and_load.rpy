@@ -19,7 +19,7 @@ screen custom_navigation():
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
       
         # use save_and_load_button(_("返回"), Return())
-        use save_and_load_button(_("返回菜单"), ShowMenu("main_menu"))
+        use save_and_load_button(_("返回菜单"),   [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())])
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
     # 底层主背景

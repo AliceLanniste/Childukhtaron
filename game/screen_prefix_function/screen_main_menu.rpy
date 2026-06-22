@@ -48,5 +48,5 @@ screen menu_icon:
             xalign 0.98  
             yalign 0.02  
 
-            action ShowMenu("load")
+            action [Stop("music", fadeout=1.0), ShowMenu("load")] 
             add "ui/save/logo_menu_enter.png"        
