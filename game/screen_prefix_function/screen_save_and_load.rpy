@@ -19,7 +19,7 @@ screen custom_navigation():
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
       
         # use save_and_load_button(_("返回"), Return())
-        use save_and_load_button(_("返回菜单"), ShowMenu("main_menu"))
+        use save_and_load_button(_("返回菜单"),   [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())])
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
     # 底层主背景
@@ -260,5 +260,5 @@ style save_load_button_text:
     # 未选中状态下的鼠标悬停：红色
     hover_color "#ff0000"  
     
-    # 【新增关键代码】选中状态下的鼠标悬停：强制恢复为白色
+    # 选中状态下的鼠标悬停：强制恢复为白色
     selected_hover_color "#ffffff" 

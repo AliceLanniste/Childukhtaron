@@ -46,7 +46,6 @@ image bg dark_red = "bg/bg_dark_red.png"
 
 #image other
 image dark_red = "other/dark_red.png"
-image game_title_fin = "other/bg_title_fin.png"
 image game_title_finnal = "other/bg_title_fin.png"
 
 image letter 1 = "other/letter_1.png"
@@ -67,9 +66,11 @@ transform slow_zoom_statue():
     xalign 0.05
     yalign 0.35
     linear 20 zoom 2
+
 # 游戏在此开始。
 label start:
     # jump test
+    hide screen black_cover
     $ quick_menu = False
     call disclaimer
 
@@ -77,6 +78,10 @@ label start:
     jump vol_0
 
     return
+
+screen black_cover():
+    add Solid("#000000") 
+    zorder 100 
 
 # 免责声明内容不应该把放于游戏内，应该放在游戏外。
 label disclaimer:
