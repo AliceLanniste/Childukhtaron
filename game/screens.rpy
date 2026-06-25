@@ -244,7 +244,7 @@ screen quick_menu():
             style_prefix "quick"
             style "quick_menu"
 
-            # textbutton _("回退") action Rollback()
+            textbutton _("回退") action Rollback()
             # textbutton _("历史") action ShowMenu('history')
             textbutton _("快进") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("自动") action Preference("auto-forward", "toggle")
@@ -337,6 +337,7 @@ style navigation_button_text is gui_button_text
 style navigation_button:
     size_group "navigation"
     properties gui.button_properties("navigation_button")
+    activate_sound "audio/ui/04-ui-menu move .ogg" 
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
@@ -414,6 +415,7 @@ style navigation_button_text:
 screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     style_prefix "game_menu"
+    
 
     if main_menu:
         add gui.main_menu_background

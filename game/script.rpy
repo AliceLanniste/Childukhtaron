@@ -85,15 +85,18 @@ screen black_cover():
 
 # 免责声明内容不应该把放于游戏内，应该放在游戏外。
 label disclaimer:
-    
-    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，\n均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。",
-    font_size = 48)
-    with dissolve
-    with Pause(2)
-    hide screen show_text with dissolve
-    show logo with dissolve
-    with Pause(2)
-    hide logo with dissolve
+    stop music fadeout 1.0 
+    scene black
+    with Dissolve(1.0)
+
+    show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。")
+    with Dissolve(2)
+    with Pause(3)
+    hide screen show_text with Dissolve(2)
+    show logo with Dissolve(2)
+    play music "audio/05_amb_cicada_01.mp3" fadein(2)
+    with Pause(3)
+    hide logo with Dissolve (2)
     
     # 玩家点击后，自动返回到调用它的地方（即 start 标签的下一行）
     return

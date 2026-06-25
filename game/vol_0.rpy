@@ -1,10 +1,10 @@
 default prelude_choice_1_checked = False
 label vol_0:
     scene black with dissolve
-    play music "dragon_studio_cicada_buzzing_331499.mp3"
+    
     show screen menu_icon
     scene bg cicada_1
-    with dissolve
+    with Dissolve (2)
     with Pause(2)
     "听说蝉真实的眼睛像网一样密密麻麻地，\n {w=0.3}兜住两只器官，膨胀而成复眼。"
     "那蝉的眼中会有几个世界呢？"
@@ -17,7 +17,7 @@ label vol_0:
     "沉默着我洗刷油污，{w=0.6}蝉也沉默着，被针刺穿翅膀与腹部。"
     "我的生活里，{w=0.3}没有永恒。"
     "但蝉的生命里有。"
-
+    stop music 
     tutor "多么动人的文章，您的写作进步远超我的想象"
     tutor "还好从前的艰苦没有给您留下阴影！"
     tutor "您顺利完成波斯语的课程后便能去贵族学校进修了吧？\n那个什么山谷来着？"
@@ -26,40 +26,37 @@ label vol_0:
     tutor "听地名似乎是个颇有历史的文雅之地！"
     tutor "听您的——咳，叔叔提起了，您结业后就能获得遗产吧?\n我的上帝！这是我做梦都……"
 
-    scene black with Dissolve(3.0)
+    scene black with Dissolve(2.0)
 
     play music "07_foley_clock_chime_01.ogg"
 
     player "……{w=0.6}头好晕，近来总是在梦中无法醒来"
     player "怎么又梦到写作课了……"
     player "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
+    
+
     scene black
     with hpunch
-   
-    play music "08_impact_buzz_01.ogg"
+    play sound "08_impact_buzz_01.ogg"
 
     player "糟糕……"
+    stop music   fadeout 3.0
     extend "\n手指动不了，看来我应该还在梦里"
-
-    stop music  fadeout 2.0
 
     show bg room_past
     with hpunch
-
-    play music "09_amb_cicada_02"
-    play music "10_impact_buzz_02.ogg"
+    play music "audio/bgm/1.1-room-past-0.mp3"
 
     player "这是……{w=0.6}校舍?" 
     extend "\n和我的房间格局很相似，但有些破旧"
     player "出去看看？"
     
-    play music "11_door_push_01.ogg"
-
+    
+    play sound "11_door_push_01.ogg"
     with hpunch
     player "{w=0.3}……嗯？" 
 
-    play music "12_door_push_02.ogg"
-
+    play sound "12_door_push_02.ogg"
     with hpunch
     pause 0.3
     with hpunch
@@ -70,7 +67,7 @@ label vol_0:
 
     show rules
     
-    play music "13_foley_paper_01.ogg"
+    play sound "13_foley_paper_01.ogg"
 
     player "这和现在的舍规也差不多么……"
 
@@ -80,11 +77,13 @@ label vol_0:
     pause 1.0
     show rules
     with hpunch
-    
-    play music "15_impact_hit.ogg"
+
+    stop music
+    play sound "15_impact_hit.ogg"
 
     rules "谁允许你无礼的脏手碰我！"
     player "......?!"
+    play music "audio/bgm/1.1-room-past-0.mp3" fadein 0.5
     player "……{w=0.6}难道是梦中梦？"
     rules "做梦做梦，还觉得是做梦蠢货！\n
     遵守规矩让你很不满吗！"
@@ -93,76 +92,99 @@ label vol_0:
     scene bg rules_stage
     with dissolve
     show rules loop_animation
-    play music "16_foley_writing_02.ogg"
+    play sound "audio/bgm/1.2-rule-rotating.mp3"
+    play sound2 "16_foley_writing_02.ogg"
     call screen show_text_slow_with_duration("恶行说，\n 没有人所见即为才智！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("妄念说，\n不择手段实现即为权力！",font_size = 160,font_color = "#912020")
     call screen show_text_slow_with_duration("机会说，\n谋杀规则即为新生！",font_size = 160,font_color = "#912020")
-
+    stop music fadeout 2.0
     scene bg room_past
     with dissolve
     player "可是先生……"
-    play music "13_foley_paper_01.ogg"
+    
+    play music "audio/bgm/1.1-room-past-0.mp3" fadein 1.0
     show rules at slight_left
     rules "你们大可呼天喊地去抱怨！\n 最后终究会乖乖听话！"
+    
     "舍规背面被你翻开，上面写着学生们的愤懑。"
+    play sound "13_foley_paper_01.ogg"
     player "“见鬼，谁想遵守这些狗屁规矩”"
     player "“鬼地方，不是人待得！”"
     player "“撕过，后悔了……”"
     player "谁不想当黑羊呢……如果不给他人添麻烦的话。"
     rules "对，麻烦！{w=0.3}恐怖的麻烦！"
-    play music "17_foley_clock_strike.ogg"
+    play sound "17_foley_clock_strike.ogg"
     "墙上的钟表猛然发出异响。"
+    
+    play music2 "18_door_knock_swell.ogg"
+    $ renpy.music.set_volume(0.5, channel="music2")
     clock "到点了！麻烦！哈哈哈哈"   
     clock "坎达克里有座钟，午夜已有五声响，今夜钟声即将近，谁的歌谣再唱起……"
     "你听到奇怪的舍规也开始了哼唱。"
     rules "听到钟声，请遵舍规！\n哈哈哈哈"
     player "不好，我要逃出去！醒醒……快醒醒"
-    play music "18_door_knock_swell.ogg"
+    
     scene black
-    with eye_shut(1)
-    play music "19_whoosh_transition_01.ogg"
+    with eye_shut(0.5)
+    play sound "19_whoosh_transition_01.ogg"
     show bg room_past
     show rules at slight_left
-    play music "20_impact_eye_appear.ogg"
-    with eye_open(1)
-    scene black
-    with eye_shut(0.8)
-    show bg room_past
-    show rules at slight_left
+    play sound2 "20_impact_eye_appear.ogg"
+   
     with eye_open(0.8)
     scene black
-    with eye_shut(0.6)
-    pause 0.5
+    with eye_shut(0.45)
+    show bg room_past
+    show rules at slight_left
+    
+    with eye_open(0.8)
+    scene black
+    with eye_shut(1.5)
+    show bg room_past
+    show rules at slight_left
+    
+    with eye_open(1.5)
+    scene black
+    with eye_shut(2)
 
-    show screen show_image_with_frame("other/cloika_eye.png")
+    
+    stop music
+    stop music2
+
+    play music "22_door_knock_01.mp3"
+    show screen show_image_with_frame("other/cloika_eye.png") 
     pause 1.0
     hide screen show_image_with_frame
+    
 
     scene bg awake
-    play music "21_amb_indoor_01.ogg"
-    play music "22_door_knock_01.ogg"
-    play music "23_foley_clock_tick_01.ogg"
+    play music2 "21_amb_indoor_01.mp3"
     player "谁？！"
     "从噩梦中分娩出世，\n一脉相承的暗淡和霉味让你几乎难以辨别是否回到了真实中。"
+    stop music
     peter "兄弟！{w=0.6}醒醒！{w=1.2}\n......不会睡着了吧？"
     player "……{w=0.3}我的手{w=0.6}……{w=0.3}能动了……！"
     extend "\n终于离开梦境了吗？"
-    play music "26_foley_clock_tick_02.ogg"
+    
     scene bg room_now
+    play music3 "23_foley_clock_tick_01.mp3"
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分 "
+    
     "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
-    play music "27_foley_footsteps_approach.mp3"
+    play sound "27_foley_footsteps_approach.mp3"
+    play sound2  "28_foley_clock_chime_02.ogg"
     peter "糟糕，{w=0.6}修女来了，\n {w=0.3}[player.name]！记得带上强盗面具，我先走了……"
-    play music  "28_foley_clock_chime_02.ogg"
+    $ renpy.pause(3.0, hard=True)
     sister "宵禁已到"
     sister "诸位请遵循舍规，\n{w=0.3}虔诚祷告以获庇佑。"
     play music "29_amb_prayer_chant.mp3"
+    #####play music4 "1-3-room-now-1.mp3"
     "祷告的嗡鸣声环绕在你周身，\n {w=0.6}你几乎能想象到一间间无数狭长的房间中匍匐着具具年轻的躯体 "
     "非信徒的你伫立在原地, \n{w=1.2}在肃穆的昏暗中萌生出隐秘而微妙的窃喜 "
     "像借着神的视角俯瞰信徒。 "
     sister "请祷告。"
     #play music "01"
-    play music "31_ui_click_confirm.ogg"
+    play sound "31_ui_click_confirm.ogg"
 # label test:
 label menu_pray:
     menu:
@@ -183,18 +205,26 @@ label do_not_pray:
     jump after_menu_pray
 
 label after_menu_pray:
-    play music "32_foley_footsteps_fade.ogg"  noloop
+    stop music
+    stop music3 fadeout 1.0
+    play music "20_impact_eye_appear.ogg"
+    $ renpy.pause(6.5, hard=True)
+    stop music
+    pause 1.0
+    play sound "32_foley_footsteps_fade.ogg"
+    $ renpy.pause(4.0, hard=True)
     player "修女好像走了……"
     player "聚会的时间我记得好像……在邀请函上写着。"
     "邀请函随着你小心的动作妥帖地从书包中抽出"
-    play music "13_foley_paper_01.ogg" noloop
+    play sound "13_foley_paper_01.ogg" 
+    ####play music "1.3-room-now-1.mp3"
     show letter 1
     "{w=0.6}多么考究的一封信，\n{w=0.3}连火漆上的纹饰都繁复华丽！"
     "凑近时可以闻到牛皮纸上隐隐透出松柏\n和什么花朵的冷淡的香气"
     "像女孩清泠狡黠的眼神。 "
     extend"\n握着这封信，{w=0.3}你仿佛抓住了某个馥郁的秘密。"
      
-    play music "34_foley_paper_unfold.ogg"  noloop
+    play sound "34_foley_paper_unfold.ogg"  
 
     "打开信封，你看见银灰色的信纸上印着优雅的斜体字:"
 
@@ -218,21 +248,26 @@ label after_menu_pray:
     "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。"
     extend"\n吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
     $ cloika_masks_animation_stage = "reset"
+    play music "28_foley_clock_chime_02.ogg"
     player "可是[peter.name]还在等着我一起赴约……"
 
-    play music "28_foley_clock_chime_02.ogg"
+    
     player "就这样吧，{w=0.3}该赴约了"
-    play music "40_amb_forest_autumn.ogg"
+    stop music2
     hide screen show_cloika_masks
-    pause 1.0
+    pause 0.5
     scene black
     with fade
     pause 3.0
-    play music "39_whoosh_transition_04.ogg"
+    
     scene bg view_form_far
-    play music "40_amb_forest_autumn.ogg" noloop
+    
 
     with fade
+      ####  ####  ####  ####  ####stop music fadeout 3.0
+    play music "40_amb_forest_autumn.ogg"
+    play music "39_whoosh_transition_04.ogg"
+    play music "40_amb_forest_autumn.ogg" noloop
     "离开校舍后，你的身影消失在树林中。"
     "奇尔杜克塔伦重重叠叠的峦和黑绿的树木，似乎能捂住一切造物的痕迹。在这里，火光黯淡于浓雾，鸟鸣销匿于深谷。所能做的，唯有祈祷。"
 

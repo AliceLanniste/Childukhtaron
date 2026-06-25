@@ -62,7 +62,9 @@ define config.has_voice = True
 ## 将以下语句取消注释就可以设置标题界面播放的背景音乐文件。此文件将在整个游戏
 ## 中持续播放，直至音乐停止或其他文件开始播放。
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/bgm/main-menu-theme.mp3"
+
+default preferences.music_volume = 0.8
 
 
 ## 转场 ##########################################################################
@@ -152,8 +154,14 @@ define config.window_icon = "gui/window_icon.png"
 ## 此部分控制 Ren'Py 如何将您的项目转变为发行版文件。
 
 init python:
+    
+    renpy.music.register_channel("music2", mixer="music", loop=True)
+    renpy.music.register_channel("music3", mixer="music", loop=True)
+    renpy.music.register_channel("music4", mixer="music", loop=True)
 
-    ## 以下函数接受文件模式。文件模式不区分大小写，并与基础目录的相对路径相匹
+    renpy.music.register_channel("sound2", mixer="sound2", loop=False)
+    renpy.music.register_channel("sound3", mixer="sound3", loop=False)
+    ##channe 以下函数接受文件模式。文件模式不区分大小写，并与基础目录的相对路径相匹
     ## 配，包括或不包括 /。如果多个模式匹配，则使用第一个模式。
     ##
     ## 在一个模式中：
