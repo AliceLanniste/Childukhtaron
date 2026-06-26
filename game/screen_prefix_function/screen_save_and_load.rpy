@@ -20,11 +20,11 @@ screen custom_navigation():
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
       
         # use save_and_load_button(_("返回"), Return())
-        use save_and_load_button(_("返回菜单"), If(
-        main_menu, 
-        Return(), 
-        [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())]
-))
+        use save_and_load_button(_("返回菜单"), 
+            If(main_menu, true=Return(), false=[Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())])
+        )
+        #  [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())]
+        
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
    
@@ -46,10 +46,12 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
 
     add "ui/save/ui_save_bg_2.png"
 
-    # imagebutton:
-    #     idle "ui/save/bg_menu_4-back.png"
-    #     hover "ui/save/bg_menu_4-back.png"
-    #     action  Return()
+    imagebutton:
+        xpos 320
+        ypos 750
+        idle "ui/save/bg_menu_5-back.png"
+        hover "ui/save/bg_menu_5-back.png"
+        action  Return()
     frame:
         
         style "game_menu_content_frame"
@@ -91,17 +93,8 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
 
             transclude
         
-    # 【最关键】只要这个界面被任何方式use，这里的生命周期都会100%强制捕获！
   
-    
-    
-   
-    
-    # # 返回按钮
-    # imagebutton:
-    #     idle "ui/save/bg_menu_4-back.png"
-    #     hover "ui/save/bg_menu_4-back.png"
-    #     action ShowMenu("main_menu") 
+ 
 
 screen file_slots(title):
     # 调用公共背景界面
@@ -141,7 +134,8 @@ screen save_and_load_button(title,button_action):
         # 选中状态（无论鼠标是否悬停，都显示红色背景）
         selected_idle_background "ui/save/ui_save_button_red.png"
         selected_hover_background "ui/save/ui_save_button_red.png"  # 【新增】关键代码
-      
+        # 【修复】当按钮被禁用（比如在主菜单遇到 MainMenu() ）时显示的背景
+        insensitive_background "ui/save/ui_save_button_black.png" # 也可以换成变暗的图
         text_style "save_load_button_text"
         
         action button_action
