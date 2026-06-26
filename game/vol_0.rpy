@@ -125,10 +125,10 @@ label vol_0:
     "你听到奇怪的舍规也开始了哼唱。"
     rules "听到钟声，请遵舍规！\n哈哈哈哈"
     player "不好，我要逃出去！醒醒……快醒醒"
-    
+
+    play sound "19_whoosh_transition_01.ogg"
     scene black
     with eye_shut(0.5)
-    play sound "19_whoosh_transition_01.ogg"
     show bg room_past
     show rules at slight_left
     play sound2 "20_impact_eye_appear.ogg"
@@ -368,7 +368,7 @@ label after_menu_pray:
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
     stop music fadeout 1.0
     stop music2 fadeout 1.0
-    play sound "49_whoosh_transition_magic.ogg"
+    #play sound "49_whoosh_transition_magic.ogg"
     play music "50_amb_hall_banquet.mp3"
 
     scene black with dissolve
@@ -382,7 +382,7 @@ label after_menu_pray:
     player "[peter.name]，你来过这？"
     peter "何止是来过，我每次贪玩都在这报应了！从前这是大人物们祷告的地方，后来被弃置了。"
     player "看来主格外关注你的举止呢"
-    peter "……主吗？"
+    peter "……{outlinecolor=#a55800}主{/outlinecolor}吗？"
     player "命运眷顾我！{w=0.3}让我窥见这世界不为俗人敞开的高贵之处。"
     peter "这里只有她是例外。"
     play sound "51_whoosh_rope_appear.ogg"
@@ -450,8 +450,7 @@ label after_drag_rope:
     play sound "60_whoosh_cold_wind.ogg" #大门被风吹开的声音合成一个音效，现在音效感觉不太对
     pause 0.5
     play sound2 "61_door_wooden_creak.ogg"
-
-    
+#label test:
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，"
     extend "\n昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
@@ -462,7 +461,7 @@ label after_drag_rope:
     "众人""敬真神！{nw}"
   
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.5) as white
-    pause 1.0
+    pause 1.5
     hide screen white
     hecate "以牙还牙，以眼还眼。敬真神！"
     play sound "62_glass_toast_clink.ogg"
@@ -470,14 +469,14 @@ label after_drag_rope:
     "众人""敬真神！{nw}"
     
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.7) as white
-    pause 1.0
+    pause 1.65
     hide screen white
     player "……嘶！好痛！！！"
     extend "\n该死……我的手臂…{w=0.6}…这酒？！{nw}"
     play sound "64_glass_shatter.ogg"
     play audio "patricksilvey_weather_lightning_2_464187.mp3"
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1) as white
-    pause 1.0
+    pause 1.65
     hide screen white
     hide screen cloika_speech_1
     show screen show_image_with_frame_and_fade("other/cloika_speech_2.png")

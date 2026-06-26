@@ -200,14 +200,15 @@ init python:
     def decrease_menu_volume():
         global original_music_volume
         original_music_volume = preferences.get_volume("music")
-        target_volume = original_music_volume * 0.7
+        target_volume = original_music_volume * 0.3
         
-        renpy.music.set_volume(target_volume, delay=0.2, channel="music")
+        
+        renpy.music.set_volume(target_volume, delay=0.2)
 
     def restore_menu_volume():
         global original_music_volume
         
-        renpy.music.set_volume(original_music_volume, delay=0.2, channel="music")
+        renpy.music.set_volume(original_music_volume, delay=0.2)
 
 
 ## 执行应用内购需要一个 Google Play 许可密钥。许可密钥可以在 Google Play 开发

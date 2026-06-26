@@ -10,27 +10,28 @@ screen main_menu():
     add gui.game_menu_title at fade_in
     if gui.show_name:
 
-        vbox:
-            xalign 0.5
-            yalign 0.9
-            spacing 10
+        hbox:
+            xalign 0.5              # 水平居中
+            yalign 0.7             # 垂直位置
+            spacing 200              # 按钮之间的水平间距（像素）
             use main_menu_button("进入山谷",Start())
             if has_any_save():
                 use main_menu_button("你的随笔",ShowMenu("load"))
             use main_menu_button("离开山谷",Quit(confirm=not main_menu))
 
-            text "关于《奇尔杜克塔伦山谷》":
-                size gui.title_text_size
-                color "#dddddd"
-                xalign 0.5
-
+        hbox:
+            xalign 1.0
+            yalign 1.0
+            spacing 10
+            # text "关于《奇尔杜克塔伦山谷》":
+                # size gui.title_text_size
+                # color "#dddddd"
             text "v[config.version]":
                 color "#dddddd"
-                xalign 0.5
 
 screen main_menu_button(txt,btn_action):
     textbutton txt:
-        padding (150, 10)
+        padding (80, 5)
         idle_background gui.choice_button_idle_background_color
         hover_background gui.choice_button_hover_background_color
         selected_idle_background gui.choice_button_selected_idle_background_color
@@ -41,12 +42,19 @@ screen main_menu_button(txt,btn_action):
         text_insensitive_color gui.choice_button_text_insensitive_color
         action btn_action
 
+        activate_sound "audio/ui/02-ui-choose.ogg"           
+        hovered Play("sound", "audio/ui/04-ui-menu move .ogg") 
+
 screen menu_icon:
     zorder 100
     if not main_menu and quick_menu:
-        button:
-            xalign 0.98  
-            yalign 0.02  
-
-            action [Stop("music", fadeout=1.0), ShowMenu("load")] 
-            add "ui/save/logo_menu_enter.png"        
+        imagebutton:
+            xalign 0.999 
+            yalign 0.001  
+            
+            activate_sound "audio/ui/01-ui-book open.ogg"
+            action [ ShowMenu("")] 
+              
+            idle "ui/save/logo_menu_enter.png" 
+            hover "ui/save/logo_menu_enter_hover.png"     
+           

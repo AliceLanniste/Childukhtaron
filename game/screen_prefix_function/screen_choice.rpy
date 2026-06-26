@@ -3,6 +3,7 @@ screen choice(items):
         xalign 0.5
         yalign 0.5
         spacing gui.choice_spacing
+        
         for i in items:
             textbutton i.caption :
                 padding (50, 5)
@@ -14,4 +15,8 @@ screen choice(items):
                 text_hover_color gui.choice_button_text_hover_color
                 text_selected_color gui.choice_button_text_hover_color
                 text_insensitive_color gui.choice_button_text_insensitive_color
+        
+            
+                hovered Play("sound", "audio/ui/04-ui-menu move .ogg")   # 悬停
+                activate_sound "audio/ui/02-ui-choose.ogg"                # 点击
                 action i.action

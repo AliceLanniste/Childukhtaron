@@ -27,6 +27,7 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    mouse "hand"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -976,16 +977,18 @@ style history_name:
     xsize gui.history_name_width
 
 style history_name_text:
+    size 28 
     min_width gui.history_name_width
     textalign gui.history_name_xalign
      
     # 【新增/修改】设置文字颜色为黑色
-    color "#000000"
+    color "#FFFFFF"
     
     # 【新增/修改】设置红色包边，2像素粗细
-    outlines [ (2, "#ff0000", 0, 0) ]
+    outlines [ (2, "#000000", 0, 0) ]
 
 style history_text:
+    size 28
     xpos gui.history_text_xpos
     ypos gui.history_text_ypos
     xanchor gui.history_text_xalign
