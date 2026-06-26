@@ -32,3 +32,10 @@ transform slow_zoom_statue():
     xalign 0.05
     yalign 0.35
     linear 20 zoom 2        
+
+transform fade_with_show_and_quick_hide(duration_show = 1.0, duration_hide = 1.0,alpha_max = 1.0):
+    on show:
+        alpha 0.0
+        linear duration_show alpha alpha_max
+    on hide:
+        alpha 0    
