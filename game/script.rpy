@@ -69,7 +69,7 @@ transform slow_zoom_statue():
 
 # 游戏在此开始。
 label start:
-    # jump test
+    #jump test
     hide screen black_cover
     $ quick_menu = False
     call disclaimer
