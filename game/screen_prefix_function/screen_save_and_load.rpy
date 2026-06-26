@@ -93,7 +93,6 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
 
             transclude
         
-    # 【最关键】只要这个界面被任何方式use，这里的生命周期都会100%强制捕获！
   
  
 
