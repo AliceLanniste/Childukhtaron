@@ -4,6 +4,7 @@ screen save():
 
 screen load():
     tag menu
+   
     use file_slots(_("存档"))
 
 screen custom_navigation():
@@ -19,9 +20,19 @@ screen custom_navigation():
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
       
         # use save_and_load_button(_("返回"), Return())
-        use save_and_load_button(_("返回菜单"),   [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())])
+        use save_and_load_button(_("返回菜单"), If(
+        main_menu, 
+        Return(), 
+        [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())]
+))
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
+   
+    on "show" action Function(decrease_menu_volume)
+    on "hide" action Function(restore_menu_volume)
+    on "replace" action Function(decrease_menu_volume)
+    on "replaced" action Function(restore_menu_volume)
+    
     # 底层主背景
     fixed:  
         add "ui/save/ui_save_bg_1.png"
@@ -80,8 +91,10 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
 
             transclude
         
-    
+    # 【最关键】只要这个界面被任何方式use，这里的生命周期都会100%强制捕获！
   
+    
+    
    
     
     # # 返回按钮
@@ -112,11 +125,6 @@ screen file_slots(title):
                         color "#ffffff"
                         hover_color "#ff0000"
                         xalign 0.5     
-
-
-
-    
-
                 
 screen save_and_load_button(title,button_action):
     textbutton title :
@@ -135,8 +143,9 @@ screen save_and_load_button(title,button_action):
         selected_hover_background "ui/save/ui_save_button_red.png"  # 【新增】关键代码
       
         text_style "save_load_button_text"
+        
         action button_action
-
+        hovered Play("sound", "audio/ui/02-ui-choose.ogg")
 
 
 
