@@ -161,6 +161,7 @@ init python:
 
     renpy.music.register_channel("sound2", mixer="sound2", loop=False)
     renpy.music.register_channel("sound3", mixer="sound3", loop=False)
+
     ##channe 以下函数接受文件模式。文件模式不区分大小写，并与基础目录的相对路径相匹
     ## 配，包括或不包括 /。如果多个模式匹配，则使用第一个模式。
     ##
@@ -193,6 +194,20 @@ init python:
 
     build.documentation('*.html')
     build.documentation('*.txt')
+
+    original_music_volume = preferences.music_volume
+
+    def decrease_menu_volume():
+        global original_music_volume
+        original_music_volume = preferences.get_volume("music")
+        target_volume = original_music_volume * 0.7
+        
+        renpy.music.set_volume(target_volume, delay=0.2, channel="music")
+
+    def restore_menu_volume():
+        global original_music_volume
+        
+        renpy.music.set_volume(original_music_volume, delay=0.2, channel="music")
 
 
 ## 执行应用内购需要一个 Google Play 许可密钥。许可密钥可以在 Google Play 开发
