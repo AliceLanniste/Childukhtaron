@@ -1,5 +1,5 @@
 screen show_text(msg,font_size = 32, font_color = "#ffffff",x_align = 0.5, y_align = 0.5,txt_align = 0.5):
-    modal True
+    # modal True
 
     text msg:
         xalign x_align

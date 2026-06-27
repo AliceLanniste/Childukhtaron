@@ -186,7 +186,6 @@ label vol_0:
     sister "请祷告。"
     #play music "01"
     play sound "31_ui_click_confirm.ogg"
-# label test:
 label menu_pray:
     menu:
         "祷告" if not prelude_choice_1_checked:
@@ -450,7 +449,6 @@ label after_drag_rope:
     play sound "60_whoosh_cold_wind.ogg" #大门被风吹开的声音合成一个音效，现在音效感觉不太对
     pause 0.5
     play sound2 "61_door_wooden_creak.ogg"
-#label test:
     "不知来处的寒风吹开了紧闭的大门，像古老的身躯复苏，缓慢而嘲哳开启。"
     "礼堂中所有的蜡烛应景地熄灭，高台上之上祂漆黑的帘幕骤启，"
     extend "\n昏暗的月光透过彩色玻璃下礼堂内，像照在被戈壁侵蚀过的枯林。"
@@ -467,7 +465,7 @@ label after_drag_rope:
     play sound "62_glass_toast_clink.ogg"
     play audio "patricksilvey_weather_lightning_2_464187.mp3"
     "众人""敬真神！{nw}"
-    
+
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1,alpha_max = 0.7) as white
     pause 1.65
     hide screen white
@@ -477,15 +475,16 @@ label after_drag_rope:
     play audio "patricksilvey_weather_lightning_2_464187.mp3"
     show screen show_image_with_frame_and_fade("other/bg_white.png",duration_show = 0.1,duration_hide = 0.1) as white
     pause 1.65
+
     hide screen white
     hide screen cloika_speech_1
-    show screen show_image_with_frame_and_fade("other/cloika_speech_2.png")
+    show screen show_image_with_frame_and_quick_fade("other/cloika_speech_2.png")
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。"
     "莫比乌斯环的起点处，戏剧开场。"
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-    hide screen show_image_with_frame_and_fade with None
+    hide screen show_image_with_frame_and_quick_fade with None
     scene black 
     stop music
     play sound "65_foley_body_fall.ogg"
@@ -502,13 +501,13 @@ label after_drag_rope:
     show robber loop_animation
     robber "世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=1.0}{nw}"
 
-    show warrior loop_animation
+    show messenger loop_animation
     warrior "主上！我将为她而战……{w=1.0}{nw}"
 
     show princess loop_animation
     princess "爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
 
-    show messenger loop_animation
+    show warrior loop_animation
     messenger "命运如轮，轨迹无尽，诱惑之眼，视之应何？{w=1.0}{nw}"
     
     show bg statue_eyes:

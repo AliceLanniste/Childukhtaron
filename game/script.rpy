@@ -70,7 +70,7 @@ transform slow_zoom_statue():
 
 # 游戏在此开始。
 label start:
-    #jump test
+    # jump test
     hide screen black_cover
     $ quick_menu = False
     call disclaimer
@@ -86,19 +86,26 @@ screen black_cover():
 
 # 免责声明内容不应该把放于游戏内，应该放在游戏外。
 label disclaimer:
+    $ _skipping = False  # 禁用 Ctrl 快进
+    
     stop music fadeout 1.0 
     scene black
     with Dissolve(1.0)
 
+    # 此时 show screen 不再带有 modal，不会死锁引擎
     show screen show_text("游戏内出现的所有⼈物、宗教组织及事件，均与现实世界中的任何信仰、团体或个⼈⽆关。\n ⼀切设定仅为艺术创作，如有雷同，纯属巧合。")
-    with Dissolve(2)
-    with Pause(3)
-    hide screen show_text with Dissolve(2)
-    show logo with Dissolve(2)
-    play music "audio/05_amb_cicada_01.mp3" fadein(2)
-    with Pause(3)
-    hide logo with Dissolve (2)
+    with Dissolve(2.0)
     
-    # 玩家点击后，自动返回到调用它的地方（即 start 标签的下一行）
+    # 正常的 pause 会在这里安全地等待 3 秒，玩家怎么点都没用
+    $ renpy.pause(3.0) 
+    
+    hide screen show_text with Dissolve(2.0)
+    
+    show logo with Dissolve(2.0)
+    play music "audio/05_amb_cicada_01.mp3" fadein(2)
+    $ renpy.pause(3.0)
+    hide logo with Dissolve(2.0)
+    
+    $ _skipping = True  # 恢复快进
     return
 

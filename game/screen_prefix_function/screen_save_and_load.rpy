@@ -14,16 +14,15 @@ screen custom_navigation():
         yalign 0.5
 
         spacing gui.navigation_spacing
-
-        use save_and_load_button(_("历史"), ShowMenu("custom_history"))
+        if not main_menu:
+            use save_and_load_button(_("历史"), ShowMenu("custom_history"))
         use save_and_load_button(_("存档"), ShowMenu("load"))
         use save_and_load_button(_("设置"), ShowMenu("custom_preferences"))
       
-        # use save_and_load_button(_("返回"), Return())
-        use save_and_load_button(_("返回菜单"), 
-            If(main_menu, true=Return(), false=[Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())])
+        if not main_menu:
+            use save_and_load_button(_("返回菜单"), 
+            MainMenu()
         )
-        #  [Show("black_cover"), Confirm(_("确定要返回主菜单吗？"), MainMenu())]
         
 
 screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
