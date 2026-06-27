@@ -19,7 +19,7 @@ define student_3 = Character("学生2",**common_character_args)
 define prince = Character("王子",**common_character_args)
 define young_lady = Character("少女",**common_character_args)
 define robber = Character("强盗",**common_character_args)
-define warrior = Character("武士",**common_character_args)
+define warrior = Character("骑士",**common_character_args)
 define princess = Character("公主",**common_character_args)
 define messenger = Character("神使",**common_character_args)
 
@@ -55,9 +55,10 @@ image white = "other/bg_white.png"
 
 image ctc_icon:
     "ui/arrow.png"
-    yoffset 0
-    linear 0.5 yoffset 5
-    linear 0.5 yoffset 0
+    xoffset 10
+    yoffset 5
+    linear 0.35 yoffset 10
+    linear 0.35 yoffset 5
     repeat
 
 

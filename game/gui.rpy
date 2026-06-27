@@ -23,7 +23,7 @@ define config.check_conflicting_properties = True
 ## 颜色 ##########################################################################
 ##
 ## 界面中文本的颜色。
-define gui.name_color = "#00ffff"
+define gui.name_color = "#76e9dd"
 define gui.name_outline = [(4,"#00362e",0,0)]
 define gui.dialogue_color = "#ffffff"
 define gui.dialogue_outline =[(4,"#3c3431",0,0)]
@@ -334,18 +334,18 @@ define config.history_length = 250
 define gui.history_height = 150
 
 ## 在历史记录屏幕条目之间添加额外的空间。
-define gui.history_spacing = 0
+define gui.history_spacing = -50
 
 ## 所指定叙述角色的标签的坐标、宽度和对齐方式。
-define gui.history_name_xpos = 233
+define gui.history_name_xpos = 250
 define gui.history_name_ypos = 0
-define gui.history_name_width = 233
+define gui.history_name_width = 250
 define gui.history_name_xalign = 1.0
 
 ## 对话文本的坐标、宽度和对齐方式。
-define gui.history_text_xpos = 255
+define gui.history_text_xpos = 280
 define gui.history_text_ypos = 3
-define gui.history_text_width = 1110
+define gui.history_text_width = 700
 define gui.history_text_xalign = 0.0
 
 

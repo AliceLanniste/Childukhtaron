@@ -8,7 +8,7 @@ screen load():
     use file_slots(_("存档"))
 
 screen custom_navigation():
-
+    
     vbox:
         xpos gui.navigation_xpos
         yalign 0.5
@@ -50,7 +50,7 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
         xpos 320
         ypos 750
         idle "ui/save/bg_menu_5-back.png"
-        hover "ui/save/bg_menu_5-back.png"
+        hover "ui/save/bg_menu_5-back_hover.png"
         action  Return()
     frame:
         
@@ -138,8 +138,9 @@ screen save_and_load_button(title,button_action):
         insensitive_background "ui/save/ui_save_button_black.png" # 也可以换成变暗的图
         text_style "save_load_button_text"
         
+        #  activate_sound "audio/ui/02-ui-choose.ogg"
         action button_action
-        hovered Play("sound", "audio/ui/02-ui-choose.ogg")
+        hovered Play("sound", "audio/ui/04-ui-menu move .ogg")
 
 
 
