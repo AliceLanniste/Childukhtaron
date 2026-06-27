@@ -501,13 +501,13 @@ label after_drag_rope:
     show robber loop_animation
     robber "世人嫉恶，却不仇己，岂不可笑哈哈哈！{w=1.0}{nw}"
 
-    show warrior loop_animation
+    show messenger loop_animation
     warrior "主上！我将为她而战……{w=1.0}{nw}"
 
     show princess loop_animation
     princess "爱我者杀我，我爱者死去…{w=0.3}…命运啊，你不该永远苛待我！{w=1.0}{nw}"
 
-    show messenger loop_animation
+    show warrior loop_animation
     messenger "命运如轮，轨迹无尽，诱惑之眼，视之应何？{w=1.0}{nw}"
     
     show bg statue_eyes:
