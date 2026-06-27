@@ -35,15 +35,15 @@ label vol_0:
     player "怎么又梦到写作课了……"
     player "现在的学校里再没有如此不吝赞扬我的老师。从前的事好像遥远得已经模糊了。"
     
-
+    play sound "08_impact_buzz_01.ogg"
     scene black
     with hpunch
-    play sound "08_impact_buzz_01.ogg"
+    
 
     player "糟糕……"
     stop music   fadeout 3.0
     extend "\n手指动不了，看来我应该还在梦里"
-
+    play sound "08_impact_buzz_01.ogg"
     show bg room_past
     with hpunch
     play music "audio/bgm/1.1-room-past-0.mp3"
@@ -126,13 +126,12 @@ label vol_0:
     rules "听到钟声，请遵舍规！\n哈哈哈哈"
     player "不好，我要逃出去！醒醒……快醒醒"
 
-    play sound "19_whoosh_transition_01.ogg"
+    play sound2 "20_impact_eye_appear.ogg"
     scene black
     with eye_shut(0.5)
     show bg room_past
     show rules at slight_left
-    play sound2 "20_impact_eye_appear.ogg"
-   
+    play sound "19_whoosh_transition_01.ogg"
     with eye_open(0.8)
     scene black
     with eye_shut(0.45)
@@ -173,10 +172,11 @@ label vol_0:
     "昏暗的寝室内，\n{w=0.3}钟摆已然来到11点过5分 "
     
     "老实无言的舍规盖住门上的瞭望窗，\n{w=0.3}但依稀能看到纸下曾有旧版被撕去的痕迹。"
-    play sound "27_foley_footsteps_approach.mp3"
+    play sound "27_foley_footsteps_approach.ogg" fadein 2.0
     play sound2  "28_foley_clock_chime_02.ogg"
     peter "糟糕，{w=0.6}修女来了，\n {w=0.3}[player.name]！记得带上强盗面具，我先走了……"
     $ renpy.pause(3.0, hard=True)
+    stop sound
     sister "宵禁已到"
     sister "诸位请遵循舍规，\n{w=0.3}虔诚祷告以获庇佑。"
     play music "29_amb_prayer_chant.mp3"
@@ -242,10 +242,12 @@ label after_menu_pray:
     show screen show_cloika_masks()
     player "难道这是她的主意？"
     "微妙地，{w=0.3}王子的面具在你看来格外显眼。"
+    play sound "37_foley_bell_ring.ogg"
     "王子戴着羽翼装饰的兜帽、高贵华丽的金色额饰。"
     extend "\n你注意到他光泽的肌肤、茂密的头发和充满魅力的笑容"
     player "好精致的面具，这角色比我从前寄宿的贵族老爷还体面！"
     $ cloika_masks_animation_stage = "zoom_to_right"
+    play sound "38_human_roar.ogg"
     "对比之下，{w=0.3}强盗的面具上，夸张的尖耳尖鼻像地精般凶恶。"
     extend"\n吓人的黑色刺青纹饰与胡子连成一片，张开獠牙似乎在呐喊什么。"
     $ cloika_masks_animation_stage = "reset"
@@ -260,7 +262,7 @@ label after_menu_pray:
     scene black
     with fade
     pause 3.0
-    # play sound "39_whoosh_transition_04.ogg" -此处【音效】修改成木门咿呀一声打开后关闭的声音
+    play sound "74_Door_wood_open_close.ogg"  fadeout 1.0
     scene bg view_form_far
     
 
@@ -340,6 +342,7 @@ label after_menu_pray:
     play sound "48_foley_bell_double.ogg"
     show screen show_image_with_frame_and_fade("other/cloika_she_coming_p1.jpg",x_align = 0.95) as she_coming_p1
     pause 2.0
+    play sound "48_foley_bell_double.ogg"
     show screen show_image_with_frame_and_fade("other/cloika_she_coming_p2.jpg",x_align = 0.8) as she_coming_p2
 
     "惊呼与议论交织，喧哗中她凭空出现 "
@@ -365,9 +368,9 @@ label after_menu_pray:
     #"（钟声响起）"
     "[nun_mary.name]嗤笑 "
     peter "呼，她可真吓人，对吧？{w=0.3}咱们也进去吧！"
-    stop music fadeout 1.0
     stop music2 fadeout 1.0
     #play sound "49_whoosh_transition_magic.ogg"
+    stop music fadeout 3.0
     play music "50_amb_hall_banquet.mp3"
 
     scene black with dissolve
@@ -412,13 +415,13 @@ label after_drag_rope:
     student_3 "听说这个女神像塑成后，异样地沉重，村民们花费数月无法挪动，最后不知如何搬来了这个礼堂里……"
     player "等我收到那份命运亏欠我的礼物，倒是可以搬一尊到我的庄园里！"
     peter "你不会相信他们说的吧？{w=0.3}想那些没答案的事不如多吃点食堂没见过的东西！"
-    
-    camera:
-        linear 5.0 ypos 0
-        ypos 0
-    $ renpy.pause(1.0, hard=True)
-    
     play sound "56_foley_cutlery_clatter.ogg"
+    camera:
+        linear 3.0 ypos 0
+        ypos 0
+    $ renpy.pause(1.5, hard=True)
+    
+    
     play music "57_amb_banquet_01.mp3"
     $ renpy.music.set_volume(0.3, channel="music")
 
@@ -478,14 +481,15 @@ label after_drag_rope:
 
     hide screen white
     hide screen cloika_speech_1
-    show screen show_image_with_frame_and_quick_fade("other/cloika_speech_2.png")
+    show screen show_image_with_frame_and_quick_fade("other/cloika_speech_2.png") with None
     "你杯中酒液竟顺着举杯的手蜿蜒而下，诡异如藤蔓般扎进血肉里。"
     "命运之酒汩汩流淌，{w=0.3}暴虐的醉意将不熄的愤怒、\n败坏的虔诚与浑浊的爱重领回此刻。"
     "莫比乌斯环的起点处，戏剧开场。"
     #play bgm
     hecate "让我们欢迎，每一位主角归位！"
-    hide screen show_image_with_frame_and_quick_fade with None
     scene black 
+    hide screen show_image_with_frame_and_quick_fade with None
+    
     stop music
     play sound "65_foley_body_fall.ogg"
     pause 2.0

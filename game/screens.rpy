@@ -338,7 +338,7 @@ style navigation_button_text is gui_button_text
 style navigation_button:
     size_group "navigation"
     properties gui.button_properties("navigation_button")
-    activate_sound "audio/ui/04-ui-menu move .ogg" 
+    activate_sound "audio/ui/01-ui-book open.ogg" 
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
@@ -1205,8 +1205,17 @@ screen confirm(message, yes_action, no_action):
                 xalign 0.5
                 spacing 150
 
-                textbutton _("确定") action yes_action
-                textbutton _("取消") action no_action
+                textbutton _("确定"):
+                    action yes_action
+                    activate_sound "audio/ui/05-ui-save_load.ogg"
+                    hovered Play("sound", "audio/ui/02-ui-choose.ogg")
+                
+                textbutton _("取消") :
+                    action no_action
+                    activate_sound "audio/ui/05-ui-save_load.ogg"
+                    hovered Play("sound", "audio/ui/02-ui-choose.ogg")
+                         
+                
 
     ## 右键点击退出并答复 no（取消）。
     key "game_menu" action no_action

@@ -51,6 +51,8 @@ screen background_menu(title="",scroll=None, yinitial=0.0, spacing=0):
         idle "ui/save/bg_menu_5-back.png"
         hover "ui/save/bg_menu_5-back_hover.png"
         action  Return()
+        activate_sound "audio/ui/06-ui-book_close.ogg"           
+        hovered Play("sound", "audio/ui/02-ui-choose.ogg") 
     frame:
         
         style "game_menu_content_frame"
@@ -110,12 +112,14 @@ screen file_slots(title):
             button:
                 action FileAction(slot)
                 alternate FileDelete(slot)  # 右键删除
+                activate_sound "audio/ui/05-ui-save_load.ogg"           
+                hovered Play("sound", "audio/ui/02-ui-choose.ogg") 
                 
                 vbox:
                     add FileScreenshot(slot) xalign 0.5
                     text FileTime(slot, format=_("{#file_time}%Y-%m-%d %H:%M"), empty=_("空存档位")):
                         color "#ffffff"
-                        hover_color "#ff0000"
+                        hover_color "#ffffff"
                         xalign 0.5     
                 
 screen save_and_load_button(title,button_action):
@@ -128,7 +132,7 @@ screen save_and_load_button(title,button_action):
         text_yalign 0.4
        
         idle_background "ui/save/ui_save_button_black.png"
-        hover_background "ui/save/ui_save_button_black.png"
+        hover_background "ui/save/ui_save_button_red.png"
         
         # 选中状态（无论鼠标是否悬停，都显示红色背景）
         selected_idle_background "ui/save/ui_save_button_red.png"
@@ -139,7 +143,7 @@ screen save_and_load_button(title,button_action):
         
         #  activate_sound "audio/ui/02-ui-choose.ogg"
         action button_action
-        hovered Play("sound", "audio/ui/04-ui-menu move .ogg")
+        hovered Play("sound", "audio/ui/02-ui-choose.ogg")
 
 
 
@@ -261,7 +265,7 @@ style save_load_button_text:
     color "#ffffff"  
     
     # 未选中状态下的鼠标悬停：红色
-    hover_color "#ff0000"  
+    hover_color "#ffffff" 
     
     # 选中状态下的鼠标悬停：强制恢复为白色
     selected_hover_color "#ffffff" 
