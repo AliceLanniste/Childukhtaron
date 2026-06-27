@@ -17,6 +17,6 @@ screen choice(items):
                 text_insensitive_color gui.choice_button_text_insensitive_color
         
             
-                hovered Play("sound", "audio/ui/04-ui-menu move .ogg")   # 悬停
-                activate_sound "audio/ui/02-ui-choose.ogg"                # 点击
+                hovered Play("sound", "audio/ui/02-ui-choose.ogg")   # 悬停
+                activate_sound "audio/ui/02-ui-choose-0.ogg"                # 点击
                 action i.action

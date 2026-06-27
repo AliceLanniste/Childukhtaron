@@ -19,10 +19,14 @@ screen church_drag_rope():
         dragged on_dragged_rope
         drag_offscreen (0,-1661 , -1080, 0)
         if not is_dragging_rope :
-            hovered SetVariable("rope_hover", True)
+            hovered [
+                SetVariable("rope_hover", True),
+                Play ("sound", "audio/ui/02-ui-choose.ogg")
+            ]
             unhovered SetVariable("rope_hover", False)
         if not is_dragging_rope and rope_hover:
             add "church/hover_rope.png" 
+            
         else:
             add "church/rope.png" 
 

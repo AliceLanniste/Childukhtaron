@@ -42,8 +42,8 @@ screen main_menu_button(txt,btn_action):
         text_insensitive_color gui.choice_button_text_insensitive_color
         action btn_action
 
-        activate_sound "audio/ui/02-ui-choose.ogg"           
-        hovered Play("sound", "audio/ui/04-ui-menu move .ogg") 
+        activate_sound "audio/ui/02-ui-choose-0.ogg"           
+        hovered Play("sound", "audio/ui/02-ui-choose.ogg") 
 
 screen menu_icon:
     zorder 100
@@ -52,8 +52,9 @@ screen menu_icon:
             xalign 0.999 
             yalign 0.001  
             
-            activate_sound "audio/ui/01-ui-book open.ogg"
+            activate_sound "audio/ui/01-ui-book open(2).ogg"
             action [ ShowMenu("")] 
+            hovered Play("sound", "audio/ui/02-ui-choose.ogg")
               
             idle "ui/save/logo_menu_enter.png" 
             hover "ui/save/logo_menu_enter_hover.png"     
